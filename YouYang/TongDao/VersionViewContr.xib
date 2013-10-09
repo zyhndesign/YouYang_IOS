@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VersionViewContr">
+            <connections>
+                <outlet property="view" destination="4" id="10"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="4">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="530"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_backgroud.png" id="9">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="530"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" id="6">
+                    <rect key="frame" x="49" y="151" width="426" height="343"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <mutableString key="text">通道侗族自治县位于湖南、广西、贵州三省交界处，通道全县总人口22.5万人，其中侗族人口占到78.4%，境内生态环境极为秀美，民族文化保存完好，被誉为“侗族文化圣地”，是充分展示侗族之魅力、文化之灿烂、社会之和谐的福地。
+ 虽然通道物产丰富，森林覆盖率达74%，年产商品材17万立方米，但经济形式单一，至今仍然是全国贫困县，2008年农民人均纯收入1571元。
+ 本项目针对通道这样一个具备“独特的自然生态环境与丰富的非物质文化遗产”但经济发展落后的少数民族地区，整合不同专业和学科的优势，通过合理的村镇规划、生态旅游开发、信息与物流网络建设、产品与服务系统整合、非物质文化遗产保护等综合的工作方法，建立一个国际化的设计创新联盟和基于网络的信息平台，参与式的促进当地居民的文化自主意识和产业创新。在保持当地居民的和谐生活形态和发展需要的前提下，实现从落后的农耕文明社区，不经历资源消耗型的工业发展阶段，直接“蛙跳”进入以文化和信息为中心的创新社区，成为新型工业化和两型社会的典范。</mutableString>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg_backgroud.png" width="1024" height="530"/>
+    </resources>
+</document>

@@ -29,8 +29,7 @@ sqlite3 *dataBase;
 
 + (BOOL)createLocalTable
 {
-    ///primary key testsunyong
-    NSString *sqlStr = [NSString stringWithFormat:@"create table if not exists myTable(id char,md5 char,name char, timestamp char, url char,author char, category char, description char, headline char,postDate char,profile char, background char)"];
+    NSString *sqlStr = [NSString stringWithFormat:@"create table if not exists myTable(id char primary key,md5 char,name char, timestamp char, url char,author char, category char, description char, headline char,postDate char,profile char, background char)"];
     sqlite3_stmt *stmt;
     if (sqlite3_prepare_v2(dataBase, [sqlStr UTF8String], -1, &stmt, 0) != SQLITE_OK)
     {
@@ -148,7 +147,7 @@ sqlite3 *dataBase;
         sqlStr = [NSString stringWithFormat:@"insert into mytable values('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')", idStr, md5Str, nameStr, timestamp, urlStr, authorStr, categoryStr, descriptionStr, headLine, postDateS, profileStr, backgroundS];
     }
     //// testsunyong
-    sqlStr = [NSString stringWithFormat:@"insert into mytable values('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')", idStr, md5Str, nameStr, timestamp, urlStr, authorStr, categoryStr, descriptionStr, headLine, postDateS, profileStr, backgroundS];
+//    sqlStr = [NSString stringWithFormat:@"insert into mytable values('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')", idStr, md5Str, nameStr, timestamp, urlStr, authorStr, categoryStr, descriptionStr, headLine, postDateS, profileStr, backgroundS];
     sqlite3_stmt *stmt;
     if (sqlite3_prepare_v2(dataBase, [sqlStr UTF8String], -1, &stmt, 0) != SQLITE_OK)
     {

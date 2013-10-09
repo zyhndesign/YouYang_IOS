@@ -39,8 +39,8 @@
     [super viewDidLoad];
 }
 
-#define StartX 107
-#define StartY 200
+#define StartX 182
+#define StartY 230
 #define Gap 15
 - (void)loadSubview:(NSArray*)ary
 {
@@ -99,7 +99,7 @@
         if (i > 3)
             break;
         SimpleHeadLineView *simpleHLView = [[SimpleHeadLineView alloc] initWithInfoDict:[initAry objectAtIndex:i]];
-        [simpleHLView setFrame:CGRectMake(StartX + Gap*(i-1) + simpleHLView.frame.size.width*(i-1), StartY, simpleHLView.frame.size.height, simpleHLView.frame.size.width)];
+        [simpleHLView setFrame:CGRectMake(StartX + Gap*(i-1) + simpleHLView.frame.size.width*(i-1), StartY, simpleHLView.frame.size.width, simpleHLView.frame.size.height)];
         [contentScrolV addSubview:simpleHLView];
         [simpleHLView release];
     }
@@ -124,6 +124,10 @@
     }
 }
 
+- (IBAction)nextPage:(UIButton*)sender
+{
+    [AllScrollView setContentOffset:CGPointMake(0, (sender.tag*2-1)*768)];
+}
 #pragma mark - net delegate
 - (void)didReciveImage:(UIImage *)backImage
 {

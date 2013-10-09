@@ -15,12 +15,10 @@
     
     IBOutlet UIImageView *animaImageViewOne;
     IBOutlet UIImageView *animaImageViewTwo;
-    
-    IBOutlet UIButton *leftBt;
-    IBOutlet UIButton *rightBg;
+
     NSArray *initAry;
 }
 - (void)loadSubview:(NSArray*)ary;
-- (IBAction)skipPage:(UIButton*)sender;
+- (IBAction)nextPage:(UIButton*)sender;
 
 @end

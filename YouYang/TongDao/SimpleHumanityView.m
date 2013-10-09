@@ -16,7 +16,7 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    frame = CGRectMake(frame.origin.x, frame.origin.y, 220, 400);
+    frame = CGRectMake(frame.origin.x, frame.origin.y, 200, 400);
     self = [super initWithFrame:frame];
     if (self) {
     
@@ -26,7 +26,7 @@
 
 - (id)initWithInfoDict:(NSDictionary*)infoDict mode:(int)mode
 {
-    self = [super initWithFrame:CGRectMake(0, 0, 220, 400)];
+    self = [super initWithFrame:CGRectMake(0, 0, 200, 400)];
     if (self) {
         Mode = mode;
         _infoDict = [infoDict retain];
@@ -38,30 +38,39 @@
 
 - (void)addView
 {
-    titleLb = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, 180, 40)];
-    titleLb.textColor = RedColor;
+    UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
+    [self addGestureRecognizer:tapGestureR];
+    [tapGestureR release];
+    
+    
+    titleLb = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, 160, 40)];
+    titleLb.textColor = [UIColor whiteColor];
+    titleLb.textAlignment = NSTextAlignmentCenter;
     titleLb.backgroundColor = [UIColor clearColor];
-    titleLb.font = [UIFont boldSystemFontOfSize:18];
+    titleLb.font = [UIFont boldSystemFontOfSize:19];
     [self addSubview:titleLb];
     
-    midLineLb = [[UILabel alloc] initWithFrame:CGRectMake(20, 45, 180, 1)];
-    midLineLb.backgroundColor = [UIColor lightGrayColor];
+    midLineLb = [[UILabel alloc] initWithFrame:CGRectMake(20, 45, 160, 1)];
+    midLineLb.backgroundColor = [UIColor whiteColor];
     [self addSubview:midLineLb];
 
-    timeLb = [[UILabel alloc] initWithFrame:CGRectMake(20, 45, 180, 40)];
-    timeLb.textColor = [UIColor blackColor];
+    timeLb = [[UILabel alloc] initWithFrame:CGRectMake(20, 45, 160, 40)];
+    timeLb.textColor = [UIColor whiteColor];
+    timeLb.textAlignment = NSTextAlignmentCenter;
     timeLb.backgroundColor = [UIColor clearColor];
     timeLb.font = [UIFont systemFontOfSize:17];
     [self addSubview:timeLb];
     
-    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(16, 87, 188, 92)];
+    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(20, 87, 170, 115)];
     detailTextV.font = [UIFont systemFontOfSize:14];
-    detailTextV.textColor = [UIColor blackColor];
+    detailTextV.textColor = [UIColor whiteColor];
+    detailTextV.backgroundColor = [UIColor clearColor];
     detailTextV.editable = NO;
     detailTextV.scrollEnabled = NO;
+    detailTextV.userInteractionEnabled = NO;
     [self addSubview:detailTextV];
     
-    proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(20, 204, 180, 180)];
+    proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(20, 204, 160, 160)];
     [self addSubview:proImageV];
     
     if (Mode == 0)

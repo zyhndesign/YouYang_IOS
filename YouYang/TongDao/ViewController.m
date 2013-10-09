@@ -31,8 +31,14 @@
     
     otherContentV.hidden = YES;
     stopAllView.hidden = NO;
-    slipLb.backgroundColor = RedColor;
-    slipLb.hidden = YES;
+    musicView.hidden = YES;
+    menuView.hidden = YES;
+    
+    musicView.layer.borderWidth = 1;
+    musicView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+
+    menuView.layer.borderWidth = 1;
+    menuView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     
     [self performSelector:@selector(MainViewLayerOut) withObject:nil afterDelay:0.3];
     
@@ -42,25 +48,26 @@
 #define RemainSize 90
 - (void)MainViewLayerOut
 {
-    [_scrollView setContentSize:CGSizeMake(1024, PageSize*11)];
+    AllScrollView = _scrollView;
+    [_scrollView setContentSize:CGSizeMake(1024, PageSize*10 + 530)];
   //  _scrollView.pagingEnabled = YES;
     homePageViewCtr  = [[HomePageViewContr alloc] init];
     [homePageViewCtr.view setFrame:CGRectMake(0, 0, homePageViewCtr.view.frame.size.width, homePageViewCtr.view.frame.size.height)];
     
     landscapeViewCtr = [[LandscapeViewContr alloc] init];
-    [landscapeViewCtr.view setFrame:CGRectMake(0, RemainSize + PageSize*2, landscapeViewCtr.view.frame.size.width, landscapeViewCtr.view.frame.size.height)];
+    [landscapeViewCtr.view setFrame:CGRectMake(0, PageSize*2, landscapeViewCtr.view.frame.size.width, landscapeViewCtr.view.frame.size.height)];
     
     humanityViewCtr  = [[HumanityViewContr alloc] init];
-    [humanityViewCtr.view setFrame:CGRectMake(0, RemainSize + PageSize*4, humanityViewCtr.view.frame.size.width, humanityViewCtr.view.frame.size.height)];
+    [humanityViewCtr.view setFrame:CGRectMake(0, PageSize*4, humanityViewCtr.view.frame.size.width, humanityViewCtr.view.frame.size.height)];
     
     storyViewCtr     = [[StoryViewContr alloc] init];
-    [storyViewCtr.view setFrame:CGRectMake(0, RemainSize + PageSize*6, storyViewCtr.view.frame.size.width, storyViewCtr.view.frame.size.height)];
+    [storyViewCtr.view setFrame:CGRectMake(0, PageSize*6, storyViewCtr.view.frame.size.width, storyViewCtr.view.frame.size.height)];
     
     communityViewCtr = [[CommunityViewContr alloc] init];
-    [communityViewCtr.view setFrame:CGRectMake(0, RemainSize + PageSize*8, communityViewCtr.view.frame.size.width, communityViewCtr.view.frame.size.height)];
+    [communityViewCtr.view setFrame:CGRectMake(0, PageSize*8, communityViewCtr.view.frame.size.width, communityViewCtr.view.frame.size.height)];
     
     versionViewCtr = [[VersionViewContr alloc] init];
-    [versionViewCtr.view setFrame:CGRectMake(0, RemainSize + PageSize*10, versionViewCtr.view.frame.size.width, versionViewCtr.view.frame.size.height)];
+    [versionViewCtr.view setFrame:CGRectMake(0, PageSize*10, versionViewCtr.view.frame.size.width, versionViewCtr.view.frame.size.height)];
     
     [_scrollView addSubview:homePageViewCtr.view];
     [_scrollView addSubview:landscapeViewCtr.view];
@@ -103,44 +110,20 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (!isCloseMenuScrol)
-    {
-        int positionY = scrollView.contentOffset.y;
-        if (positionY > 768)
-        {
-            isCloseMenuScrol = YES;
-            [btView setFrame:CGRectMake(0, 0, btView.frame.size.width, btView.frame.size.height)];
-        }
-        else
-        {
-            [btView setFrame:CGRectMake(0, 768 - positionY, btView.frame.size.width, btView.frame.size.height)];
-        }
-        
-    }
-    if (handleScrol)
-        return;
-    int tag = (_scrollView.contentOffset.y+_scrollView.frame.size.height/2)/_scrollView.frame.size.height;
-    tag = tag/2;
-    
-    UIButton *tempBt = (UIButton *)[btView viewWithTag:tag];
-    if ([tempBt isKindOfClass:[UIButton class]])
+    int page = scrollView.contentOffset.y/1536;
+    UIButton *currentPageBt = (UIButton*)[menuView viewWithTag:page+1];
+    if (currentPageBt)
     {
         if (CurrentBt)
-            [CurrentBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [tempBt setTitleColor:RedColor forState:UIControlStateNormal];
-        CurrentBt = tempBt;
-        slipLb.hidden = NO;
-        slipLb.center = CGPointMake(tempBt.center.x, slipLb.center.y);
+            [CurrentBt setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        CurrentBt = currentPageBt;
+        [currentPageBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
     else
     {
         if (CurrentBt)
-        {
-            [CurrentBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            CurrentBt = nil;
-        }
-        
-        slipLb.hidden = YES;
+            [CurrentBt setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        CurrentBt = nil;
     }
 }
 
@@ -150,45 +133,36 @@
 }
 
 #pragma mark - Event
+- (IBAction)MenuShow:(UIButton*)sender
+{
+    if (menuView.hidden)
+        menuView.hidden = NO;
+    else
+        menuView.hidden = YES;
+}
+
 static BOOL handleScrol;
 - (IBAction)selectMenu:(UIButton*)sender
 {
+    [_scrollView setContentOffset:CGPointMake(0, ((sender.tag-1)*2)*768) animated:YES];
     handleScrol = YES;
-    [_scrollView setContentOffset:CGPointMake(0, sender.tag*668*2) animated:YES];
     if (CurrentBt)
-        [CurrentBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [CurrentBt setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     CurrentBt = sender;
-    [sender setTitleColor:RedColor forState:UIControlStateNormal];
-    if (sender.tag == 0)
-    {
-        slipLb.hidden = YES;
-    }
-    else
-    {
-        slipLb.hidden = NO;
-        slipLb.center = CGPointMake(sender.center.x, slipLb.center.y);
-    }
+    [sender setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    
 }
 
 - (IBAction)musicShow:(UIButton*)sender
 {
-    if (musicView.frame.origin.x == 0)
+    if (musicView.hidden)
     {
-        [UIView animateWithDuration:0.3
-                         animations:^(void){
-                             [musicView setCenter:CGPointMake(1024 + 512, musicView.center.y)];
-                         }
-                         completion:^(BOOL finish){
-        }];
+        musicView.hidden = NO;
     }
     else
     {
-        [UIView animateWithDuration:0.3
-                         animations:^(void){
-                             [musicView setCenter:CGPointMake( 512, musicView.center.y)];
-                         }
-                         completion:^(BOOL finish){
-                         }];
+        musicView.hidden = YES;
     }
 }
 

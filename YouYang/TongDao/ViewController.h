@@ -31,19 +31,18 @@
     
     UIButton *CurrentBt;
     
-    IBOutlet UILabel *slipLb;    
-    IBOutlet UIView *btView;
-    IBOutlet UIView *menuImageV;
     IBOutlet UIView *stopAllView;
     
     IBOutlet UIImageView *launchImageV;
     IBOutlet UIView *musicView;
+    IBOutlet UIView *menuView;
     IBOutlet UIButton *musicShowBt;
     IBOutlet UIActivityIndicatorView *activeView;
     
     BOOL isCloseMenuScrol;
 }
 @property(nonatomic, assign)IBOutlet UIView *otherContentV;
+- (IBAction)MenuShow:(UIButton*)sender;
 - (IBAction)selectMenu:(UIButton*)sender;
 - (IBAction)musicShow:(UIButton*)sender;
 - (void)imageScaleShow:(ImageViewShowContr*)imageViewSContr;

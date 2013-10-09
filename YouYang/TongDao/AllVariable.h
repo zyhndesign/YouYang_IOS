@@ -13,6 +13,7 @@
 @class SCGIFImageView;
 
 ViewController *RootViewContr;
+UIScrollView *AllScrollView;
 int AllOnlyShowPresentOne;  // 只能同时展开一个详细内容
 SCGIFImageView* gifImageView;
 UIImageView *playMusicImageV;

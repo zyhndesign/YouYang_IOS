@@ -39,6 +39,20 @@
                     <rect key="frame" x="260" y="1350" width="505" height="160"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_artifact.png" id="NF0-2V-tiX">
+                    <rect key="frame" x="200" y="289" width="615" height="190"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ejE-NM-WQC">
+                    <rect key="frame" x="487" y="590" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="down.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextPage:" destination="-1" eventType="touchUpInside" id="Zlr-CE-sSM"/>
+                    </connections>
+                </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="5">
                     <rect key="frame" x="0.0" y="768" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,8 +69,10 @@
     <resources>
         <image name="artifact_float1.png" width="125" height="345"/>
         <image name="artifact_float2.png" width="505" height="190"/>
-        <image name="bg3.png" width="1024" height="748"/>
+        <image name="bg3.png" width="1024" height="768"/>
         <image name="bg_artifact.png" width="1024" height="748"/>
+        <image name="down.png" width="50" height="50"/>
+        <image name="slogan_artifact.png" width="615" height="190"/>
         <image name="title_artifact.png" width="320" height="160"/>
     </resources>
 </document>

@@ -19,7 +19,6 @@
 	NSString *currentTitle;
     
     IBOutlet UILabel *titleLb;
-    IBOutlet UILabel *progreLb;
     
     IBOutlet UIButton *playerBt;
     

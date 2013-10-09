@@ -20,7 +20,7 @@
     NSArray *initAry;
 }
 - (void)loadSubview:(NSArray*)ary;
-- (IBAction)skipPage:(UIButton*)sender;
+- (IBAction)nextPage:(UIButton*)sender;
 
 
 @end

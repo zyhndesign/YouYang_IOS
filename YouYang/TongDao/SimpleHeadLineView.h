@@ -14,8 +14,6 @@
     UIImageView *proImageV;
     UILabel *titleLb;
     UITextView *detailTextV;
-    UILabel *timeLb;
-    UILabel *yearLb;
     NSDictionary *_infoDict;
 }
 - (id)initWithInfoDict:(NSDictionary*)infoDict;

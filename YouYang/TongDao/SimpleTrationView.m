@@ -68,7 +68,7 @@
     [self addSubview:detailTextV];
     
     titleLb.text       = [_infoDict objectForKey:@"name"];
-    detailTextV.text   = [[_infoDict objectForKey:@"description"] stringByAppendingString:[_infoDict objectForKey:@"description"]];
+    detailTextV.text   = [_infoDict objectForKey:@"description"];
     NSString *imageURL = [_infoDict objectForKey:@"profile"];
     NSArray *tempAry = [imageURL componentsSeparatedByString:@"."];
     imageURL = [tempAry objectAtIndex:0];

@@ -30,8 +30,6 @@
 
 - (void)viewDidLoad
 {
-    
-    self.view.backgroundColor = [UIColor redColor];
     musicQueAry = [[NSMutableArray alloc] init];
     currentPosition = 0;
     
@@ -43,7 +41,7 @@
 	NSNotification *notification = [NSNotification notificationWithName:ASStatusChangedNotification object:self];
 	[[NSNotificationCenter defaultCenter] postNotification:notification];
     
-    stopAllView.hidden = NO;
+
     LoadMusicQue *loadMusicQNet = [[LoadMusicQue alloc] init];
     loadMusicQNet.delegate = self;
     [loadMusicQNet loadMusicFromUrl];
@@ -70,8 +68,8 @@ static BOOL playing;
     if (!playing)
 	{
         playing = YES;
-        [playerBt setBackgroundImage:[UIImage imageNamed:@"music_btn_pause_normal.png"] forState:UIControlStateNormal];
-        [playerBt setBackgroundImage:[UIImage imageNamed:@"music_btn_pause_pressed.png"] forState:UIControlStateHighlighted];
+        [playerBt setBackgroundImage:[UIImage imageNamed:@"music_purpose_defult.png"] forState:UIControlStateNormal];
+        [playerBt setBackgroundImage:[UIImage imageNamed:@"music_purpose_actived.png"] forState:UIControlStateHighlighted];
         if (streamer.state == AS_INITIALIZED)
         {
             if (currentPosition < musicQueAry.count && currentPosition >= 0)
@@ -85,8 +83,8 @@ static BOOL playing;
 	else
 	{
         playing = NO;
-        [playerBt setBackgroundImage:[UIImage imageNamed:@"music_btn_play_normal.png"] forState:UIControlStateNormal];
-        [playerBt setBackgroundImage:[UIImage imageNamed:@"music_btn_play_pressed.png"] forState:UIControlStateHighlighted];
+        [playerBt setBackgroundImage:[UIImage imageNamed:@"music_play_defult.png"] forState:UIControlStateNormal];
+        [playerBt setBackgroundImage:[UIImage imageNamed:@"music_play_actived.png"] forState:UIControlStateHighlighted];
 		[streamer pause];
 	}
 }
@@ -94,7 +92,6 @@ static BOOL playing;
 static BOOL presOpOver = YES;
 - (IBAction)before:(UIButton*)sender
 {
-    
     if (!presOpOver)
         return;
     if (musicQueAry.count == 0)
@@ -120,9 +117,9 @@ static BOOL presOpOver = YES;
     [streamer start];
     
     playing = YES;
-    [playerBt setBackgroundImage:[UIImage imageNamed:@"music_btn_pause_normal.png"] forState:UIControlStateNormal];
-    [playerBt setBackgroundImage:[UIImage imageNamed:@"music_btn_pause_pressed.png"] forState:UIControlStateHighlighted];
-    [self performSelector:@selector(delaysPreOpration) withObject:nil afterDelay:1.0];
+    [playerBt setBackgroundImage:[UIImage imageNamed:@"music_purpose_defult.png"] forState:UIControlStateNormal];
+    [playerBt setBackgroundImage:[UIImage imageNamed:@"music_purpose_actived.png"] forState:UIControlStateHighlighted];
+    [self performSelector:@selector(delaysPreOpration) withObject:nil afterDelay:1.5];
     
 }
 
@@ -159,9 +156,9 @@ static BOOL nextOpOver = YES;
     [streamer start];
     
      playing = YES;
-    [playerBt setBackgroundImage:[UIImage imageNamed:@"music_btn_pause_normal.png"] forState:UIControlStateNormal];
-    [playerBt setBackgroundImage:[UIImage imageNamed:@"music_btn_pause_pressed.png"] forState:UIControlStateHighlighted];
-    [self performSelector:@selector(delaysNextOpration) withObject:nil afterDelay:1.0];
+    [playerBt setBackgroundImage:[UIImage imageNamed:@"music_purpose_defult.png"] forState:UIControlStateNormal];
+    [playerBt setBackgroundImage:[UIImage imageNamed:@"music_purpose_actived.png"] forState:UIControlStateHighlighted];
+    [self performSelector:@selector(delaysNextOpration) withObject:nil afterDelay:1.5];
 }
 
 - (void)delaysNextOpration
@@ -216,7 +213,7 @@ static BOOL nextOpOver = YES;
 		//  [NSString stringWithFormat:@"Time Played: %.1f/%.1f seconds",progress,duration]];
 		if (duration > 0)
 		{
-            [progreLb setFrame:CGRectMake(0, 47, progress*1024/duration, 3)];
+            
 		}
 		else
 		{
@@ -290,9 +287,8 @@ static BOOL nextOpOver = YES;
         playMusicImageV.hidden = NO;
         playing = NO;
         [activeView stopAnimating];
-        [playerBt setBackgroundImage:[UIImage imageNamed:@"music_btn_play_normal.png"] forState:UIControlStateNormal];
-        [playerBt setBackgroundImage:[UIImage imageNamed:@"music_btn_play_pressed.png"] forState:UIControlStateHighlighted];
-        [progreLb setFrame:CGRectMake(0, 47, 0, 3)];
+        [playerBt setBackgroundImage:[UIImage imageNamed:@"music_play_defult.png"] forState:UIControlStateNormal];
+        [playerBt setBackgroundImage:[UIImage imageNamed:@"music_play_actived.png"] forState:UIControlStateHighlighted];
 		[self destroyStreamer];
 	}
 }

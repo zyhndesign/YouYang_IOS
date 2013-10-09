@@ -16,7 +16,7 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    frame = CGRectMake(frame.origin.x, frame.origin.y, 260, 410);
+    frame = CGRectMake(frame.origin.x, frame.origin.y, 210, 410);
     self = [super initWithFrame:frame];
     if (self)
     {
@@ -27,7 +27,7 @@
 
 - (id)initWithInfoDict:(NSDictionary*)infoDict
 {
-    self = [super initWithFrame:CGRectMake(0, 0, 260, 410)];
+    self = [super initWithFrame:CGRectMake(0, 0, 210, 410)];
     if (self)
     {
         _infoDict = [infoDict retain];
@@ -38,65 +38,38 @@
 
 - (void)addView
 {
+    self.backgroundColor = [UIColor whiteColor];
     UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
     [self addGestureRecognizer:tapGestureR];
     [tapGestureR release];
     
-    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(20, 0, self.frame.size.width - 20, self.frame.size.height)];
-    whiteView.backgroundColor = [UIColor whiteColor];
-    [self addSubview:whiteView];
-    [whiteView release];
-    
     /////defultbg-210.png
-    proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 210, 210)];
-    [whiteView addSubview:proImageV];
+    proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 210, 210)];
+    [self addSubview:proImageV];
     
-    titleLb = [[UILabel alloc] initWithFrame:CGRectMake(14, 240, 201, 35)];
+    titleLb = [[UILabel alloc] initWithFrame:CGRectMake(0, 225, 210, 35)];
     titleLb.backgroundColor = [UIColor clearColor];
-    titleLb.textColor       = RedColor;
-    titleLb.font = [UIFont boldSystemFontOfSize:17];
+    titleLb.textAlignment = NSTextAlignmentCenter;
+    titleLb.textColor       = [UIColor blackColor];
+    titleLb.font = [UIFont boldSystemFontOfSize:18];
     titleLb.text = [_infoDict objectForKey:@"name"];
-    [whiteView addSubview:titleLb];
+    [self addSubview:titleLb];
     
-    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(9, 278, 223, 70)];
+    UILabel *midLineLb = [[UILabel alloc] initWithFrame:CGRectMake(14, 278, 180, 1)];
+    midLineLb.backgroundColor = [UIColor grayColor];
+    [self addSubview:midLineLb];
+    [midLineLb release];
+    
+    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(8, 282, 200, 95)];
     detailTextV.backgroundColor = [UIColor clearColor];
     detailTextV.textColor       =  [UIColor darkGrayColor];
     detailTextV.font = [UIFont systemFontOfSize:13];
     detailTextV.text = [_infoDict objectForKey:@"description"];
     detailTextV.editable = NO;
     detailTextV.scrollEnabled = NO;
-    [whiteView addSubview:detailTextV];
+    [self addSubview:detailTextV];
     
-    ///////////
-    UIImageView *redImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"time_bg.png"]];
-    [redImageV setFrame:CGRectMake(0, 15, 90, 53)];
-    [self addSubview:redImageV];
-    [redImageV release];
-    
-    titleLb = [[UILabel alloc] initWithFrame:CGRectMake(2, 10, 60, 22)];
-    titleLb.textAlignment = NSTextAlignmentRight;
-    titleLb.backgroundColor = [UIColor clearColor];
-    titleLb.textColor = [UIColor whiteColor];
-    titleLb.font = [UIFont systemFontOfSize:16];
-    [self addSubview:titleLb];
-    
-    yearLb = [[UILabel alloc] initWithFrame:CGRectMake(2, 29, 60, 22)];
-    yearLb.textAlignment = NSTextAlignmentRight;
-    yearLb.backgroundColor = [UIColor clearColor];
-    yearLb.textColor = [UIColor whiteColor];
-    yearLb.font = [UIFont systemFontOfSize:16];
-    [self addSubview:yearLb];
-    
-    NSString *timeStr = [_infoDict objectForKey:@"postDate"];
-    if (timeStr.length >= 8)
-    {
-        NSString *yearStr = [timeStr substringToIndex:4];
-        yearLb.text = yearStr;
-        NSString *monthStr = [[timeStr substringFromIndex:4] substringToIndex:2];
-        NSString *dayStr   = [timeStr substringFromIndex:6];
-        timeLb.text = [NSString stringWithFormat:@"%@/%@", monthStr, dayStr];
-    }
-
+    //////////
     NSString *imageURL = [_infoDict objectForKey:@"profile"];
     NSArray *tempAry = [imageURL componentsSeparatedByString:@"."];
     imageURL = [tempAry objectAtIndex:0];
@@ -132,8 +105,6 @@
     [proImageV   release];
     [titleLb     release];
     [detailTextV release];
-    [timeLb      release];
-    [yearLb      release];
     [_infoDict   release];
     [super dealloc];
 }

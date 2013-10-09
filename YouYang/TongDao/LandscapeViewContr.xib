@@ -21,9 +21,39 @@
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogon_landscape.png" id="Pu6-0d-vec">
+                    <rect key="frame" x="137" y="257" width="750" height="255"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="lRC-cn-5gH">
                     <rect key="frame" x="0.0" y="768" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7gK-mi-VbP">
+                    <rect key="frame" x="487" y="600" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="down.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextPage:" destination="-1" eventType="touchUpInside" id="Rg3-4u-Bcv"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_artifact.png" id="RrZ-OH-jKA">
+                    <rect key="frame" x="0.0" y="768" width="1024" height="768"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="landscape_bg1.png" id="Q7C-yO-K5S">
+                    <rect key="frame" x="0.0" y="1066" width="620" height="470"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="landscape_bg2.png" id="PsE-Uz-XyM">
+                    <rect key="frame" x="679" y="941" width="445" height="595"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogon_landscape.png" id="yyV-rj-Nrb">
+                    <rect key="frame" x="337" y="800" width="350" height="155"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="5">
                     <rect key="frame" x="0.0" y="768" width="1024" height="768"/>
@@ -39,6 +69,11 @@
         </view>
     </objects>
     <resources>
-        <image name="bg1.png" width="1024" height="780"/>
+        <image name="bg1.png" width="1280" height="720"/>
+        <image name="bg_artifact.png" width="1024" height="748"/>
+        <image name="down.png" width="50" height="50"/>
+        <image name="landscape_bg1.png" width="620" height="470"/>
+        <image name="landscape_bg2.png" width="445" height="595"/>
+        <image name="slogon_landscape.png" width="750" height="225"/>
     </resources>
 </document>

@@ -44,6 +44,10 @@
                     <rect key="frame" x="362" y="800" width="300" height="150"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_humanity.png" id="W5d-iS-vlB">
+                    <rect key="frame" x="240" y="319" width="545" height="130"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="5">
                     <rect key="frame" x="0.0" y="768" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,17 +56,29 @@
                         <outlet property="delegate" destination="-1" id="27"/>
                     </connections>
                 </scrollView>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3w8-O4-0nt">
+                    <rect key="frame" x="487" y="580" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="down.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextPage:" destination="-1" eventType="touchUpInside" id="vCN-0S-mX1"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
         </view>
     </objects>
     <resources>
-        <image name="bg2.png" width="1024" height="748"/>
-        <image name="bg_humanity.png" width="1024" height="748"/>
+        <image name="bg2.png" width="1024" height="768"/>
+        <image name="bg_humanity.png" width="1024" height="768"/>
+        <image name="down.png" width="50" height="50"/>
         <image name="humanity_float1.png" width="800" height="500"/>
         <image name="humanity_float2.png" width="260" height="1280"/>
         <image name="humanity_float3.png" width="330" height="420"/>
+        <image name="slogan_humanity.png" width="545" height="130"/>
         <image name="title_humanity.png" width="300" height="150"/>
     </resources>
 </document>

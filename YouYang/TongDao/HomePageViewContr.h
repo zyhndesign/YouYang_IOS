@@ -27,6 +27,7 @@
     
     BOOL closeMenuScrol;
 }
+- (IBAction)nextPage:(UIButton*)sender;
 - (void)loadSubview:(NSArray*)ary;
 
 @end

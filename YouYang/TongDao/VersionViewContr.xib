@@ -15,27 +15,30 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="530"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_backgroud.png" id="9">
-                    <rect key="frame" x="0.0" y="0.0" width="1024" height="530"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo2.png" id="dbd-Sh-wBP">
+                    <rect key="frame" x="124" y="132" width="340" height="265"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" id="6">
-                    <rect key="frame" x="49" y="151" width="426" height="343"/>
+                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" id="6">
+                    <rect key="frame" x="570" y="191" width="372" height="220"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <mutableString key="text">通道侗族自治县位于湖南、广西、贵州三省交界处，通道全县总人口22.5万人，其中侗族人口占到78.4%，境内生态环境极为秀美，民族文化保存完好，被誉为“侗族文化圣地”，是充分展示侗族之魅力、文化之灿烂、社会之和谐的福地。
- 虽然通道物产丰富，森林覆盖率达74%，年产商品材17万立方米，但经济形式单一，至今仍然是全国贫困县，2008年农民人均纯收入1571元。
- 本项目针对通道这样一个具备“独特的自然生态环境与丰富的非物质文化遗产”但经济发展落后的少数民族地区，整合不同专业和学科的优势，通过合理的村镇规划、生态旅游开发、信息与物流网络建设、产品与服务系统整合、非物质文化遗产保护等综合的工作方法，建立一个国际化的设计创新联盟和基于网络的信息平台，参与式的促进当地居民的文化自主意识和产业创新。在保持当地居民的和谐生活形态和发展需要的前提下，实现从落后的农耕文明社区，不经历资源消耗型的工业发展阶段，直接“蛙跳”进入以文化和信息为中心的创新社区，成为新型工业化和两型社会的典范。</mutableString>
+                    <string key="text">   “酉歌行”设计与社会创新夏令营是在酉阳县委领导的支持下，由湖南大学、四川美术学院、米兰理工大学、美克美家等单位联合开展的跨学科联合设计与社会创新活动。活动以酉阳的国家级非物质文化遗产摆手舞、阳戏及原生态民歌为研究对象，通过数字化的影像记录与网络平台构建、可视化与交互设计、互动参与式的社区活动等方法，探索基于网络的、可持续、开放的文化生态保护与发展模式，为地域传统文化的传播、创新及产业化提供设计支持。活动保护和传播了酉阳非物质文化遗产，丰富了当地村民的文化生活，增进他们对本土文化的自豪感。</string>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title_background.png" id="A13-nc-6qY">
+                    <rect key="frame" x="682" y="143" width="140" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
         </view>
     </objects>
     <resources>
-        <image name="bg_backgroud.png" width="1024" height="530"/>
+        <image name="logo2.png" width="340" height="265"/>
+        <image name="title_background.png" width="140" height="40"/>
     </resources>
 </document>

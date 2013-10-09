@@ -36,6 +36,20 @@
                     <rect key="frame" x="0.0" y="966" width="1024" height="570"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_community.png" id="Uki-eS-vLG">
+                    <rect key="frame" x="307" y="317" width="410" height="135"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Rc-x2-1Db">
+                    <rect key="frame" x="487" y="580" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="down.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextPage:" destination="-1" eventType="touchUpInside" id="e0f-yw-BwY"/>
+                    </connections>
+                </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="5">
                     <rect key="frame" x="0.0" y="768" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,9 +64,11 @@
         </view>
     </objects>
     <resources>
-        <image name="bg4.png" width="1024" height="748"/>
-        <image name="bg_community.png" width="1024" height="1040"/>
+        <image name="bg4.png" width="1024" height="768"/>
+        <image name="bg_community.png" width="1024" height="1140"/>
         <image name="community_float1.png" width="1024" height="570"/>
+        <image name="down.png" width="50" height="50"/>
+        <image name="slogan_community.png" width="410" height="135"/>
         <image name="title_community.png" width="345" height="160"/>
     </resources>
 </document>

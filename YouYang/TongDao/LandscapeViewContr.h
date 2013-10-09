@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AllVariable.h"
 
 @interface LandscapeViewContr : UIViewController<UIScrollViewDelegate>
 {
     IBOutlet UIScrollView *contentScrolV;
     IBOutlet UIImageView *mainImageV;
     
+    IBOutlet UIImageView *animaImageViewOne;
+    IBOutlet UIImageView *animaImageViewTwo;
+    
     NSArray *initAry;
 }
-- (void)loadSubview:(NSArray*)ary;;
+- (void)loadSubview:(NSArray*)ary;
+- (IBAction)nextPage:(UIButton*)sender;
+- (void)rootscrollViewDidScrollToPointY:(int)pointY;
 @end

@@ -8,7 +8,7 @@
 
 #import "LandscapeViewContr.h"
 #import "SimpleLandscView.h"
-#import "AllVariable.h"
+
 
 @interface LandscapeViewContr ()
 
@@ -27,6 +27,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+#define HeighTopOne 1066
+#define HeighTopTwo 941
+- (void)rootscrollViewDidScrollToPointY:(int)pointY
+{
+    if (pointY > 500)
+    {
+        int positionYOne = 1300 - (pointY - 500)/2;
+        positionYOne = positionYOne < HeighTopOne ? HeighTopOne:positionYOne;
+        int positionYTwo = 1175 - (pointY - 500)/2;
+        positionYTwo = positionYTwo < HeighTopTwo ? HeighTopTwo:positionYTwo;
+        [animaImageViewOne setFrame:CGRectMake(animaImageViewOne.frame.origin.x, positionYOne, animaImageViewOne.frame.size.width, animaImageViewOne.frame.size.height)];
+        [animaImageViewTwo setFrame:CGRectMake(animaImageViewTwo.frame.origin.x, positionYTwo, animaImageViewTwo.frame.size.width, animaImageViewTwo.frame.size.height)];
+    }
 }
 
 #define StartX 122
@@ -117,6 +132,11 @@
 {
     [initAry release];
     [super dealloc];
+}
+
+- (IBAction)nextPage:(UIButton*)sender
+{
+    [AllScrollView setContentOffset:CGPointMake(0, (sender.tag*2-1)*768) animated:YES];
 }
 
 #pragma mark - scrollview delegate

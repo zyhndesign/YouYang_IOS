@@ -15,9 +15,13 @@
 #import "LoadMenuInfoNet.h"
 #import "AudioPlayerViewCtr.h"
 #import "VersionViewContr.h"
+#import "AllVariable.h"
 
 @class ContentViewContr;
 @class ImageViewShowContr;
+
+
+
 @interface ViewController : UIViewController<NetworkDelegate, UIScrollViewDelegate>
 {
     IBOutlet UIScrollView *_scrollView;

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NetworkDelegate.h"
+#import "AllVariable.h"
 @class MovieBgPlayViewCtr;
 
 @interface HomePageViewContr : UIViewController<NetworkDelegate>
@@ -29,5 +30,5 @@
 }
 - (IBAction)nextPage:(UIButton*)sender;
 - (void)loadSubview:(NSArray*)ary;
-
+- (void)rootscrollViewDidScrollToPointY:(int)pointY;
 @end

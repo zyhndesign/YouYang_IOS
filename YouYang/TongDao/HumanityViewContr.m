@@ -8,7 +8,7 @@
 
 #import "HumanityViewContr.h"
 #import "SimpleHumanityView.h"
-#import "AllVariable.h"
+
 
 @interface HumanityViewContr ()
 
@@ -28,6 +28,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+#define HeighTopOne 450
+#define HeighTopTwo 300
+#define HeighTopThr 1200
+- (void)rootscrollViewDidScrollToPointY:(int)pointY
+{
+    if (pointY > 400)
+    {
+        int positionYOne = 600 - (pointY - 400)*2/3;
+        positionYOne = positionYOne < HeighTopOne ? HeighTopOne:positionYOne;
+        int positionYTwo = 550 - (pointY - 400)*2/3;
+        positionYTwo = positionYTwo < HeighTopTwo ? HeighTopTwo:positionYTwo;
+        int positionYThr = 1400 - (pointY - 400)*2/3;
+        positionYThr = positionYThr < HeighTopThr ? HeighTopThr:positionYThr;
+        [animaImageViewOne setFrame:CGRectMake(animaImageViewOne.frame.origin.x, positionYOne, animaImageViewOne.frame.size.width, animaImageViewOne.frame.size.height)];
+        [animaImageViewTwo setFrame:CGRectMake(animaImageViewTwo.frame.origin.x, positionYTwo, animaImageViewTwo.frame.size.width, animaImageViewTwo.frame.size.height)];
+        [animaImageViewThr setFrame:CGRectMake(animaImageViewThr.frame.origin.x, positionYThr, animaImageViewThr.frame.size.width, animaImageViewThr.frame.size.height)];
+    }
 }
 
 #define StartX 112
@@ -133,7 +152,7 @@
 
 - (IBAction)nextPage:(UIButton*)sender
 {
-    [AllScrollView setContentOffset:CGPointMake(0, (sender.tag*2-1)*768)];
+    [AllScrollView setContentOffset:CGPointMake(0, (sender.tag*2-1)*768) animated:YES];
 }
 
 #pragma mark - scrollview delegate

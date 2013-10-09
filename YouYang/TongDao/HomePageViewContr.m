@@ -11,8 +11,8 @@
 #import "ProImageLoadNet.h"
 #import "ContentViewContr.h"
 #import "ViewController.h"
-#import "AllVariable.h"
 #import "MovieBgPlayViewCtr.h"
+
 
 @interface HomePageViewContr ()
 
@@ -126,8 +126,22 @@
 
 - (IBAction)nextPage:(UIButton*)sender
 {
-    [AllScrollView setContentOffset:CGPointMake(0, (sender.tag*2-1)*768)];
+    [AllScrollView setContentOffset:CGPointMake(0, (sender.tag*2-1)*768) animated:YES];
 }
+
+#define HeighTop 886
+
+- (void)rootscrollViewDidScrollToPointY:(int)pointY
+{
+    if (pointY > 200)
+    {
+        int positionY = 1300 - (pointY - 200)*2/3;
+        positionY = positionY < HeighTop ? HeighTop:positionY;
+        [animaImageViewOne setFrame:CGRectMake(animaImageViewOne.frame.origin.x, positionY, animaImageViewOne.frame.size.width, animaImageViewOne.frame.size.height)];
+        [animaImageViewTwo setFrame:CGRectMake(animaImageViewTwo.frame.origin.x, positionY, animaImageViewTwo.frame.size.width, animaImageViewTwo.frame.size.height)];
+    }
+}
+
 #pragma mark - net delegate
 - (void)didReciveImage:(UIImage *)backImage
 {

@@ -7,20 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AllVariable.h"
 
 @interface CommunityViewContr : UIViewController<UIScrollViewDelegate>
 {
     IBOutlet UIScrollView *contentScrolV;
     IBOutlet UIImageView *mainImageV;
     
-    IBOutlet UIImageView *animaImageOne;
+    IBOutlet UIImageView *animaImageViewOne;
     
     IBOutlet UIButton *leftBt;
     IBOutlet UIButton *rightBg;
     NSArray *initAry;
 }
+
 - (void)loadSubview:(NSArray*)ary;
 - (IBAction)nextPage:(UIButton*)sender;
-
+- (void)rootscrollViewDidScrollToPointY:(int)pointY;
 
 @end

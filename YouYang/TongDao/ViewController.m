@@ -13,7 +13,6 @@
 #import "ContentViewContr.h"
 #import "ActiveView.h"
 #import "ImageViewShowContr.h"
-#import "AllVariable.h"
 #import "SCGIFImageView.h"
 
 @interface ViewController ()
@@ -28,6 +27,8 @@
 {
     [super viewDidLoad];
     [activeView startAnimating];
+    
+    _scrollView.bounces = YES;
     
     otherContentV.hidden = YES;
     stopAllView.hidden = NO;
@@ -85,14 +86,14 @@
     [audioPlayViewCtr.view setFrame:CGRectMake(0, 0, audioPlayViewCtr.view.frame.size.width, audioPlayViewCtr.view.frame.size.height)];
     [musicView addSubview:audioPlayViewCtr.view];
     
-    gifImageView = [[SCGIFImageView alloc] initWithGIFFile:[[NSBundle mainBundle] pathForResource:@"music_entrance" ofType:@"gif"]];
-    [gifImageView setFrame:CGRectMake(0, 0, 50, 50)];
+    gifImageView = [[SCGIFImageView alloc] initWithGIFFile:[[NSBundle mainBundle] pathForResource:@"music_animation" ofType:@"gif"]];
+    [gifImageView setFrame:CGRectMake(0, 0, 50, 48)];
     gifImageView.userInteractionEnabled = NO;
     [musicShowBt addSubview:gifImageView];
     [gifImageView stopAnimating];
     
-    playMusicImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"player.png"]];
-    [playMusicImageV setFrame:CGRectMake(0, 0, 50, 50)];
+    playMusicImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"music_defult.png"]];
+    [playMusicImageV setFrame:CGRectMake(0, 0, 50, 48)];
     playMusicImageV.userInteractionEnabled = NO;
     [musicShowBt addSubview:playMusicImageV];
 }
@@ -110,7 +111,13 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    int page = scrollView.contentOffset.y/1536;
+    if (scrollView.contentOffset.y < 3072)
+        scrollView.backgroundColor = [UIColor blackColor];
+    else
+        scrollView.backgroundColor = [UIColor colorWithRed:33/255.0 green:33/255.0 blue:33/255.0 alpha:1];
+    
+    int pointY = scrollView.contentOffset.y;
+    int page = pointY/1536;
     UIButton *currentPageBt = (UIButton*)[menuView viewWithTag:page+1];
     if (currentPageBt)
     {
@@ -125,6 +132,27 @@
             [CurrentBt setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         CurrentBt = nil;
     }
+    if (pointY < 768*2)
+    {
+        [homePageViewCtr rootscrollViewDidScrollToPointY:pointY];
+    }
+    else if (pointY >= 768*2 && pointY < 768*4)
+    {
+        [landscapeViewCtr rootscrollViewDidScrollToPointY:pointY%1536];
+    }
+    else if (pointY >= 768*4 && pointY < 768*6)
+    {
+        [humanityViewCtr rootscrollViewDidScrollToPointY:pointY%1536];
+    }
+    else if (pointY >= 768*6 && pointY < 768*8)
+    {
+        [storyViewCtr rootscrollViewDidScrollToPointY:pointY%1536];
+    }
+    else if (pointY >= 768*8 && pointY <= 768*10)
+    {
+        [communityViewCtr rootscrollViewDidScrollToPointY:pointY%1536];
+    }
+    else ;
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView

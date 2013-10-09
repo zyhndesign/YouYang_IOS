@@ -33,11 +33,11 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="featured_float1.png" id="40F-0l-CE4">
-                    <rect key="frame" x="-150" y="886" width="330" height="650"/>
+                    <rect key="frame" x="-150" y="1300" width="330" height="650"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="featured_float2.png" id="GTm-TV-0z4">
-                    <rect key="frame" x="850" y="886" width="330" height="650"/>
+                    <rect key="frame" x="850" y="1300" width="330" height="650"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="title_featured.png" id="V7Y-Au-Ylv">

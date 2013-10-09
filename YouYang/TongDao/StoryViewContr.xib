@@ -32,11 +32,11 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="artifact_float1.png" id="Urb-0s-xla">
-                    <rect key="frame" x="100" y="800" width="125" height="345"/>
+                    <rect key="frame" x="100" y="1050" width="125" height="345"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="artifact_float2.png" id="ZLl-t2-DJM">
-                    <rect key="frame" x="260" y="1350" width="505" height="160"/>
+                    <rect key="frame" x="260" y="1600" width="505" height="160"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_artifact.png" id="NF0-2V-tiX">

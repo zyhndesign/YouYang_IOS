@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AllVariable.h"
 
 @interface StoryViewContr : UIViewController<UIScrollViewDelegate>
 {
@@ -18,7 +19,8 @@
 
     NSArray *initAry;
 }
+
 - (void)loadSubview:(NSArray*)ary;
 - (IBAction)nextPage:(UIButton*)sender;
-
+- (void)rootscrollViewDidScrollToPointY:(int)pointY;
 @end

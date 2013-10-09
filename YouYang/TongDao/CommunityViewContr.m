@@ -8,7 +8,7 @@
 
 #import "CommunityViewContr.h"
 #import "SimpleHumanityView.h"
-#import "AllVariable.h"
+
 
 @interface CommunityViewContr ()
 
@@ -28,6 +28,19 @@
 {
     [super viewDidLoad];
 }
+
+#define HeighTopOne 966
+
+- (void)rootscrollViewDidScrollToPointY:(int)pointY
+{
+    if (pointY > 400)
+    {
+        int positionYOne = 1296 - (pointY - 400)/2;
+        positionYOne = positionYOne < HeighTopOne ? HeighTopOne:positionYOne;
+        [animaImageViewOne setFrame:CGRectMake(animaImageViewOne.frame.origin.x, positionYOne, animaImageViewOne.frame.size.width, animaImageViewOne.frame.size.height)];
+    }
+}
+
 
 #define StartX 112
 #define StartY 200
@@ -133,7 +146,7 @@
 
 - (IBAction)nextPage:(UIButton*)sender
 {
-    [AllScrollView setContentOffset:CGPointMake(0, (sender.tag*2-1)*768)];
+    [AllScrollView setContentOffset:CGPointMake(0, (sender.tag*2-1)*768) animated:YES];
 }
 
 #pragma mark - scrollview delegate

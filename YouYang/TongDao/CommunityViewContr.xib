@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommunityViewContr">
             <connections>
-                <outlet property="animaImageOne" destination="ba0-5E-6h8" id="sJF-nA-rqq"/>
+                <outlet property="animaImageViewOne" destination="ba0-5E-6h8" id="0xt-dU-dP0"/>
                 <outlet property="contentScrolV" destination="5" id="27"/>
                 <outlet property="mainImageV" destination="16" id="21"/>
                 <outlet property="view" destination="4" id="28"/>
@@ -33,7 +33,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="community_float1.png" id="ba0-5E-6h8">
-                    <rect key="frame" x="0.0" y="966" width="1024" height="570"/>
+                    <rect key="frame" x="0.0" y="1296" width="1024" height="570"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_community.png" id="Uki-eS-vLG">

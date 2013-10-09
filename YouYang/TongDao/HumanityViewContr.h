@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AllVariable.h"
 
 @interface HumanityViewContr : UIViewController<UIScrollViewDelegate>
 {
@@ -23,5 +24,5 @@
 }
 - (void)loadSubview:(NSArray*)ary;
 - (IBAction)nextPage:(UIButton*)sender;
-
+- (void)rootscrollViewDidScrollToPointY:(int)pointY;
 @end

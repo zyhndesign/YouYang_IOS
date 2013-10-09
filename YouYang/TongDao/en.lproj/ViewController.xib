@@ -11,6 +11,7 @@
                 <outlet property="activeView" destination="96" id="97"/>
                 <outlet property="launchImageV" destination="90" id="91"/>
                 <outlet property="menuView" destination="HPj-Yn-p8m" id="RbI-rP-S5e"/>
+                <outlet property="musicShowBt" destination="Qov-lB-eAi" id="tjn-QO-enR"/>
                 <outlet property="musicView" destination="GUo-KD-Ghj" id="JAy-TC-3Qc"/>
                 <outlet property="otherContentV" destination="92" id="pge-GW-5ql"/>
                 <outlet property="stopAllView" destination="85" id="87"/>
@@ -22,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" id="4">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="4">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -168,7 +169,7 @@
                     <rect key="frame" x="953" y="21" width="50" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" backgroundImage="music_defult.png">
+                    <state key="normal">
                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -188,7 +189,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="landscape.png" id="90">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="90">
                             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -198,7 +199,7 @@
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" id="96">
                     <rect key="frame" x="502" y="564" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </activityIndicatorView>
             </subviews>
@@ -209,8 +210,6 @@
     </objects>
     <resources>
         <image name="btn_back_pressed.png" width="60" height="60"/>
-        <image name="landscape.png" width="2048" height="1536"/>
         <image name="menu_hover.png" width="50" height="50"/>
-        <image name="music_defult.png" width="50" height="50"/>
     </resources>
 </document>

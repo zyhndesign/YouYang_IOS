@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandscapeViewContr">
             <connections>
+                <outlet property="animaImageViewOne" destination="Q7C-yO-K5S" id="JX8-RF-EUg"/>
+                <outlet property="animaImageViewTwo" destination="PsE-Uz-XyM" id="SNi-y5-EfJ"/>
                 <outlet property="contentScrolV" destination="5" id="21"/>
                 <outlet property="mainImageV" destination="18" id="19"/>
                 <outlet property="view" destination="4" id="15"/>
@@ -44,11 +46,11 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="landscape_bg1.png" id="Q7C-yO-K5S">
-                    <rect key="frame" x="0.0" y="1066" width="620" height="470"/>
+                    <rect key="frame" x="0.0" y="1300" width="620" height="470"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="landscape_bg2.png" id="PsE-Uz-XyM">
-                    <rect key="frame" x="679" y="941" width="445" height="595"/>
+                    <rect key="frame" x="679" y="1175" width="445" height="595"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogon_landscape.png" id="yyV-rj-Nrb">
@@ -69,7 +71,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg1.png" width="1280" height="720"/>
+        <image name="bg1.png" width="960" height="720"/>
         <image name="bg_artifact.png" width="1024" height="748"/>
         <image name="down.png" width="50" height="50"/>
         <image name="landscape_bg1.png" width="620" height="470"/>

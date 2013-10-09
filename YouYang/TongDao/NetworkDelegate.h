@@ -17,3 +17,7 @@
 - (void)didReciveImage:(UIImage*)backImage;
 - (void)didReceiveZipResult:(BOOL)success; // 用于下载zip
 @end
+
+
+
+

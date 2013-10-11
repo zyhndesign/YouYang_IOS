@@ -22,7 +22,8 @@
 {
     //http://lotusprize.com/travel/bundles/eae27d77ca20db309e056e3d2dcd7d69.zip
     connectNum = 0;
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0f];
+    NSLog(@"startZipLoad:%p,%p", self, delegate);
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0f];
     [request setHTTPMethod:@"GET"];
     
     NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
@@ -61,6 +62,11 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+    NSLog(@"error->ZipLoad:%p,%p---%@", self, delegate, [error localizedDescription]);
+    [QueueZipHandle taskFinish];
+    [delegate didReceiveErrorCode:error];
+    return;
+    
     if (connectNum == 2)
     {
         [QueueZipHandle taskFinish];
@@ -75,10 +81,6 @@
     
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    
-}
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
@@ -132,7 +134,9 @@
         NSLog(@"md5Error");
         [fileManager removeItemAtPath:filePath error:nil];
     }
+    NSLog(@"OverZipLoad:%p,%p", self, delegate);
     [QueueZipHandle taskFinish];
+    
 }
 
 - (void)dealloc

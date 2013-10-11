@@ -119,6 +119,10 @@
         return;
     if (CGRectContainsPoint(CGRectMake(0, 0, 1024, 668), gestPoint))
     {
+        if (AllOnlyShowPresentOne == 1)
+        {
+            return;
+        }
         ContentViewContr *contentV = [[ContentViewContr alloc] initWithInfoDict:[initAry objectAtIndex:0]];
         [RootViewContr presentViewContr:contentV];
     }

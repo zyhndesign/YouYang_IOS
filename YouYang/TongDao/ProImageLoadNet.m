@@ -69,7 +69,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    if (connectNum == 3)
+    if (connectNum == 2)
     {
         [QueueProHanle taskFinish];
         [delegate didReceiveErrorCode:error];

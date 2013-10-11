@@ -40,7 +40,7 @@
 {
     [scrllview setMaximumZoomScale:8];
     [scrllview setMinimumZoomScale:0.2];
-    [imageView setCenter:CGPointMake(512, 339)];
+    [imageView setCenter:CGPointMake(512, 359)];
     
     [scrllview addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
     
@@ -51,7 +51,7 @@
     
     imageLoadNet = [[ProImageLoadNet alloc] initWithDict:nil];
     imageLoadNet.delegate = self;
-    imageLoadNet.imageUrl = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    imageLoadNet.imageUrl = [[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [imageLoadNet loadImageFromUrl];
     
     [super viewDidLoad];
@@ -106,7 +106,7 @@
 	if ([keyPath isEqual:@"contentSize"])
     {
         if (scrllview.contentSize.height <= 748 && scrllview.contentSize.width <= 1024)
-            [imageView setCenter:CGPointMake(512, 339)];
+            [imageView setCenter:CGPointMake(512, 359)];
         else if (scrllview.contentSize.height <= 748 && scrllview.contentSize.width >= 1024)
             [imageView setCenter:CGPointMake(scrllview.contentSize.width/2, 339)];
         else if (scrllview.contentSize.height >= 748 && scrllview.contentSize.width <= 1024)
@@ -120,13 +120,17 @@
 
 - (void)didReciveImage:(UIImage *)backImage
 {
+    if (backImage == nil)
+    {
+        [self didReceiveErrorCode:nil];
+    }
     [myActivew stopAnimation];
     [myActivew removeFromSuperview];
     [imageView setImage:backImage];
     float W = CGImageGetWidth(backImage.CGImage);
     float H = CGImageGetHeight(backImage.CGImage);
     [imageView setFrame:CGRectMake(0, 0, W, H)];
-    [imageView setCenter:CGPointMake(512, 339)];
+    [imageView setCenter:CGPointMake(512, 359)];
     [scrllview setContentSize:CGSizeMake(W, H)];
 }
 

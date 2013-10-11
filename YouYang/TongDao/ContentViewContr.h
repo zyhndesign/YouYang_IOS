@@ -12,7 +12,6 @@
 #import "ActionView.h"
 @interface ContentViewContr : UIViewController<UIWebViewDelegate, NSXMLParserDelegate, NetworkDelegate>
 {
-    ActionView *activeView;
     IBOutlet UIWebView *_webView;
     NSDictionary *initDict;
     NSMutableDictionary *infoDict;

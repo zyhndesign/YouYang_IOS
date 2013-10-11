@@ -105,7 +105,8 @@
         ProImageLoadNet *proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
         proImageLoadNet.delegate = self;
         proImageLoadNet.imageUrl = [imageURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [QueueProHanle addTarget:proImageLoadNet];
+        [proImageLoadNet loadImageFromUrl];
+        //[QueueProHanle addTarget:proImageLoadNet];
         [proImageLoadNet release];
     }
 }
@@ -123,6 +124,10 @@
 
 - (void)tapView
 {
+    if (AllOnlyShowPresentOne == 1)
+    {
+        return;
+    }
     ContentViewContr *contentV = [[ContentViewContr alloc] initWithInfoDict:_infoDict];
     [RootViewContr presentViewContr:contentV];
 }

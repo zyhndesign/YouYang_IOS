@@ -169,7 +169,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="90">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Guide pages1024.png" id="90">
                             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -177,7 +177,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" id="96">
-                    <rect key="frame" x="502" y="576" width="20" height="20"/>
+                    <rect key="frame" x="502" y="301" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -189,6 +189,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Guide pages1024.png" width="1024" height="768"/>
         <image name="menu_defult.png" width="50" height="50"/>
         <image name="menu_hover.png" width="50" height="50"/>
     </resources>

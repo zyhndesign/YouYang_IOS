@@ -99,6 +99,10 @@
 
 - (void)tapView
 {
+    if (AllOnlyShowPresentOne == 1)
+    {
+        return;
+    }
     ContentViewContr *contentV = [[ContentViewContr alloc] initWithInfoDict:_infoDict];
     [RootViewContr presentViewContr:contentV];
 }

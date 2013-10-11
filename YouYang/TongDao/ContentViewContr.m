@@ -46,10 +46,9 @@
 {
     [super viewDidLoad];
     
+    [AllActiveView removeFromSuperview];
+    [self.view addSubview:AllActiveView];
     infoDict = [[NSMutableDictionary alloc] init];
-    activeView = [[ActionView alloc] init];
-    activeView.center = CGPointMake(512, 400);
-    [self.view addSubview:activeView];
     
     
     _webView.opaque = NO;
@@ -69,13 +68,12 @@
     BOOL dirBOOL = YES;
     if([[NSFileManager defaultManager] fileExistsAtPath:documentPath isDirectory:&dirBOOL])
     {
-        activeView.hidden = YES;
-        [activeView stopAnimation];
+        [AllActiveView stopAnimation];
         [self webViewLoadLocalData];
     }
     else
     {
-        [activeView startAnimation];
+        [AllActiveView startAnimation];
         [self startLoadSimpleZipData];
     }
 }
@@ -83,14 +81,14 @@
 - (void)dealloc
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    [self.view removeFromSuperview];
+    
     [_webView removeFromSuperview];
     _webView = nil;
+    [self.view removeFromSuperview];
     if (keyStr)
         [keyStr release];
     [loadZipNet release];
-    [infoDict release];
-    [activeView release];
+    [infoDict   release];
     [pool release];
     [super dealloc];
 }
@@ -117,9 +115,8 @@
     BOOL doctm = YES;
     if ([[NSFileManager defaultManager] fileExistsAtPath:baseUrl isDirectory:&doctm])
     {
-        NSURL *baseURL = [[NSURL alloc] initFileURLWithPath:baseUrl isDirectory:YES];
-        [_webView loadHTMLString:[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil] baseURL:baseURL];
-        [baseURL release];
+        NSURLRequest *requestHttp = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:filePath] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0f];
+        [_webView loadRequest:requestHttp];
         
         NSString *docXmlPath = [doctPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/doc.xml", [initDict objectForKey:@"id"]]];
         NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL fileURLWithPath:docXmlPath]];
@@ -127,16 +124,13 @@
         [xmlParser parse];
         [xmlParser release];
     }
-    
 }
-
 
 #pragma mark - net delegate
 
 - (void)didReceiveErrorCode:(NSError *)error
 {
-    [activeView stopAnimation];
-    [activeView removeFromSuperview];
+    [AllActiveView stopAnimation];
     if ([error code] == -1009)
     {
         UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络数据连接失败，请检查网络设置。" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -155,8 +149,7 @@
 - (void)didReceiveZipResult:(BOOL)success
 {
     [self webViewLoadLocalData];
-    [activeView stopAnimation];
-    [activeView removeFromSuperview];
+    [AllActiveView stopAnimation];
 }
 
 #pragma mark - xmlParser delegate
@@ -201,11 +194,15 @@
 
 - (IBAction)back:(UIButton*)sender
 {
-    [activeView stopAnimation];
-    [activeView removeFromSuperview];
+    [AllActiveView stopAnimation];
+    [AllActiveView removeFromSuperview];
     [loadZipNet setDelegate:nil];
     [_webView setDelegate:nil];
     [_webView stopLoading];
+    
+//    ////testsunyong
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    return;
     
     [UIView animateWithDuration:0.3
                      animations:^(void){
@@ -266,4 +263,15 @@
     else ;
     return YES;
 }
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+     [AllActiveView startAnimation];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [AllActiveView stopAnimation];
+}
+
 @end

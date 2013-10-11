@@ -27,8 +27,10 @@
     [super viewDidLoad];
     [activeView startAnimating];
     
-    _scrollView.bounces = YES;
+    [QueueProHanle  init];
+    [QueueZipHandle init];
     
+    _scrollView.bounces = YES;
     otherContentV.hidden = YES;
     stopAllView.hidden = NO;
     musicView.hidden = YES;
@@ -36,6 +38,8 @@
     
     [self performSelector:@selector(MainViewLayerOut) withObject:nil afterDelay:0.3];
     
+    AllActiveView = [[ActionView alloc] init];
+    AllActiveView.center = CGPointMake(512, 400);
 }
 
 #define PageSize 768
@@ -207,8 +211,15 @@ static BOOL handleScrol;
 
 - (void)presentViewContr:(ContentViewContr*)contentViewContr
 {
+//    ///test sunyong
+//    [self presentViewController:contentViewContr animated:YES completion:nil];
+//    [contentViewContr release];
+//    return;
+    
     if (AllOnlyShowPresentOne == 1)
+    {
         return;
+    }
     AllOnlyShowPresentOne = 1;
     stopAllView.hidden = NO;
     otherContentV.hidden = NO;

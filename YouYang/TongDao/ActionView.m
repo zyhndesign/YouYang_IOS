@@ -30,6 +30,7 @@
 
 - (void)startAnimation
 {
+    self.hidden = NO;
     CABasicAnimation *basicAni = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     [basicAni setFromValue:[NSNumber numberWithFloat:0]];
     [basicAni setToValue:[NSNumber numberWithFloat:2*M_PI]];
@@ -40,6 +41,7 @@
 
 - (void)stopAnimation
 {
+    self.hidden = YES;
     [self.layer removeAnimationForKey:@"rotationZ"];
 }
 

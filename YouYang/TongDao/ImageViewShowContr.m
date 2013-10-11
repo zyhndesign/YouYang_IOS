@@ -51,7 +51,8 @@
     
     imageLoadNet = [[ProImageLoadNet alloc] initWithDict:nil];
     imageLoadNet.delegate = self;
-    [imageLoadNet loadImageFromUrl:urlStr];
+    imageLoadNet.imageUrl = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [imageLoadNet loadImageFromUrl];
     
     [super viewDidLoad];
 }

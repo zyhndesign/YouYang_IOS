@@ -103,7 +103,8 @@
         loadZipNet.delegate = self;
         loadZipNet.urlStr   = [[initDict objectForKey:@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         loadZipNet.md5Str   = [[initDict objectForKey:@"md5"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [loadZipNet loadMenuFromUrl:[initDict objectForKey:@"id"]];
+        loadZipNet.zipStr = [initDict objectForKey:@"id"];
+        [QueueZipHandle addTarget:loadZipNet];
     }
 }
 

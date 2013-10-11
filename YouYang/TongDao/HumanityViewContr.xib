@@ -46,7 +46,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_humanity.png" id="W5d-iS-vlB">
-                    <rect key="frame" x="240" y="305" width="545" height="120"/>
+                    <rect key="frame" x="234" y="305" width="555" height="115"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="5">
@@ -86,7 +86,7 @@
         <image name="humanity_float1.png" width="800" height="500"/>
         <image name="humanity_float2.png" width="260" height="1280"/>
         <image name="humanity_float3.png" width="330" height="420"/>
-        <image name="slogan_humanity.png" width="545" height="120"/>
+        <image name="slogan_humanity.png" width="555" height="115"/>
         <image name="title_humanity.png" width="300" height="150"/>
     </resources>
 </document>

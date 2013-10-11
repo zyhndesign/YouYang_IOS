@@ -38,7 +38,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_community.png" id="Uki-eS-vLG">
-                    <rect key="frame" x="307" y="300" width="410" height="135"/>
+                    <rect key="frame" x="195" y="300" width="635" height="170"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Rc-x2-1Db">
@@ -76,7 +76,7 @@
         <image name="bg_community.png" width="1024" height="1140"/>
         <image name="community_float1.png" width="1024" height="570"/>
         <image name="down.png" width="50" height="50"/>
-        <image name="slogan_community.png" width="410" height="135"/>
+        <image name="slogan_community.png" width="635" height="170"/>
         <image name="title_community.png" width="345" height="160"/>
     </resources>
 </document>

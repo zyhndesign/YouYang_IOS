@@ -25,7 +25,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_landscape.png" id="Pu6-0d-vec">
-                    <rect key="frame" x="144" y="250" width="735" height="195"/>
+                    <rect key="frame" x="147" y="250" width="730" height="175"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="lRC-cn-5gH">
@@ -85,6 +85,6 @@
         <image name="landscape.png" width="385" height="155"/>
         <image name="landscape_bg1.png" width="620" height="470"/>
         <image name="landscape_bg2.png" width="445" height="595"/>
-        <image name="slogan_landscape.png" width="735" height="195"/>
+        <image name="slogan_landscape.png" width="730" height="175"/>
     </resources>
 </document>

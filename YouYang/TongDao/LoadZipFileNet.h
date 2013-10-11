@@ -18,7 +18,8 @@
 @property(nonatomic, assign)id<NetworkDelegate>delegate;
 @property(nonatomic, retain)NSString *md5Str;
 @property(nonatomic, retain)NSString *urlStr;
+@property(nonatomic, retain)NSString *zipStr;
 
-- (void)loadMenuFromUrl:(NSString*)ZipStr;
+- (void)loadMenuFromUrl;
 
 @end

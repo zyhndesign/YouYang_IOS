@@ -17,7 +17,9 @@
     NSString *imageUrl;
 }
 @property(nonatomic, assign)id<NetworkDelegate>delegate;
+@property(nonatomic, retain)NSString *imageUrl;
+@property(nonatomic, assign)NSDictionary *_infoDict;
 
 - (id)initWithDict:(NSDictionary*)infoDict;
-- (void)loadImageFromUrl:(NSString*)imageURLStr;
+- (void)loadImageFromUrl;
 @end

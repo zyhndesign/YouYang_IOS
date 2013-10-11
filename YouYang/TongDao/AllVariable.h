@@ -8,6 +8,8 @@
 
 #ifndef TongDao_AllVariable_h
 #define TongDao_AllVariable_h
+#import "QueueZipHandle.h"
+#import "QueueProHanle.h"
 
 @class ViewController;
 @class SCGIFImageView;

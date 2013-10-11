@@ -7,9 +7,12 @@
 //
 
 #import "ProImageLoadNet.h"
+#import "AllVariable.h"
 
 @implementation ProImageLoadNet
 @synthesize delegate;
+@synthesize imageUrl;
+@synthesize _infoDict;
 
 - (id)initWithDict:(NSDictionary*)infoDict
 {
@@ -20,10 +23,10 @@
     return self;
 }
 
-- (void)loadImageFromUrl:(NSString*)imageURLStr
+- (void)loadImageFromUrl
 {
-    imageUrl = [[imageURLStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] retain];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:imageURLStr] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:120.0f];
+   // imageUrl = [[imageURLStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] retain];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:imageUrl] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:120.0f];
     [request setHTTPMethod:@"GET"];
     [request setHTTPBody:nil];
     
@@ -68,6 +71,7 @@
 {
     if (connectNum == 3)
     {
+        [QueueProHanle taskFinish];
         [delegate didReceiveErrorCode:error];
     }
     else
@@ -77,10 +81,6 @@
     }
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    
-}
 
 - (NSInputStream *)connection:(NSURLConnection *)connection needNewBodyStream:(NSURLRequest *)request
 {
@@ -94,6 +94,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     [connection cancel];
+    [QueueProHanle taskFinish];
     if(_infoDict == nil)
     {
         [delegate didReciveImage:[UIImage imageWithData:backData]];

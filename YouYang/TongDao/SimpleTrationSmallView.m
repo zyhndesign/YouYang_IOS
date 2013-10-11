@@ -81,7 +81,8 @@
         [proImageV setImage:[UIImage imageNamed:@"defultbg-200.png"]];
         ProImageLoadNet *proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
         proImageLoadNet.delegate = self;
-        [proImageLoadNet loadImageFromUrl:imageURL];
+        proImageLoadNet.imageUrl = [imageURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [QueueProHanle addTarget:proImageLoadNet];
         [proImageLoadNet release];
     }
 }

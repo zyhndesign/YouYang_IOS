@@ -41,7 +41,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_artifact.png" id="NF0-2V-tiX">
-                    <rect key="frame" x="200" y="275" width="615" height="185"/>
+                    <rect key="frame" x="170" y="275" width="685" height="180"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ejE-NM-WQC">
@@ -80,7 +80,7 @@
         <image name="bg3.png" width="1024" height="768"/>
         <image name="bg_artifact.png" width="1024" height="748"/>
         <image name="down.png" width="50" height="50"/>
-        <image name="slogan_artifact.png" width="615" height="185"/>
+        <image name="slogan_artifact.png" width="685" height="180"/>
         <image name="title_artifact.png" width="320" height="160"/>
     </resources>
 </document>

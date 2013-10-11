@@ -76,6 +76,15 @@
     if (Mode == 0)
         [self modeTwo];
     
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 6.0f;
+    paragraphStyle.firstLineHeadIndent = 13.0f;
+    NSString *string = [_infoDict objectForKey:@"description"];
+    NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName, [UIFont systemFontOfSize:14], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
+    detailTextV.attributedText = atrriString;
+    [paragraphStyle release];
+    [atrriString    release];
     
     NSString *timeStr = [_infoDict objectForKey:@"postDate"];
     if (timeStr.length >= 8)
@@ -86,7 +95,6 @@
         timeLb.text = [NSString stringWithFormat:@"%@/%@/%@", yearStr, monthSt, dayStr];
     }
     titleLb.text       = [_infoDict objectForKey:@"name"];
-    detailTextV.text   = [_infoDict objectForKey:@"description"];
     NSString *imageURL = [_infoDict objectForKey:@"profile"];
     NSArray *tempAry = [imageURL componentsSeparatedByString:@"."];
     imageURL = [tempAry objectAtIndex:0];

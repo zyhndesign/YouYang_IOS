@@ -10,6 +10,7 @@
                 <outlet property="animaImageViewOne" destination="ba0-5E-6h8" id="0xt-dU-dP0"/>
                 <outlet property="contentScrolV" destination="5" id="27"/>
                 <outlet property="mainImageV" destination="16" id="21"/>
+                <outlet property="pageControl" destination="kG8-01-6kV" id="VJu-Hf-Inf"/>
                 <outlet property="view" destination="4" id="28"/>
             </connections>
         </placeholder>
@@ -37,7 +38,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_community.png" id="Uki-eS-vLG">
-                    <rect key="frame" x="307" y="317" width="410" height="135"/>
+                    <rect key="frame" x="307" y="300" width="410" height="135"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Rc-x2-1Db">
@@ -58,6 +59,13 @@
                         <outlet property="delegate" destination="-1" id="29"/>
                     </connections>
                 </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="kG8-01-6kV">
+                    <rect key="frame" x="0.0" y="1400" width="1024" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

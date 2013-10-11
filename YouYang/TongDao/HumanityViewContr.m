@@ -29,35 +29,68 @@
 {
     [super viewDidLoad];
 }
+#define PageSize 4
+- (void)didReceiveMemoryWarning
+{
+    NSLog(@"didReceiveMemoryWarning");
+    if (AllScrollView.contentOffset.y >= 768*4 && AllScrollView.contentOffset.y < 768*6)
+    {
+        
+    }
+    else
+    {
+        int currentPage = contentScrolV.contentOffset.x/1024 + 1;
+        for(UIView *view in [contentScrolV subviews])
+        {
+            if (view.tag == 0)
+                continue;
+            if (view.tag <= PageSize*(currentPage-1) || view.tag > PageSize*(currentPage+1))
+            {
+                [view removeFromSuperview];
+            }
+        }
+    }
+    [super didReceiveMemoryWarning];
+}
 
 #define HeighTopOne 450
 #define HeighTopTwo 300
 #define HeighTopThr 1200
 - (void)rootscrollViewDidScrollToPointY:(int)pointY
 {
-    if (pointY > 400)
+    if (pointY > 10)
     {
-        int positionYOne = 600 - (pointY - 400)*2/3;
+        int positionYOne = 600 - (pointY - 10)/3;
         positionYOne = positionYOne < HeighTopOne ? HeighTopOne:positionYOne;
-        int positionYTwo = 550 - (pointY - 400)*2/3;
+        int positionYTwo = 700 - (pointY - 10)/3;
         positionYTwo = positionYTwo < HeighTopTwo ? HeighTopTwo:positionYTwo;
-        int positionYThr = 1400 - (pointY - 400)*2/3;
-        positionYThr = positionYThr < HeighTopThr ? HeighTopThr:positionYThr;
         [animaImageViewOne setFrame:CGRectMake(animaImageViewOne.frame.origin.x, positionYOne, animaImageViewOne.frame.size.width, animaImageViewOne.frame.size.height)];
         [animaImageViewTwo setFrame:CGRectMake(animaImageViewTwo.frame.origin.x, positionYTwo, animaImageViewTwo.frame.size.width, animaImageViewTwo.frame.size.height)];
+    }
+    if (pointY > 350)
+    {
+        int positionYThr = 1400 - (pointY - 450)/2;
+        positionYThr = positionYThr < HeighTopThr ? HeighTopThr:positionYThr;
         [animaImageViewThr setFrame:CGRectMake(animaImageViewThr.frame.origin.x, positionYThr, animaImageViewThr.frame.size.width, animaImageViewThr.frame.size.height)];
     }
 }
 
 #define StartX 112
 #define StartY 200
-#define PageSize 4
 - (void)loadSubview:(NSArray*)ary
 {
     initAry = [ary retain];
+    
     int page = initAry.count/PageSize;
     if (initAry.count%PageSize)
         page++;
+    if (page == 0)
+        page = 1;
+    pageControl.numberOfPages = page;
+    pageControl.currentPage = 0;
+    pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+    pageControl.pageIndicatorTintColor = [UIColor darkGrayColor];
+    
     [contentScrolV setContentSize:CGSizeMake(page*1024, contentScrolV.frame.size.height)];
     
     for (int i = 0; i < initAry.count; i++)
@@ -135,7 +168,7 @@
     
     for(UIView *view in [contentScrolV subviews])
     {
-        if ((view.tag < (midPage - 2)*4 + 1 || view.tag > (midPage + 3)*4 + 1) && view.tag != 0)
+        if ((view.tag < (midPage - 2)*PageSize  || view.tag > (midPage + 3)*PageSize) && view.tag != 0)
         {
             [view removeFromSuperview];
         }
@@ -162,9 +195,14 @@
    
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    int currentPage = scrollView.contentOffset.x/1024;
+    pageControl.currentPage = currentPage;
+}
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    NSLog(@"scrollViewWillBeginDragging");
     int page = contentScrolV.contentOffset.x/1024;
     [self removeRemainMenuView:page];
     [self rebuildNewMenuView:page];
@@ -172,7 +210,6 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSLog(@"endDecelering");
     NSInteger page = (scrollView.contentOffset.x+100)/1024 + 1;
     [self rebulidCurrentPage:[NSNumber numberWithInt:page]];
 

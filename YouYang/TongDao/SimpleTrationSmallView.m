@@ -39,32 +39,23 @@
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [self addSubview:proImageV];
     
-    titleLb  = [[UILabel alloc] initWithFrame:CGRectMake(30, 25, self.frame.size.width - 60, 40)];
+    UILabel *bgLb = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 35, self.frame.size.width, 35)];
+    bgLb.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.6];
+    [self addSubview:bgLb];
+    [bgLb release];
+    
+    titleLb  = [[UILabel alloc] initWithFrame:CGRectMake(10, self.frame.size.height - 35, self.frame.size.width-10,35)];
     titleLb.backgroundColor = [UIColor clearColor];
-    titleLb.textColor       = [UIColor blackColor];
-    titleLb.textAlignment = NSTextAlignmentCenter;
-    titleLb.font = [UIFont boldSystemFontOfSize:19];
+    titleLb.textColor       = [UIColor whiteColor];
+    titleLb.font = [UIFont boldSystemFontOfSize:17];
+    titleLb.text = [_infoDict objectForKey:@"name"];
     [self addSubview:titleLb];
-    
-    UILabel *midLineLb = [[UILabel alloc] initWithFrame:CGRectMake(30, 80, self.frame.size.width - 60, 1)];
-    midLineLb.backgroundColor = [UIColor blackColor];
-    [self addSubview:midLineLb];
-    [midLineLb release];
-    
-    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(22, 100, self.frame.size.width - 35, 105)];
-    detailTextV.font = [UIFont systemFontOfSize:14];
-    detailTextV.textColor = [UIColor grayColor];
-    detailTextV.backgroundColor = [UIColor clearColor];
-    detailTextV.editable = NO;
-    detailTextV.scrollEnabled = NO;
-    [self addSubview:detailTextV];
     
     UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
     [self addGestureRecognizer:tapGestureR];
     [tapGestureR release];
     
-    titleLb.text = [_infoDict objectForKey:@"name"];
-    detailTextV.text = [_infoDict objectForKey:@"description"];
+    
     NSString *imageURL = [_infoDict objectForKey:@"profile"];
     NSArray *tempAry = [imageURL componentsSeparatedByString:@"."];
     imageURL = [tempAry objectAtIndex:0];
@@ -100,7 +91,6 @@
     [proImageV release];
     [titleLb   release];
     [_infoDict release];
-    [detailTextV release];
     [super dealloc];
 }
 

@@ -47,8 +47,8 @@
     [super viewDidLoad];
     
     infoDict = [[NSMutableDictionary alloc] init];
-    activeView = [[ActiveView alloc] init];
-    activeView.center = CGPointMake(512, 350);
+    activeView = [[ActionView alloc] init];
+    activeView.center = CGPointMake(512, 400);
     [self.view addSubview:activeView];
     
     
@@ -70,11 +70,12 @@
     if([[NSFileManager defaultManager] fileExistsAtPath:documentPath isDirectory:&dirBOOL])
     {
         activeView.hidden = YES;
+        [activeView stopAnimation];
         [self webViewLoadLocalData];
     }
     else
     {
-        [activeView startActive];
+        [activeView startAnimation];
         [self startLoadSimpleZipData];
     }
 }
@@ -133,7 +134,7 @@
 
 - (void)didReceiveErrorCode:(NSError *)error
 {
-    [activeView stopActive];
+    [activeView stopAnimation];
     [activeView removeFromSuperview];
     if ([error code] == -1009)
     {
@@ -153,7 +154,7 @@
 - (void)didReceiveZipResult:(BOOL)success
 {
     [self webViewLoadLocalData];
-    [activeView stopActive];
+    [activeView stopAnimation];
     [activeView removeFromSuperview];
 }
 
@@ -199,7 +200,7 @@
 
 - (IBAction)back:(UIButton*)sender
 {
-    [activeView stopActive];
+    [activeView stopAnimation];
     [activeView removeFromSuperview];
     [loadZipNet setDelegate:nil];
     [_webView setDelegate:nil];

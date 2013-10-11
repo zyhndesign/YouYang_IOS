@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VersionViewContr">
             <connections>
+                <outlet property="detailTextV" destination="6" id="VcZ-21-5j3"/>
                 <outlet property="view" destination="4" id="10"/>
             </connections>
         </placeholder>
@@ -15,15 +16,18 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="530"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_backgroud.png" id="XO0-wr-7TU">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="530"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo2.png" id="dbd-Sh-wBP">
                     <rect key="frame" x="124" y="132" width="340" height="265"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" id="6">
-                    <rect key="frame" x="570" y="191" width="372" height="220"/>
+                    <rect key="frame" x="570" y="191" width="372" height="319"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <string key="text">   “酉歌行”设计与社会创新夏令营是在酉阳县委领导的支持下，由湖南大学、四川美术学院、米兰理工大学、美克美家等单位联合开展的跨学科联合设计与社会创新活动。活动以酉阳的国家级非物质文化遗产摆手舞、阳戏及原生态民歌为研究对象，通过数字化的影像记录与网络平台构建、可视化与交互设计、互动参与式的社区活动等方法，探索基于网络的、可持续、开放的文化生态保护与发展模式，为地域传统文化的传播、创新及产业化提供设计支持。活动保护和传播了酉阳非物质文化遗产，丰富了当地村民的文化生活，增进他们对本土文化的自豪感。</string>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -38,6 +42,7 @@
         </view>
     </objects>
     <resources>
+        <image name="bg_backgroud.png" width="1024" height="530"/>
         <image name="logo2.png" width="340" height="265"/>
         <image name="title_background.png" width="140" height="40"/>
     </resources>

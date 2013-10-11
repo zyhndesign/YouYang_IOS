@@ -44,9 +44,9 @@
     
     [scrllview addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
     
-    myActivew = [[ActiveView alloc] initWithFrame:CGRectZero];
-    myActivew.center = CGPointMake(512, 370);
-    [myActivew startActive];
+    myActivew = [[ActionView alloc] initWithFrame:CGRectZero];
+    myActivew.center = CGPointMake(512, 400);
+    [myActivew startAnimation];
     [self.view addSubview:myActivew];
     
     imageLoadNet = [[ProImageLoadNet alloc] initWithDict:nil];
@@ -82,7 +82,7 @@
 - (IBAction)backPress:(id)sender
 {
     [imageLoadNet setDelegate:nil];
-    [myActivew stopActive];
+    [myActivew stopAnimation];
     [myActivew removeFromSuperview];
     [UIView animateWithDuration:0.3
                      animations:^(void){
@@ -119,7 +119,7 @@
 
 - (void)didReciveImage:(UIImage *)backImage
 {
-    [myActivew stopActive];
+    [myActivew stopAnimation];
     [myActivew removeFromSuperview];
     [imageView setImage:backImage];
     float W = CGImageGetWidth(backImage.CGImage);
@@ -131,7 +131,7 @@
 
 - (void)didReceiveErrorCode:(NSError *)ErrorDict
 {
-    [myActivew stopActive];
+    [myActivew stopAnimation];
     [myActivew removeFromSuperview];
     [imageView setImage:[UIImage imageNamed:@"404-1.png"]];
 }

@@ -31,6 +31,30 @@
     [super viewDidLoad];
 }
 
+#define PageSize 3
+- (void)didReceiveMemoryWarning
+{
+    NSLog(@"didReceiveMemoryWarning");
+    if (AllScrollView.contentOffset.y >= 768*6 && AllScrollView.contentOffset.y < 768*8)
+    {
+        
+    }
+    else
+    {
+        int currentPage = contentScrolV.contentOffset.x/1024 + 1;
+        for(UIView *view in [contentScrolV subviews])
+        {
+            if (view.tag == 0)
+                continue;
+            if (view.tag <= PageSize*(currentPage-1) || view.tag > PageSize*(currentPage+1))
+            {
+                [view removeFromSuperview];
+            }
+        }
+    }
+    [super didReceiveMemoryWarning];
+}
+
 #define HeighTopOne 800
 #define HeighTopTwo 1350
 - (void)rootscrollViewDidScrollToPointY:(int)pointY
@@ -54,13 +78,20 @@
 #define StartX 122
 #define StartY 264
 #define Gap 30
-#define PageSize 3
 - (void)loadSubview:(NSArray*)ary
 {
     initAry = [ary retain];
+    
     int page = initAry.count/PageSize;
     if (initAry.count%PageSize)
         page++;
+    if (page == 0)
+        page = 1;
+    pageControl.numberOfPages = page;
+    pageControl.currentPage = 0;
+    pageControl.currentPageIndicatorTintColor = [UIColor darkGrayColor];
+    pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+    
     [contentScrolV setContentSize:CGSizeMake(1024*page, contentScrolV.frame.size.height)];
     for (int i = 0; i < initAry.count && i < PageSize*3; i++)
     {
@@ -128,7 +159,7 @@
     
     for(UIView *view in [contentScrolV subviews])
     {
-        if (view.tag < (midPage - 2)*4 + 1 || view.tag > (midPage + 3)*4 + 1)
+        if (view.tag < (midPage - 2)*PageSize || view.tag > (midPage + 3)*PageSize)
         {
             [view removeFromSuperview];
         }
@@ -156,6 +187,12 @@
     int page = contentScrolV.contentOffset.x/1024;
     [self removeRemainMenuView:page];
     [self rebuildNewMenuView:page];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    int currentPage = scrollView.contentOffset.x/1024;
+    pageControl.currentPage = currentPage;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

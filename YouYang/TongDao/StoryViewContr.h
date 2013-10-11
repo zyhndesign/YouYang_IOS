@@ -17,6 +17,8 @@
     IBOutlet UIImageView *animaImageViewOne;
     IBOutlet UIImageView *animaImageViewTwo;
 
+    IBOutlet UIPageControl *pageControl;
+    
     NSArray *initAry;
 }
 

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface VersionViewContr : UIViewController
-
+{
+    IBOutlet UITextView *detailTextV;
+}
 @end

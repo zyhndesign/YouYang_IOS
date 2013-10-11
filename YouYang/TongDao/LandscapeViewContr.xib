@@ -11,6 +11,7 @@
                 <outlet property="animaImageViewTwo" destination="PsE-Uz-XyM" id="SNi-y5-EfJ"/>
                 <outlet property="contentScrolV" destination="5" id="21"/>
                 <outlet property="mainImageV" destination="18" id="19"/>
+                <outlet property="pageControl" destination="aJO-qF-3pz" id="tvI-Ya-t6m"/>
                 <outlet property="view" destination="4" id="15"/>
             </connections>
         </placeholder>
@@ -23,8 +24,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogon_landscape.png" id="Pu6-0d-vec">
-                    <rect key="frame" x="137" y="257" width="750" height="255"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_landscape.png" id="Pu6-0d-vec">
+                    <rect key="frame" x="144" y="250" width="735" height="195"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="lRC-cn-5gH">
@@ -32,7 +33,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7gK-mi-VbP">
-                    <rect key="frame" x="487" y="600" width="50" height="50"/>
+                    <rect key="frame" x="487" y="580" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" backgroundImage="down.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,8 +54,8 @@
                     <rect key="frame" x="679" y="1175" width="445" height="595"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogon_landscape.png" id="yyV-rj-Nrb">
-                    <rect key="frame" x="337" y="800" width="350" height="155"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landscape.png" id="yyV-rj-Nrb">
+                    <rect key="frame" x="320" y="800" width="385" height="155"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="5">
@@ -65,17 +66,25 @@
                         <outlet property="delegate" destination="-1" id="26"/>
                     </connections>
                 </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="aJO-qF-3pz">
+                    <rect key="frame" x="0.0" y="1400" width="1024" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
         </view>
     </objects>
     <resources>
-        <image name="bg1.png" width="960" height="720"/>
+        <image name="bg1.png" width="1024" height="768"/>
         <image name="bg_artifact.png" width="1024" height="748"/>
         <image name="down.png" width="50" height="50"/>
+        <image name="landscape.png" width="385" height="155"/>
         <image name="landscape_bg1.png" width="620" height="470"/>
         <image name="landscape_bg2.png" width="445" height="595"/>
-        <image name="slogon_landscape.png" width="750" height="225"/>
+        <image name="slogan_landscape.png" width="735" height="195"/>
     </resources>
 </document>

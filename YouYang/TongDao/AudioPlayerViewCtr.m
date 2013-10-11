@@ -352,6 +352,7 @@ static BOOL nextOpOver = YES;
         [self performSelector:@selector(imply:) onThread:[NSThread mainThread] withObject:@"暂无音乐数据" waitUntilDone:NO];
 }
 
+static BOOL onlyFirst;
 - (void)didReceiveErrorCode:(NSError *)ErrorDict
 {
     stopAllView.hidden = YES;
@@ -364,6 +365,11 @@ static BOOL nextOpOver = YES;
     }
     else // ([[[ErrorDict userInfo] objectForKey:NSLocalizedDescriptionKey] isEqual:@"bad URL"])
     {
+        if (!onlyFirst)
+        {
+            onlyFirst = YES;
+            return;
+        }
         UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"音乐文件不存在" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alerView show];
         [alerView release];

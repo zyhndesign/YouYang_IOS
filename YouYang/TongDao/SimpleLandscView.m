@@ -43,24 +43,18 @@
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.width)];
     [self addSubview:proImageV];
 
+    UILabel *bgLb = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 35, self.frame.size.width, 35)];
+    bgLb.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.6];
+    [self addSubview:bgLb];
+    [bgLb release];
     
-    titleLb  = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, self.frame.size.width - 40, 35)];
+    titleLb  = [[UILabel alloc] initWithFrame:CGRectMake(10, self.frame.size.height - 35, self.frame.size.width-10,35)];
     titleLb.backgroundColor = [UIColor clearColor];
     titleLb.textColor       = [UIColor whiteColor];
-    titleLb.textAlignment   = NSTextAlignmentCenter;
     titleLb.font = [UIFont boldSystemFontOfSize:17];
     [self addSubview:titleLb];
     
-    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(22, 90, self.frame.size.width - 35, 105)];
-    detailTextV.font = [UIFont systemFontOfSize:14];
-    detailTextV.textColor = [UIColor grayColor];
-    detailTextV.backgroundColor = [UIColor clearColor];
-    detailTextV.editable = NO;
-    detailTextV.scrollEnabled = NO;
-    [self addSubview:detailTextV];
-    
     titleLb.text = [_infoDict objectForKey:@"name"];
-    detailTextV.text = [_infoDict objectForKey:@"description"];
     NSString *imageURL = [_infoDict objectForKey:@"profile"];
     NSArray *tempAry = [imageURL componentsSeparatedByString:@"."];
     imageURL = [tempAry objectAtIndex:0];
@@ -96,7 +90,6 @@
     [proImageV release];
     [titleLb   release];
     [_infoDict release];
-    [detailTextV release];
     [super dealloc];
 }
 

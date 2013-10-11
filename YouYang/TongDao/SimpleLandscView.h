@@ -12,7 +12,6 @@
 {
     UIImageView *proImageV;
     UILabel *titleLb;
-    UITextView *detailTextV;
     
     NSDictionary *_infoDict;
 }

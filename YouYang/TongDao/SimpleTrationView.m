@@ -76,7 +76,7 @@
     {
         if (i == tempAry.count - 1)
         {
-            imageURL = [NSString stringWithFormat:@"%@-400x400.%@", imageURL, [tempAry objectAtIndex:i]];
+            imageURL = [NSString stringWithFormat:@"%@-200x200.%@", imageURL, [tempAry objectAtIndex:i]];
         }
         else
             imageURL = [NSString stringWithFormat:@"%@.%@", imageURL, [tempAry objectAtIndex:i]];

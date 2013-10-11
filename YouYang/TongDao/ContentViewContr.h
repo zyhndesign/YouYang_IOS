@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "NetworkDelegate.h"
 #import "LoadZipFileNet.h"
-#import "ActiveView.h"
-
+#import "ActionView.h"
 @interface ContentViewContr : UIViewController<UIWebViewDelegate, NSXMLParserDelegate, NetworkDelegate>
 {
-    ActiveView *activeView;
+    ActionView *activeView;
     IBOutlet UIWebView *_webView;
     NSDictionary *initDict;
     NSMutableDictionary *infoDict;

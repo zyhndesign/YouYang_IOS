@@ -12,6 +12,7 @@
                 <outlet property="animaImageViewTwo" destination="iWB-MQ-Tsr" id="FPs-2N-17l"/>
                 <outlet property="contentScrolV" destination="5" id="16"/>
                 <outlet property="mainImageV" destination="17" id="18"/>
+                <outlet property="pageControl" destination="L6o-En-h7F" id="PB8-TR-d7T"/>
                 <outlet property="view" destination="4" id="15"/>
             </connections>
         </placeholder>
@@ -29,7 +30,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="humanity_float2.png" id="iWB-MQ-Tsr">
-                    <rect key="frame" x="-30" y="550" width="260" height="1280"/>
+                    <rect key="frame" x="-30" y="700" width="260" height="1280"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="humanity_float3.png" id="aWO-7d-Shd">
@@ -45,7 +46,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_humanity.png" id="W5d-iS-vlB">
-                    <rect key="frame" x="240" y="319" width="545" height="130"/>
+                    <rect key="frame" x="240" y="305" width="545" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="5">
@@ -56,6 +57,13 @@
                         <outlet property="delegate" destination="-1" id="27"/>
                     </connections>
                 </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="L6o-En-h7F">
+                    <rect key="frame" x="0.0" y="1400" width="1024" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </pageControl>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3w8-O4-0nt">
                     <rect key="frame" x="487" y="580" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -78,7 +86,7 @@
         <image name="humanity_float1.png" width="800" height="500"/>
         <image name="humanity_float2.png" width="260" height="1280"/>
         <image name="humanity_float3.png" width="330" height="420"/>
-        <image name="slogan_humanity.png" width="545" height="130"/>
+        <image name="slogan_humanity.png" width="545" height="120"/>
         <image name="title_humanity.png" width="300" height="150"/>
     </resources>
 </document>

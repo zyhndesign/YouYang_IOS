@@ -11,6 +11,7 @@
                 <outlet property="animaImageViewTwo" destination="ZLl-t2-DJM" id="dtG-uu-Nbm"/>
                 <outlet property="contentScrolV" destination="5" id="21"/>
                 <outlet property="mainImageV" destination="18" id="26"/>
+                <outlet property="pageControl" destination="hep-ci-T84" id="00n-4J-IHz"/>
                 <outlet property="view" destination="4" id="15"/>
             </connections>
         </placeholder>
@@ -40,11 +41,11 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_artifact.png" id="NF0-2V-tiX">
-                    <rect key="frame" x="200" y="289" width="615" height="190"/>
+                    <rect key="frame" x="200" y="275" width="615" height="185"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ejE-NM-WQC">
-                    <rect key="frame" x="487" y="590" width="50" height="50"/>
+                    <rect key="frame" x="487" y="580" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" backgroundImage="down.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,6 +62,13 @@
                         <outlet property="delegate" destination="-1" id="27"/>
                     </connections>
                 </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="hep-ci-T84">
+                    <rect key="frame" x="0.0" y="1325" width="1024" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -72,7 +80,7 @@
         <image name="bg3.png" width="1024" height="768"/>
         <image name="bg_artifact.png" width="1024" height="748"/>
         <image name="down.png" width="50" height="50"/>
-        <image name="slogan_artifact.png" width="615" height="190"/>
+        <image name="slogan_artifact.png" width="615" height="185"/>
         <image name="title_artifact.png" width="320" height="160"/>
     </resources>
 </document>

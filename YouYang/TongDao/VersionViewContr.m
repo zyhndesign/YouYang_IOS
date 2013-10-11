@@ -6,9 +6,7 @@
 //  Copyright (c) 2013年 sunyong. All rights reserved.
 //
 /*
- 通道侗族自治县位于湖南、广西、贵州三省交界处，通道全县总人口22.5万人，其中侗族人口占到78.4%，境内生态环境极为秀美，民族文化保存完好，被誉为“侗族文化圣地”，是充分展示侗族之魅力、文化之灿烂、社会之和谐的福地。
- 虽然通道物产丰富，森林覆盖率达74%，年产商品材17万立方米，但经济形式单一，至今仍然是全国贫困县，2008年农民人均纯收入1571元。
- 本项目针对通道这样一个具备“独特的自然生态环境与丰富的非物质文化遗产”但经济发展落后的少数民族地区，整合不同专业和学科的优势，通过合理的村镇规划、生态旅游开发、信息与物流网络建设、产品与服务系统整合、非物质文化遗产保护等综合的工作方法，建立一个国际化的设计创新联盟和基于网络的信息平台，参与式的促进当地居民的文化自主意识和产业创新。在保持当地居民的和谐生活形态和发展需要的前提下，实现从落后的农耕文明社区，不经历资源消耗型的工业发展阶段，直接“蛙跳”进入以文化和信息为中心的创新社区，成为新型工业化和两型社会的典范。
+ “酉歌行”设计与社会创新夏令营是在酉阳县委领导的支持下，由湖南大学、四川美术学院、米兰理工大学、美克美家等单位联合开展的跨学科联合设计与社会创新活动。活动以酉阳的国家级非物质文化遗产摆手舞、阳戏及原生态民歌为研究对象，通过数字化的影像记录与网络平台构建、可视化与交互设计、互动参与式的社区活动等方法，探索基于网络的、可持续、开放的文化生态保护与发展模式，为地域传统文化的传播、创新及产业化提供设计支持。活动保护和传播了酉阳非物质文化遗产，丰富了当地村民的文化生活，增进他们对本土文化的自豪感。
  */
 #import "VersionViewContr.h"
 
@@ -32,6 +30,17 @@
     self.view.backgroundColor = [UIColor colorWithRed:33/255.0 green:33/255.0 blue:33/255.0 alpha:1];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 6.0f;
+    paragraphStyle.firstLineHeadIndent = 13.0f;
+    NSString *string = [NSString stringWithFormat:@"“酉歌行”设计与社会创新夏令营是在酉阳县委领导的支持下，由湖南大学、四川美术学院、米兰理工大学、美克美家等单位联合开展的跨学科联合设计与社会创新活动。活动以酉阳的国家级非物质文化遗产摆手舞、阳戏及原生态民歌为研究对象，通过数字化的影像记录与网络平台构建、可视化与交互设计、互动参与式的社区活动等方法，探索基于网络的、可持续、开放的文化生态保护与发展模式，为地域传统文化的传播、创新及产业化提供设计支持。活动保护和传播了酉阳非物质文化遗产，丰富了当地村民的文化生活，增进他们对本土文化的自豪感。"];
+    NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName, [UIFont systemFontOfSize:14], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
+    detailTextV.attributedText = atrriString;
+    [paragraphStyle release];
+    [atrriString    release];
+    
 }
 
 - (void)didReceiveMemoryWarning

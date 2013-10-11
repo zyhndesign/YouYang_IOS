@@ -84,7 +84,7 @@
         NSString *pathProFile = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)  lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%@", [infoDict objectForKey:@"id"], backGround]];
         if([[NSFileManager defaultManager] fileExistsAtPath:pathProFile])
         {
-            [mainImageV setImage:[UIImage imageWithContentsOfFile:pathProFile]];
+            //[mainImageV setImage:[UIImage imageWithContentsOfFile:pathProFile]];
         }
         else
         {
@@ -145,7 +145,7 @@
 #pragma mark - net delegate
 - (void)didReciveImage:(UIImage *)backImage
 {
-    [mainImageV setImage:backImage];
+    //[mainImageV setImage:backImage];
 }
 
 - (void)didReceiveErrorCode:(NSError *)ErrorDict

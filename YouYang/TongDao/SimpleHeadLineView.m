@@ -60,14 +60,23 @@
     [self addSubview:midLineLb];
     [midLineLb release];
     
-    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(8, 282, 200, 95)];
+    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(8, 282, 200, 105)];
     detailTextV.backgroundColor = [UIColor clearColor];
     detailTextV.textColor       =  [UIColor darkGrayColor];
     detailTextV.font = [UIFont systemFontOfSize:13];
-    detailTextV.text = [_infoDict objectForKey:@"description"];
     detailTextV.editable = NO;
     detailTextV.scrollEnabled = NO;
     [self addSubview:detailTextV];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 6.0f;
+    paragraphStyle.firstLineHeadIndent = 13.0f;
+    NSString *string = [_infoDict objectForKey:@"description"];
+    NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName, nil];
+    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
+    detailTextV.attributedText = atrriString;
+    [paragraphStyle release];
+    [atrriString    release];
     
     //////////
     NSString *imageURL = [_infoDict objectForKey:@"profile"];

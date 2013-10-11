@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NetworkDelegate.h"
-#import "ActiveView.h"
-
+#import "ActionView.h"
 @class ProImageLoadNet;
 
 @interface ImageViewShowContr : UIViewController<NetworkDelegate>
@@ -23,7 +22,7 @@
 	CGFloat imgStartHeight;
     
     NSString *urlStr;
-	ActiveView *myActivew;
+	ActionView *myActivew;
     ProImageLoadNet *imageLoadNet;
 }
 

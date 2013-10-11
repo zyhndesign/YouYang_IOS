@@ -18,6 +18,7 @@
     IBOutlet UIImageView *animaImageViewTwo;
     IBOutlet UIImageView *animaImageViewThr;
     
+    IBOutlet UIPageControl *pageControl;
     NSArray *initAry;
     
     int pageLenght;

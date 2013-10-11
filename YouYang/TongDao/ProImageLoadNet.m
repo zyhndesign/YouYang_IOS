@@ -22,7 +22,7 @@
 
 - (void)loadImageFromUrl:(NSString*)imageURLStr
 {
-    imageUrl = [imageURLStr retain];
+    imageUrl = [[imageURLStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] retain];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:imageURLStr] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:120.0f];
     [request setHTTPMethod:@"GET"];
     [request setHTTPBody:nil];

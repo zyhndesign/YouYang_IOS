@@ -29,6 +29,30 @@
     [super viewDidLoad];
 }
 
+#define PageSize 4
+- (void)didReceiveMemoryWarning
+{
+    NSLog(@"didReceiveMemoryWarning");
+    if (AllScrollView.contentOffset.y >= 768*8 && AllScrollView.contentOffset.y < 768*9)
+    {
+        
+    }
+    else
+    {
+        int currentPage = contentScrolV.contentOffset.x/1024 + 1;
+        for(UIView *view in [contentScrolV subviews])
+        {
+            if (view.tag == 0)
+                continue;
+            if (view.tag <= PageSize*(currentPage-1) || view.tag > PageSize*(currentPage+1))
+            {
+                [view removeFromSuperview];
+            }
+        }
+    }
+    [super didReceiveMemoryWarning];
+}
+
 #define HeighTopOne 966
 
 - (void)rootscrollViewDidScrollToPointY:(int)pointY
@@ -44,7 +68,6 @@
 
 #define StartX 112
 #define StartY 200
-#define PageSize 4
 
 - (void)loadSubview:(NSArray*)ary
 {
@@ -52,7 +75,13 @@
     int page = initAry.count/PageSize;
     if (initAry.count%PageSize)
         page++;
-
+    if (page == 0)
+        page = 1;
+    pageControl.numberOfPages = page;
+    pageControl.currentPage = 0;
+    pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+    pageControl.pageIndicatorTintColor = [UIColor darkGrayColor];
+    
     [contentScrolV setContentSize:CGSizeMake(page*1024, contentScrolV.frame.size.height)];
     
     for (int i = 0; i < initAry.count; i++)
@@ -129,7 +158,7 @@
     
     for(UIView *view in [contentScrolV subviews])
     {
-        if ((view.tag < (midPage - 2)*4 + 1 || view.tag > (midPage + 2)*4 + 1) && view.tag > 0)
+        if ((view.tag < (midPage - 2)*PageSize || view.tag > (midPage + 2)*PageSize) && view.tag > 0)
         {
             [view removeFromSuperview];
         }
@@ -153,24 +182,12 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if (!decelerate)
-    {
-        if (scrollView.contentSize.width == 1024)
-        {
-            leftBt.hidden  = YES;
-            rightBg.hidden = YES;
-            return;
-        }
-        if (scrollView.contentOffset.x < 1024 - 100)
-            leftBt.hidden = YES;
-        else
-            leftBt.hidden = NO;
-        
-        if (scrollView.contentOffset.x >= scrollView.contentSize.width - 1024 - 100)
-            rightBg.hidden = YES;
-        else
-            rightBg.hidden = NO;
-    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    int currentPage = scrollView.contentOffset.x/1024;
+    pageControl.currentPage = currentPage;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -183,21 +200,6 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self rebulidCurrentPage:(scrollView.contentOffset.x+100)/1024];
-    if (scrollView.contentSize.width == 1024)
-    {
-        leftBt.hidden  = YES;
-        rightBg.hidden = YES;
-        return;
-    }
-    if (scrollView.contentOffset.x < 1024 - 100)
-        leftBt.hidden = YES;
-    else
-        leftBt.hidden = NO;
-    
-    if (scrollView.contentOffset.x >= scrollView.contentSize.width - 1024 - 100)
-        rightBg.hidden = YES;
-    else
-        rightBg.hidden = NO;
 }
 
 

@@ -19,7 +19,7 @@
     NSString *urlStr = [NSString stringWithFormat:@"http://lotusprize.com/travel/wp-admin/admin-ajax.php"];
     ///NSString *urlStr = [NSString stringWithFormat:@"http://lotusprize.com/travel/wp-admin/admin-ajax.php?programId=1&action=zy_get_music"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:6.0f];
-    NSString *bodyStr = [NSString stringWithFormat:@"action=zy_get_music&programId=13"];
+    NSString *bodyStr = [NSString stringWithFormat:@"action=zy_get_music&programId=6"];
     
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:[bodyStr dataUsingEncoding:NSUTF8StringEncoding]];

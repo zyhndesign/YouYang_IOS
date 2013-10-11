@@ -11,7 +11,6 @@
 #import "LocalSQL.h"
 #import "LoadMusicQue.h"
 #import "ContentViewContr.h"
-#import "ActiveView.h"
 #import "ImageViewShowContr.h"
 #import "SCGIFImageView.h"
 
@@ -35,12 +34,6 @@
     musicView.hidden = YES;
     menuView.hidden = YES;
     
-    musicView.layer.borderWidth = 1;
-    musicView.layer.borderColor = [UIColor darkGrayColor].CGColor;
-
-    menuView.layer.borderWidth = 1;
-    menuView.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    
     [self performSelector:@selector(MainViewLayerOut) withObject:nil afterDelay:0.3];
     
 }
@@ -50,7 +43,13 @@
 - (void)MainViewLayerOut
 {
     AllScrollView = _scrollView;
+    _scrollView.backgroundColor = [UIColor blackColor];
     [_scrollView setContentSize:CGSizeMake(1024, PageSize*10 + 530)];
+    
+    UIImageView *lastBgImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_backgroud.png"]];
+    [lastBgImageV setFrame:CGRectMake(0, PageSize*10 + 530, 1024, 550)];
+    [_scrollView addSubview:lastBgImageV];
+    [lastBgImageV release];
   //  _scrollView.pagingEnabled = YES;
     homePageViewCtr  = [[HomePageViewContr alloc] init];
     [homePageViewCtr.view setFrame:CGRectMake(0, 0, homePageViewCtr.view.frame.size.width, homePageViewCtr.view.frame.size.height)];
@@ -111,11 +110,6 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (scrollView.contentOffset.y < 3072)
-        scrollView.backgroundColor = [UIColor blackColor];
-    else
-        scrollView.backgroundColor = [UIColor colorWithRed:33/255.0 green:33/255.0 blue:33/255.0 alpha:1];
-    
     int pointY = scrollView.contentOffset.y;
     int page = pointY/1536;
     UIButton *currentPageBt = (UIButton*)[menuView viewWithTag:page+1];
@@ -164,7 +158,10 @@
 - (IBAction)MenuShow:(UIButton*)sender
 {
     if (menuView.hidden)
-        menuView.hidden = NO;
+    {
+        menuView.hidden  = NO;
+        musicView.hidden = YES;
+    }
     else
         menuView.hidden = YES;
 }
@@ -178,8 +175,6 @@ static BOOL handleScrol;
         [CurrentBt setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     CurrentBt = sender;
     [sender setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    
 }
 
 - (IBAction)musicShow:(UIButton*)sender
@@ -187,6 +182,7 @@ static BOOL handleScrol;
     if (musicView.hidden)
     {
         musicView.hidden = NO;
+        menuView.hidden  = YES;
     }
     else
     {
@@ -248,15 +244,15 @@ static BOOL handleScrol;
         }
     }
     NSArray *cateOne = [LocalSQL getHeadline];
-    NSArray *cateTwo = [LocalSQL getSectionData:@"13/14"];
-    NSArray *cateThr = [LocalSQL getSectionData:@"13/15"];
-    NSArray *cateFou = [LocalSQL getSectionData:@"13/16"];
-    NSArray *cateFiv = [LocalSQL getSectionData:@"13/17"];
+    NSArray *cateTwo = [LocalSQL getSectionData:@"6/10"];
+    NSArray *cateThr = [LocalSQL getSectionData:@"6/7"];
+    NSArray *cateFou = [LocalSQL getSectionData:@"6/8"];
+    NSArray *cateFiv = [LocalSQL getSectionData:@"6/9"];
     [LocalSQL closeDataBase];
     
     [homePageViewCtr  loadSubview:cateOne];
-    [landscapeViewCtr loadSubview:cateThr];
-    [humanityViewCtr  loadSubview:cateTwo];
+    [landscapeViewCtr loadSubview:cateTwo];
+    [humanityViewCtr  loadSubview:cateThr];
     [storyViewCtr     loadSubview:cateFou];
     [communityViewCtr loadSubview:cateFiv];
     
@@ -271,10 +267,10 @@ static BOOL handleScrol;
 {
     [LocalSQL openDataBase];
     NSArray *cateOne = [LocalSQL getHeadline];
-    NSArray *cateTwo = [LocalSQL getSectionData:@"13/14"];
-    NSArray *cateThr = [LocalSQL getSectionData:@"13/15"];
-    NSArray *cateFou = [LocalSQL getSectionData:@"13/16"];
-    NSArray *cateFiv = [LocalSQL getSectionData:@"13/17"];
+    NSArray *cateTwo = [LocalSQL getSectionData:@"6/10"];
+    NSArray *cateThr = [LocalSQL getSectionData:@"6/7"];
+    NSArray *cateFou = [LocalSQL getSectionData:@"6/8"];
+    NSArray *cateFiv = [LocalSQL getSectionData:@"6/9"];
     [LocalSQL closeDataBase];
     
     [homePageViewCtr  loadSubview:cateOne];

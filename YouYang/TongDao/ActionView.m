@@ -25,7 +25,6 @@
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     imageView.image = [UIImage imageNamed:@"loading.png"];
     [self addSubview:imageView];
-    [imageView release];
 }
 
 - (void)startAnimation
@@ -45,5 +44,9 @@
     [self.layer removeAnimationForKey:@"rotationZ"];
 }
 
+- (void)dealloc
+{
+    
+}
 
 @end

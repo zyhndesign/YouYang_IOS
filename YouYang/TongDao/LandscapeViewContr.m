@@ -74,7 +74,7 @@
 #define Gap 30
 - (void)loadSubview:(NSArray*)ary
 {
-    initAry = [ary retain];
+    initAry = [[NSArray alloc] initWithArray:ary];
     int page = initAry.count/PageSize;
     if (initAry.count%PageSize)
         page++;
@@ -94,7 +94,6 @@
         [simpleLandscView setFrame:CGRectMake(1024*page + StartX + row*simpleLandscView.frame.size.width + row*Gap, StartY, simpleLandscView.frame.size.width, simpleLandscView.frame.size.height)];
         simpleLandscView.tag = i + 1;
         [contentScrolV addSubview:simpleLandscView];
-        [simpleLandscView release];
     }
     
 }
@@ -116,7 +115,6 @@
             [simpleLandscView setFrame:CGRectMake(1024*page + StartX + row*simpleLandscView.frame.size.width + row*Gap, StartY, simpleLandscView.frame.size.width, simpleLandscView.frame.size.height)];
             simpleLandscView.tag = i + 1;
             [contentScrolV addSubview:simpleLandscView];
-            [simpleLandscView release];
         }
     }
 }
@@ -139,7 +137,6 @@
             [simpleLandscView setFrame:CGRectMake(1024*page + StartX + row*simpleLandscView.frame.size.width + row*Gap, StartY, simpleLandscView.frame.size.width, simpleLandscView.frame.size.height)];
             simpleLandscView.tag = i + 1;
             [contentScrolV addSubview:simpleLandscView];
-            [simpleLandscView release];
         }
     }
 }
@@ -160,8 +157,7 @@
 
 - (void)dealloc
 {
-    [initAry release];
-    [super dealloc];
+   
 }
 
 - (IBAction)nextPage:(UIButton*)sender

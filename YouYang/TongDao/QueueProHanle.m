@@ -13,7 +13,7 @@
 @implementation QueueProHanle
 
 static int  finishTaskCount = 0;
-static NSMutableArray *allTaskAry;
+static __strong NSMutableArray *allTaskAry;
 + (void)init
 {
     if (!allTaskAry)

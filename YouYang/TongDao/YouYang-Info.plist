@@ -29,6 +29,10 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>YYicon144</string>
+				<string>YYIcon72</string>
+				<string>YYicon144Change</string>
+				<string>YYicon72Change</string>
 				<string>youyang114</string>
 				<string>youyang72</string>
 				<string>icon_newchannel_144(1)</string>
@@ -62,6 +66,16 @@
 	<true/>
 	<key>UILaunchImages~ipad</key>
 	<array>
+		<dict>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>7.0</string>
+			<key>UILaunchImageName</key>
+			<string>Guide pages1024</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Landscape</string>
+			<key>UILaunchImageSize</key>
+			<string>{768, 1024}</string>
+		</dict>
 		<dict>
 			<key>UILaunchImageMinimumOSVersion</key>
 			<string>7.0</string>

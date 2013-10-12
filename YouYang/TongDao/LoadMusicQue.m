@@ -27,16 +27,12 @@
     NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     if (connect)
     {
-        backData = [[NSMutableData data] retain];
+        backData = [[NSMutableData alloc] init];
     }
     else
     {
-        if (backData)
-            [backData release];
         backData = nil;
     }
-    [request release];
-    [connect release];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -62,9 +58,7 @@
 
 - (void)dealloc
 {
-    if (backData)
-        [backData release];
-    [super dealloc];
+    backData = nil;
 }
 
 @end

@@ -18,7 +18,6 @@
 #import "AllVariable.h"
 
 @class ContentViewContr;
-@class ImageViewShowContr;
 
 
 
@@ -49,6 +48,6 @@
 - (IBAction)MenuShow:(UIButton*)sender;
 - (IBAction)selectMenu:(UIButton*)sender;
 - (IBAction)musicShow:(UIButton*)sender;
-- (void)imageScaleShow:(ImageViewShowContr*)imageViewSContr;
-- (void)presentViewContr:(ContentViewContr*)contentViewContr;
+- (void)imageScaleShow:(NSString*)imageUrl;
+- (void)presentViewContr:(NSDictionary*)_infoDict;
 @end

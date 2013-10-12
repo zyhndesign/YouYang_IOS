@@ -10,8 +10,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "LocalSQL.h"
 #import "LoadMusicQue.h"
-#import "ContentViewContr.h"
-#import "ImageViewShowContr.h"
+#import "ContentView.h"
+#import "ImageShowView.h"
 #import "SCGIFImageView.h"
 
 @interface ViewController ()
@@ -53,7 +53,7 @@
     UIImageView *lastBgImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_backgroud.png"]];
     [lastBgImageV setFrame:CGRectMake(0, PageSize*10 + 530, 1024, 550)];
     [_scrollView addSubview:lastBgImageV];
-    [lastBgImageV release];
+
   //  _scrollView.pagingEnabled = YES;
     homePageViewCtr  = [[HomePageViewContr alloc] init];
     [homePageViewCtr.view setFrame:CGRectMake(0, 0, homePageViewCtr.view.frame.size.width, homePageViewCtr.view.frame.size.height)];
@@ -83,7 +83,6 @@
     LoadMenuInfoNet *loadMenuInfoNet = [[LoadMenuInfoNet alloc] init];
     loadMenuInfoNet.delegate = self;
     [loadMenuInfoNet loadMenuFromUrl];
-    [loadMenuInfoNet release];
     
     audioPlayViewCtr = [[AudioPlayerViewCtr alloc] init];
     [audioPlayViewCtr.view setFrame:CGRectMake(0, 0, audioPlayViewCtr.view.frame.size.width, audioPlayViewCtr.view.frame.size.height)];
@@ -194,28 +193,26 @@ static BOOL handleScrol;
     }
 }
 
-- (void)imageScaleShow:(ImageViewShowContr*)imageViewSContr
+- (void)imageScaleShow:(NSString*)imageUrl
 {
+    NSLog(@"imageScaleShow");
     stopAllView.hidden = NO;
     otherContentV.hidden = NO;
-    [imageViewSContr.view setFrame:CGRectMake(0, 748, imageViewSContr.view.frame.size.width, imageViewSContr.view.frame.size.height)];
-    [otherContentV addSubview:imageViewSContr.view];
+    ImageShowView *imageShowView = [[ImageShowView alloc] initwithURL:imageUrl];
+    imageShowView.tag = 1010;
+    [otherContentV addSubview:imageShowView];
+    [imageShowView setFrame:CGRectMake(0, 768, 1024, 768)];
     [UIView animateWithDuration:0.3
                      animations:^(void){
-                         [imageViewSContr.view setFrame:CGRectMake(0, 0, imageViewSContr.view.frame.size.width, imageViewSContr.view.frame.size.height)];
+                         [imageShowView setFrame:CGRectMake(0, 0, 1024, 768)];
                      }
                      completion:^(BOOL finish){
                          stopAllView.hidden = YES;
                      }];
 }
 
-- (void)presentViewContr:(ContentViewContr*)contentViewContr
+- (void)presentViewContr:(NSDictionary*)_infoDict
 {
-//    ///test sunyong
-//    [self presentViewController:contentViewContr animated:YES completion:nil];
-//    [contentViewContr release];
-//    return;
-    
     if (AllOnlyShowPresentOne == 1)
     {
         return;
@@ -223,11 +220,12 @@ static BOOL handleScrol;
     AllOnlyShowPresentOne = 1;
     stopAllView.hidden = NO;
     otherContentV.hidden = NO;
-    contentViewContr.view.center = CGPointMake(1024+ 512, contentViewContr.view.frame.size.height/2);
-    [otherContentV addSubview:contentViewContr.view];
+    ContentView *contentV = [[ContentView alloc] initWithInfoDict:_infoDict];
+    [contentV setFrame:CGRectMake(1024, 0, 1024, 768)];
+    [otherContentV addSubview:contentV];
     [UIView animateWithDuration:0.3
                      animations:^(void){
-                         [contentViewContr.view setCenter:CGPointMake(512, contentViewContr.view.center.y)];
+                         [contentV setFrame:CGRectMake(0, 0, 1024, 768)];
                      }
                      completion:^(BOOL finish){
                          stopAllView.hidden = YES;

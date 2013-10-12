@@ -71,7 +71,7 @@
 
 - (void)loadSubview:(NSArray*)ary
 {
-    initAry = [ary retain];
+    initAry = [[NSArray alloc] initWithArray:ary];
     int page = initAry.count/PageSize;
     if (initAry.count%PageSize)
         page++;
@@ -92,7 +92,6 @@
             UILabel *midLb = [[UILabel alloc] initWithFrame:CGRectMake(page*1024 + StartX + (i%4)*200 -1, StartY + 15, 1, 400 - 50)];
             midLb.backgroundColor = [UIColor whiteColor];
             [contentScrolV addSubview:midLb];
-            [midLb release];
         }
     }
     for (int i = 0; i < initAry.count && i < PageSize*3; i++)
@@ -102,7 +101,6 @@
         simpleHimanView.frame = CGRectMake(page*1024 + StartX + (i%PageSize)*simpleHimanView.frame.size.width, StartY, simpleHimanView.frame.size.width, simpleHimanView.frame.size.height);
         simpleHimanView.tag = i + 1;
         [contentScrolV addSubview:simpleHimanView];
-        [simpleHimanView release];
     }
 }
 
@@ -123,7 +121,6 @@
             simpleHimanView.frame = CGRectMake(page*1024 + StartX + (i%PageSize)*simpleHimanView.frame.size.width, StartY, simpleHimanView.frame.size.width, simpleHimanView.frame.size.height);
             simpleHimanView.tag = i + 1;
             [contentScrolV addSubview:simpleHimanView];
-            [simpleHimanView release];
         }
     }
 }
@@ -145,8 +142,6 @@
             simpleHimanView.frame = CGRectMake(page*1024 + StartX + (i%PageSize)*simpleHimanView.frame.size.width, StartY, simpleHimanView.frame.size.width, simpleHimanView.frame.size.height);
             simpleHimanView.tag = i + 1;
             [contentScrolV addSubview:simpleHimanView];
-            [simpleHimanView release];
-            
         }
     }
 }
@@ -169,8 +164,7 @@
 
 - (void)dealloc
 {
-    [initAry release];
-    [super dealloc];
+
 }
 
 - (IBAction)nextPage:(UIButton*)sender

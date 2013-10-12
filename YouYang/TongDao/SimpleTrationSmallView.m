@@ -9,7 +9,6 @@
 #import "SimpleTrationSmallView.h"
 #import "ProImageLoadNet.h"
 #import "AllVariable.h"
-#import "ContentViewContr.h"
 #import "ViewController.h"
 
 @implementation SimpleTrationSmallView
@@ -28,7 +27,7 @@
 {
     self = [super initWithFrame:CGRectMake(0, 0, 240, 240)];
     if (self) {
-        _infoDict = [infoDict retain];
+        _infoDict = [[NSDictionary alloc] initWithDictionary:infoDict];
         [self addView];
     }
     return self;
@@ -42,7 +41,6 @@
     UILabel *bgLb = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 35, self.frame.size.width, 35)];
     bgLb.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.6];
     [self addSubview:bgLb];
-    [bgLb release];
     
     titleLb  = [[UILabel alloc] initWithFrame:CGRectMake(10, self.frame.size.height - 35, self.frame.size.width-10,35)];
     titleLb.backgroundColor = [UIColor clearColor];
@@ -53,7 +51,6 @@
     
     UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
     [self addGestureRecognizer:tapGestureR];
-    [tapGestureR release];
     
     
     NSString *imageURL = [_infoDict objectForKey:@"profile"];
@@ -83,16 +80,16 @@
         proImageLoadNet.delegate = self;
         proImageLoadNet.imageUrl = [imageURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [QueueProHanle addTarget:proImageLoadNet];
-        [proImageLoadNet release];
     }
 }
 
 - (void)dealloc
 {
-    [proImageV release];
-    [titleLb   release];
-    [_infoDict release];
-    [super dealloc];
+    [proImageV removeFromSuperview];
+    proImageV = nil;
+    [titleLb   removeFromSuperview];
+    titleLb  = nil;
+    _infoDict = nil;
 }
 
 #pragma mark - tapGesture
@@ -103,8 +100,7 @@
     {
         return;
     }
-    ContentViewContr *contentV = [[ContentViewContr alloc] initWithInfoDict:_infoDict];
-    [RootViewContr presentViewContr:contentV];
+    [RootViewContr presentViewContr:_infoDict];
 }
 
 #pragma mark - net delegate

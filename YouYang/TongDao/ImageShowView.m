@@ -1,25 +1,31 @@
 //
-//  ImageViewShowContr.m
-//  GYSJ
+//  ImageShowView.m
+//  YouYang
 //
-//  Created by sunyong on 13-9-9.
+//  Created by sunyong on 13-10-11.
 //  Copyright (c) 2013年 sunyong. All rights reserved.
 //
 
-#import "ImageViewShowContr.h"
+#import "ImageShowView.h"
 #import "ProImageLoadNet.h"
 #import "AllVariable.h"
 #import "ViewController.h"
 
-@interface ImageViewShowContr ()
+@implementation ImageShowView
 
-@end
-
-@implementation ImageViewShowContr
+- (id)initWithFrame:(CGRect)frame
+{
+    frame = CGRectMake(0, 0, 1024, 768);
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
 
 - (id)initwithURL:(NSString*)URLStr
 {
-    if ((self = [super init]))
+    if ([super init])
     {
         URLStr = [URLStr stringByReplacingOccurrencesOfString:@"*_*" withString:@"/"];
         NSArray *tempAryOne = [URLStr componentsSeparatedByString:@"show_image"];
@@ -28,16 +34,40 @@
         URLStr = [tempAryOne objectAtIndex:0];
         if (tempAryOne.count < 2)
             return self;
-
+        
         URLStr = [NSString stringWithFormat:@"%@wp-content/uploads%@", URLStr, [tempAryOne objectAtIndex:1]];
-        urlStr = [URLStr retain];
+        urlStr = [[NSString alloc] initWithString:URLStr];
+        [self addMyView];
     }
     return self;
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
+- (void)addMyView
 {
+    self.backgroundColor = [UIColor whiteColor];
+    scrllview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, 1024, 718)];
+    scrllview.userInteractionEnabled = YES;
+    scrllview.multipleTouchEnabled   = YES;
+    scrllview.delegate = self;
+    [self addSubview:scrllview];
+    
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 718)];
+    [scrllview addSubview:imageView];
+    
+    bgLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1024, 50)];
+    bgLabel.backgroundColor = [UIColor blackColor];
+    bgLabel.alpha = 0.7;
+    [self addSubview:bgLabel];
+    
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setFrame:CGRectMake(487, 0, 50, 50)];
+    [backButton setBackgroundImage:[UIImage imageNamed:@"close_defult.png"] forState:UIControlStateNormal];
+    [backButton setBackgroundImage:[UIImage imageNamed:@"close_actived.png"] forState:UIControlStateHighlighted];
+    [backButton addTarget:self action:@selector(backPress:) forControlEvents:UIControlEventTouchDown];
+    [self addSubview:backButton];
+    
+    
     [scrllview setMaximumZoomScale:8];
     [scrllview setMinimumZoomScale:0.2];
     [imageView setCenter:CGPointMake(512, 359)];
@@ -47,51 +77,45 @@
     myActivew = [[ActionView alloc] initWithFrame:CGRectZero];
     myActivew.center = CGPointMake(512, 400);
     [myActivew startAnimation];
-    [self.view addSubview:myActivew];
+    [self addSubview:myActivew];
     
     imageLoadNet = [[ProImageLoadNet alloc] initWithDict:nil];
     imageLoadNet.delegate = self;
     imageLoadNet.imageUrl = [[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [imageLoadNet loadImageFromUrl];
     
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 - (void)dealloc
 {
     [scrllview removeObserver:self forKeyPath:@"contentSize" context:nil];
-    [imageLoadNet release];
-    [urlStr       release];
-    [myActivew release];
+    
+    [bgLabel removeFromSuperview];
+    bgLabel = nil;
+    
+    [myActivew removeFromSuperview];
+    myActivew = nil;
     
     [imageView removeFromSuperview];
-    [imageView release];
     imageView = nil;
     
     [scrllview removeFromSuperview];
-    [scrllview release];
     scrllview = nil;
     
-    [super dealloc];
+    urlStr = nil;
+    imageLoadNet = nil;
 }
 
-- (IBAction)backPress:(id)sender
+- (void)backPress:(id)sender
 {
     [imageLoadNet setDelegate:nil];
     [myActivew stopAnimation];
-    [myActivew removeFromSuperview];
     [UIView animateWithDuration:0.3
                      animations:^(void){
-                         [self.view setFrame:CGRectMake(0, 768, self.view.frame.size.width, self.view.frame.size.height)];
+                         [self setFrame:CGRectMake(0, 768, self.frame.size.width, self.frame.size.height)];
                      }
                      completion:^(BOOL finish){
-                         [self.view removeFromSuperview];
-                         [self release];
+                         [self removeFromSuperview];
                      }];
     
 }
@@ -140,5 +164,6 @@
     [myActivew removeFromSuperview];
     [imageView setImage:[UIImage imageNamed:@"404-1.png"]];
 }
+
 
 @end

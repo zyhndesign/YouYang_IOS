@@ -16,9 +16,9 @@
     int connectNum;
 }
 @property(nonatomic, assign)id<NetworkDelegate>delegate;
-@property(nonatomic, retain)NSString *md5Str;
-@property(nonatomic, retain)NSString *urlStr;
-@property(nonatomic, retain)NSString *zipStr;
+@property(nonatomic, strong)NSString *md5Str;
+@property(nonatomic, strong)NSString *urlStr;
+@property(nonatomic, strong)NSString *zipStr;
 
 - (void)loadMenuFromUrl;
 

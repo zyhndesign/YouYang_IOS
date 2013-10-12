@@ -1,57 +1,64 @@
 //
-//  ContentViewContr.m
-//  GYSJ
+//  ContentView.m
+//  YouYang
 //
-//  Created by sunyong on 13-7-23.
+//  Created by sunyong on 13-10-11.
 //  Copyright (c) 2013年 sunyong. All rights reserved.
 //
 
-#import "ContentViewContr.h"
+#import "ContentView.h"
 #import "AppDelegate.h"
 #import "MoviePlayViewContr.h"
 #import "AllVariable.h"
 #import "ViewController.h"
-#import "ImageViewShowContr.h"
+@implementation ContentView
 
-@interface ContentViewContr ()
-
-@end
-
-@implementation ContentViewContr
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    frame = CGRectMake(0, 0, 1024, 768);
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        
     }
     return self;
 }
 
 - (id)initWithInfoDict:(NSDictionary*)_infoDict
 {
-    self = [super init];
+    self = [super initWithFrame:CGRectZero];
     if (self)
     {
-        initDict = _infoDict;
+        initDict = [[NSDictionary alloc] initWithDictionary:_infoDict];
+        [self addMyView];
     }
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)addMyView
 {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+    
+    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 50, 1024, 718)];
+    _webView.detectsPhoneNumbers = NO;
+    _webView.delegate = self;
+    [self addSubview:_webView];
+    
+    bgLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1024, 50)];
+    bgLabel.backgroundColor = [UIColor blackColor];
+    bgLabel.alpha = 0.7;
+    [self addSubview:bgLabel];
+    
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setFrame:CGRectMake(0, 0, 50, 50)];
+    [backButton setBackgroundImage:[UIImage imageNamed:@"back_defult.png"] forState:UIControlStateNormal];
+    [backButton setBackgroundImage:[UIImage imageNamed:@"back_actived.png"] forState:UIControlStateHighlighted];
+    [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchDown];
+    [self addSubview:backButton];
     
     [AllActiveView removeFromSuperview];
-    [self.view addSubview:AllActiveView];
+    [self addSubview:AllActiveView];
+    
     infoDict = [[NSMutableDictionary alloc] init];
-    
-    
-    _webView.opaque = NO;
     id scroller = [_webView.subviews objectAtIndex:0];
     for(UIView *subView in [scroller subviews])
     {
@@ -80,17 +87,15 @@
 
 - (void)dealloc
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
     [_webView removeFromSuperview];
     _webView = nil;
-    [self.view removeFromSuperview];
-    if (keyStr)
-        [keyStr release];
-    [loadZipNet release];
-    [infoDict   release];
-    [pool release];
-    [super dealloc];
+    [bgLabel removeFromSuperview];
+    bgLabel = nil;
+    
+    initDict = nil;
+    infoDict = nil;
+    keyStr   = nil;
+    loadZipNet = nil;
 }
 
 - (void)startLoadSimpleZipData
@@ -122,7 +127,6 @@
         NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL fileURLWithPath:docXmlPath]];
         xmlParser.delegate = self;
         [xmlParser parse];
-        [xmlParser release];
     }
 }
 
@@ -135,13 +139,11 @@
     {
         UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络数据连接失败，请检查网络设置。" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alerView show];
-        [alerView release];
     }
     else // ([[[ErrorDict userInfo] objectForKey:NSLocalizedDescriptionKey] isEqual:@"bad URL"])
     {
         UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络数据有误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alerView show];
-        [alerView release];
     }
     
 }
@@ -171,9 +173,7 @@
 {
     if (StartKey)
     {
-        if (keyStr)
-             [keyStr release];
-        keyStr = [string retain];
+        keyStr = [[NSString alloc] initWithFormat:@"%@",string];
     }
     if (StartValue && string.length > 0)
     {
@@ -192,7 +192,7 @@
 }
 
 
-- (IBAction)back:(UIButton*)sender
+- (void)back:(UIButton*)sender
 {
     [AllActiveView stopAnimation];
     [AllActiveView removeFromSuperview];
@@ -200,16 +200,11 @@
     [_webView setDelegate:nil];
     [_webView stopLoading];
     
-//    ////testsunyong
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//    return;
-    
     [UIView animateWithDuration:0.3
                      animations:^(void){
-                         [self.view setCenter:CGPointMake(1042+ 512, self.view.center.y)];
+                         [self setCenter:CGPointMake(1042+ 512, self.center.y)];
                      }
                      completion:^(BOOL finish){
-                         [self.view removeFromSuperview];
                          RootViewContr.otherContentV.hidden = YES;
                          UIView *view = [RootViewContr.otherContentV viewWithTag:1010];
                          if (view)
@@ -217,16 +212,14 @@
                              [view removeFromSuperview];
                          }
                          AllOnlyShowPresentOne = 0;
-                         [self release];
+                         [self removeFromSuperview];
                      }];
 }
 
 - (void)moviePlayOver:(NSNotification*)notification
 {
-    self.view.hidden = NO;
+    self.hidden = NO;
 }
-
-
 
 #pragma mark - webview delegate
 
@@ -235,9 +228,7 @@
     NSString *urlStr = [[request URL] description];
     if ([urlStr componentsSeparatedByString:@"show_image"].count > 1 || [urlStr componentsSeparatedByString:@"wp-content"].count > 1)
     {
-        ImageViewShowContr *imageViewSContr = [[ImageViewShowContr alloc] initwithURL:urlStr];
-        imageViewSContr.view.tag = 1010;
-        [RootViewContr imageScaleShow:imageViewSContr];
+        [RootViewContr imageScaleShow:urlStr];
         return NO;
     }
     else if ([urlStr componentsSeparatedByString:@"show_media"].count > 1)
@@ -248,7 +239,6 @@
         ///http://lotusprize.com/travel/wp-content/uploads/211/dddd.mp4
         MoviePlayViewContr *moviePlayVCtr = [[MoviePlayViewContr alloc] initwithURL:movieUrlStr];
         [RootViewContr presentViewController:moviePlayVCtr animated:YES completion:nil];
-        [moviePlayVCtr release];
         return NO;
     }
     else if([urlStr componentsSeparatedByString:@"file:"].count > 1)
@@ -266,12 +256,13 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-     [AllActiveView startAnimation];
+    [AllActiveView startAnimation];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [AllActiveView stopAnimation];
 }
+
 
 @end

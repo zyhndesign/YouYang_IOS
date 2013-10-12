@@ -1,32 +1,29 @@
 //
-//  ProImageLoadNet.m
-//  GYSJ
+//  HeadProImageNet.m
+//  TongDao
 //
-//  Created by sunyong on 13-9-12.
+//  Created by sunyong on 13-10-12.
 //  Copyright (c) 2013年 sunyong. All rights reserved.
 //
 
-#import "ProImageLoadNet.h"
-#import "AllVariable.h"
+#import "HeadProImageNet.h"
 
-@implementation ProImageLoadNet
+@implementation HeadProImageNet
 @synthesize delegate;
-@synthesize imageUrl;
 @synthesize _infoDict;
+@synthesize imageUrl;
 
 - (id)initWithDict:(NSDictionary*)infoDict
 {
     self = [super init];
     if (self) {
-        _infoDict = infoDict;
+        self._infoDict = infoDict;
     }
     return self;
 }
 
-////// bug 推荐的pro有重合，没处理
 - (void)loadImageFromUrl
 {
-   // imageUrl = [[imageURLStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] retain];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:imageUrl] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:120.0f];
     [request setHTTPMethod:@"GET"];
     [request setHTTPBody:nil];
@@ -52,7 +49,6 @@
     NSURLConnection *connectNet = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     if (connectNet)
     {
-        
         backData = [[NSMutableData alloc] init];
     }
     else
@@ -63,9 +59,8 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    if (connectNum == 2)
+    if (connectNum == 3)
     {
-        [QueueProHanle taskFinish];
         [delegate didReceiveErrorCode:error];
     }
     else
@@ -74,7 +69,6 @@
         [self reloadUrlData];
     }
 }
-
 
 - (NSInputStream *)connection:(NSURLConnection *)connection needNewBodyStream:(NSURLRequest *)request
 {
@@ -88,7 +82,6 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     [connection cancel];
-    [QueueProHanle taskFinish];
     if(_infoDict == nil)
     {
         [delegate didReciveImage:[UIImage imageWithData:backData]];
@@ -111,6 +104,5 @@
     imageUrl = nil;
     _infoDict = nil;
 }
-
 
 @end

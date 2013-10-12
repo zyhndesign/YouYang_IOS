@@ -7,9 +7,8 @@
 //
 
 #import "SimpleHeadLineView.h"
-#import "ProImageLoadNet.h"
+#import "HeadProImageNet.h"
 #import "AllVariable.h"
-#import "ContentViewContr.h"
 #import "ViewController.h"
 
 @implementation SimpleHeadLineView
@@ -30,7 +29,7 @@
     self = [super initWithFrame:CGRectMake(0, 0, 210, 410)];
     if (self)
     {
-        _infoDict = [infoDict retain];
+        _infoDict = [[NSDictionary alloc] initWithDictionary:infoDict];
         [self addView];
     }
     return self;
@@ -41,7 +40,6 @@
     self.backgroundColor = [UIColor whiteColor];
     UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView)];
     [self addGestureRecognizer:tapGestureR];
-    [tapGestureR release];
     
     /////defultbg-210.png
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 210, 210)];
@@ -58,7 +56,6 @@
     UILabel *midLineLb = [[UILabel alloc] initWithFrame:CGRectMake(14, 278, 180, 1)];
     midLineLb.backgroundColor = [UIColor grayColor];
     [self addSubview:midLineLb];
-    [midLineLb release];
     
     detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(8, 282, 200, 105)];
     detailTextV.backgroundColor = [UIColor clearColor];
@@ -75,8 +72,6 @@
     NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName, nil];
     NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
     detailTextV.attributedText = atrriString;
-    [paragraphStyle release];
-    [atrriString    release];
     
     //////////
     NSString *imageURL = [_infoDict objectForKey:@"profile"];
@@ -102,22 +97,22 @@
     else
     {
         [proImageV setImage:[UIImage imageNamed:@"defultbg-210.png"]];
-        ProImageLoadNet *proImageLoadNet = [[ProImageLoadNet alloc] initWithDict:_infoDict];
+        HeadProImageNet *proImageLoadNet = [[HeadProImageNet alloc] initWithDict:_infoDict];
         proImageLoadNet.delegate = self;
         proImageLoadNet.imageUrl = [imageURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [proImageLoadNet loadImageFromUrl];
-        //[QueueProHanle addTarget:proImageLoadNet];
-        [proImageLoadNet release];
     }
 }
 
 - (void)dealloc
 {
-    [proImageV   release];
-    [titleLb     release];
-    [detailTextV release];
-    [_infoDict   release];
-    [super dealloc];
+    [proImageV removeFromSuperview];
+    proImageV   = nil;
+    [titleLb removeFromSuperview];
+    titleLb     = nil;
+    [detailTextV removeFromSuperview];
+    detailTextV = nil;
+    _infoDict   = nil;
 }
 
 #pragma mark - tapGesture
@@ -128,8 +123,7 @@
     {
         return;
     }
-    ContentViewContr *contentV = [[ContentViewContr alloc] initWithInfoDict:_infoDict];
-    [RootViewContr presentViewContr:contentV];
+    [RootViewContr presentViewContr:_infoDict];
 }
 
 

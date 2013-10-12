@@ -11,7 +11,7 @@
 
 @implementation QueueZipHandle
 static int  finishTaskCount = 0;
-static NSMutableArray *allTaskAry;
+static __strong NSMutableArray *allTaskAry;
 
 + (void)init
 {

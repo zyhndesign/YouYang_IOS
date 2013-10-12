@@ -38,9 +38,6 @@
     NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName, [UIFont systemFontOfSize:14], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
     detailTextV.attributedText = atrriString;
-    [paragraphStyle release];
-    [atrriString    release];
-    
 }
 
 - (void)didReceiveMemoryWarning

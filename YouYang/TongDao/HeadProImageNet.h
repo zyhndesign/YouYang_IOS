@@ -1,15 +1,16 @@
 //
-//  ProImageLoadNet.h
-//  GYSJ
+//  HeadProImageNet.h
+//  TongDao
 //
-//  Created by sunyong on 13-9-12.
+//  Created by sunyong on 13-10-12.
 //  Copyright (c) 2013年 sunyong. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+
 #import "NetworkDelegate.h"
 
-@interface ProImageLoadNet : NSObject
+@interface HeadProImageNet : NSObject
 {
     NSMutableData *backData;
     int connectNum;
@@ -17,8 +18,8 @@
     NSString *imageUrl;
 }
 @property(nonatomic, assign)id<NetworkDelegate>delegate;
-@property(nonatomic, strong)NSString *imageUrl;
 @property(nonatomic, strong)NSDictionary *_infoDict;
+@property(nonatomic, strong)NSString *imageUrl;
 
 - (id)initWithDict:(NSDictionary*)infoDict;
 - (void)loadImageFromUrl;

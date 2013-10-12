@@ -1,8 +1,8 @@
 //
-//  ContentViewContr.h
-//  GYSJ
+//  ContentView.h
+//  YouYang
 //
-//  Created by sunyong on 13-7-23.
+//  Created by sunyong on 13-10-11.
 //  Copyright (c) 2013年 sunyong. All rights reserved.
 //
 
@@ -10,9 +10,12 @@
 #import "NetworkDelegate.h"
 #import "LoadZipFileNet.h"
 #import "ActionView.h"
-@interface ContentViewContr : UIViewController<UIWebViewDelegate, NSXMLParserDelegate, NetworkDelegate>
+
+@interface ContentView : UIView<UIWebViewDelegate, NSXMLParserDelegate, NetworkDelegate>
 {
-    IBOutlet UIWebView *_webView;
+    UIWebView *_webView;
+    UILabel *bgLabel;
+    
     NSDictionary *initDict;
     NSMutableDictionary *infoDict;
     
@@ -22,5 +25,6 @@
     LoadZipFileNet *loadZipNet;
 }
 - (id)initWithInfoDict:(NSDictionary*)infoDict;
-- (IBAction)back:(UIButton*)sender;
+- (void)back:(UIButton*)sender;
+
 @end

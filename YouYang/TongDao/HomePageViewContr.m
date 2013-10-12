@@ -9,7 +9,6 @@
 #import "HomePageViewContr.h"
 #import "SimpleHeadLineView.h"
 #import "ProImageLoadNet.h"
-#import "ContentViewContr.h"
 #import "ViewController.h"
 #import "MovieBgPlayViewCtr.h"
 
@@ -34,7 +33,6 @@
     
     UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
     [self.view addGestureRecognizer:tapGestureR];
-    [tapGestureR release];
     
     [super viewDidLoad];
 }
@@ -44,7 +42,7 @@
 #define Gap 15
 - (void)loadSubview:(NSArray*)ary
 {
-    initAry = [ary retain];
+    initAry = [[NSArray alloc] initWithArray:ary];
     if (initAry.count == 0) 
         return;
     /// 第一个
@@ -101,14 +99,12 @@
         SimpleHeadLineView *simpleHLView = [[SimpleHeadLineView alloc] initWithInfoDict:[initAry objectAtIndex:i]];
         [simpleHLView setFrame:CGRectMake(StartX + Gap*(i-1) + simpleHLView.frame.size.width*(i-1), StartY, simpleHLView.frame.size.width, simpleHLView.frame.size.height)];
         [contentScrolV addSubview:simpleHLView];
-        [simpleHLView release];
     }
 }
 
 - (void)dealloc
 {
-    [initAry release];
-    [super dealloc];
+    
 }
 
 #pragma mark - tapGesture
@@ -123,8 +119,7 @@
         {
             return;
         }
-        ContentViewContr *contentV = [[ContentViewContr alloc] initWithInfoDict:[initAry objectAtIndex:0]];
-        [RootViewContr presentViewContr:contentV];
+        [RootViewContr presentViewContr:[initAry objectAtIndex:0]];
     }
 }
 

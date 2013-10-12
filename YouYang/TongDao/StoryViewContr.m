@@ -7,7 +7,6 @@
 //
 
 #import "StoryViewContr.h"
-#import "SimpleTrationView.h"
 #import "SimpleTrationSmallView.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -80,7 +79,7 @@
 #define Gap 30
 - (void)loadSubview:(NSArray*)ary
 {
-    initAry = [ary retain];
+    initAry = [[NSArray alloc] initWithArray:ary];
     
     int page = initAry.count/PageSize;
     if (initAry.count%PageSize)
@@ -101,7 +100,6 @@
         [simpleTraSmalView setFrame:CGRectMake(1024*page + StartX + row*simpleTraSmalView.frame.size.width + row*Gap, StartY, simpleTraSmalView.frame.size.width, simpleTraSmalView.frame.size.height)];
         simpleTraSmalView.tag = i + 1;
         [contentScrolV addSubview:simpleTraSmalView];
-        [simpleTraSmalView release];
     }
 }
 
@@ -123,7 +121,6 @@
             [simpleTraSmalView setFrame:CGRectMake(1024*page + StartX + row*simpleTraSmalView.frame.size.width + row*Gap, StartY, simpleTraSmalView.frame.size.width, simpleTraSmalView.frame.size.height)];
             simpleTraSmalView.tag = i + 1;
             [contentScrolV addSubview:simpleTraSmalView];
-            [simpleTraSmalView release];
         }
     }
 }
@@ -147,7 +144,6 @@
             [simpleTraSmalView setFrame:CGRectMake(1024*page + StartX + row*simpleTraSmalView.frame.size.width + row*Gap, StartY, simpleTraSmalView.frame.size.width, simpleTraSmalView.frame.size.height)];
             simpleTraSmalView.tag = i + 1;
             [contentScrolV addSubview:simpleTraSmalView];
-            [simpleTraSmalView release];
         }
     }
 }
@@ -169,8 +165,7 @@
 
 - (void)dealloc
 {
-    [initAry release];
-    [super dealloc];
+ 
 }
 
 

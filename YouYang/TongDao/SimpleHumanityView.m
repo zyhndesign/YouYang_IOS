@@ -58,14 +58,19 @@
     timeLb.font = [UIFont systemFontOfSize:17];
     [self addSubview:timeLb];
     
-    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(20, 87, 170, 115)];
+    if (ios7)
+        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(20, 87, 170, 115)];
+    else
+        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(20, 87, 170, 80)];
+    
     detailTextV.font = [UIFont systemFontOfSize:14];
-    detailTextV.textColor = [UIColor whiteColor];
+    detailTextV.textColor       = [UIColor whiteColor];
     detailTextV.backgroundColor = [UIColor clearColor];
     detailTextV.editable = NO;
     detailTextV.scrollEnabled = NO;
     detailTextV.userInteractionEnabled = NO;
     [self addSubview:detailTextV];
+
     
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(20, 204, 160, 160)];
     [self addSubview:proImageV];

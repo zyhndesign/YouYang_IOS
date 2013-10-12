@@ -56,13 +56,17 @@
     UILabel *midLineLb = [[UILabel alloc] initWithFrame:CGRectMake(14, 278, 180, 1)];
     midLineLb.backgroundColor = [UIColor grayColor];
     [self addSubview:midLineLb];
+    if (ios7)
+        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(8, 282, 200, 90)];
+    else
+        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(8, 282, 200, 80)];
     
-    detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(8, 282, 200, 105)];
     detailTextV.backgroundColor = [UIColor clearColor];
-    detailTextV.textColor       =  [UIColor darkGrayColor];
+    detailTextV.textColor       = [UIColor darkGrayColor];
     detailTextV.font = [UIFont systemFontOfSize:13];
     detailTextV.editable = NO;
     detailTextV.scrollEnabled = NO;
+    detailTextV.userInteractionEnabled = NO;
     [self addSubview:detailTextV];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];

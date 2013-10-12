@@ -37,16 +37,15 @@
 
 - (void)addMyView
 {
+    bgLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1024, 50)];
+    bgLabel.backgroundColor = [UIColor blackColor];
+    bgLabel.alpha = 0.7;
+    [self addSubview:bgLabel];
     
     _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 50, 1024, 718)];
     _webView.detectsPhoneNumbers = NO;
     _webView.delegate = self;
     [self addSubview:_webView];
-    
-    bgLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1024, 50)];
-    bgLabel.backgroundColor = [UIColor blackColor];
-    bgLabel.alpha = 0.7;
-    [self addSubview:bgLabel];
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [backButton setFrame:CGRectMake(0, 0, 50, 50)];

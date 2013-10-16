@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "NetworkDelegate.h"
+#import "TextLayoutView.h"
 
 @interface SimpleHeadLineView : UIView<NetworkDelegate>
 {
     UIImageView *proImageV;
     UILabel *titleLb;
-    UITextView *detailTextV;
+    TextLayoutView *detailTextV;
     NSDictionary *_infoDict;
 }
 - (id)initWithInfoDict:(NSDictionary*)infoDict;

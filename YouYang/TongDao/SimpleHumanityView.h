@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NetworkDelegate.h"
+#import "TextLayoutView.h"
 
 @interface SimpleHumanityView : UIView<NetworkDelegate>
 {
@@ -15,7 +16,7 @@
     UILabel *titleLb;
     UILabel *midLineLb;
     UILabel *timeLb;
-    UITextView *detailTextV;
+    TextLayoutView *detailTextV;
     
     int Mode;
     NSDictionary *_infoDict;

@@ -1521,11 +1521,11 @@ cleanup:
 								parsedHeaders = YES;
 							}*/
 							NSString *metaInt;
-							NSString *contentType;
-							NSString *icyBr;
+						//	NSString *contentType;
+						//	NSString *icyBr;
 							metaInt = (NSString *) CFHTTPMessageCopyHeaderFieldValue(myResponse, CFSTR("Icy-Metaint"));
-							contentType = (NSString *) CFHTTPMessageCopyHeaderFieldValue(myResponse, CFSTR("Content-Type"));
-							icyBr = (NSString *) CFHTTPMessageCopyHeaderFieldValue(myResponse, CFSTR("icy-br"));
+						//	contentType = (NSString *) CFHTTPMessageCopyHeaderFieldValue(myResponse, CFSTR("Content-Type"));
+						//	icyBr = (NSString *) CFHTTPMessageCopyHeaderFieldValue(myResponse, CFSTR("icy-br"));
 							/*if (contentType) 
 							{
 								// only if we haven't already set a content-type

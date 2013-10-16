@@ -208,7 +208,7 @@ static BOOL nextOpOver = YES;
 {
     if (streamer.bitRate != 0.0)
 	{
-		double progress = streamer.progress;
+		//double progress = streamer.progress;
 		double duration = streamer.duration;
 		//  [NSString stringWithFormat:@"Time Played: %.1f/%.1f seconds",progress,duration]];
 		if (duration > 0)
@@ -307,10 +307,12 @@ static BOOL nextOpOver = YES;
 
 - (void)imply:(NSString*)infoStr
 {
+    @autoreleasepool {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:infoStr delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alertView show];
+        [alertView release];
+    }
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:infoStr delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    [alertView show];
-    [alertView release];
 }
 
 #pragma mark Remote Control Events

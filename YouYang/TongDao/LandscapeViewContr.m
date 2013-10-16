@@ -101,11 +101,11 @@
 {
     if (initAry.count < PageSize*3)
         return;
-    
-    for (int i = (midPage-2)*PageSize; i < initAry.count && i < (midPage+3)*PageSize; i++)
+    int startI = (midPage-2)*PageSize;
+    if (startI < 0)
+        startI = 0;
+    for (int i = startI; i < initAry.count && i < (midPage+3)*PageSize; i++)
     {
-        if (i < 0)
-            continue;
         SimpleLandscView *simpleLandscView = (SimpleLandscView*)[contentScrolV viewWithTag:i+1];
         if (!simpleLandscView)
         {
@@ -124,15 +124,16 @@
     if (initAry.count < PageSize*3)
         return;
     
-    for (int i = (currentPage-2)*PageSize; i < initAry.count && i < (currentPage+3)*PageSize; i++)
+    int startI = (currentPage-2)*PageSize;
+    if (startI < 0)
+        startI = 0;
+    for (int i = startI; i < initAry.count && i < (currentPage+3)*PageSize; i++)
     {
-        if (i < 0)
-            continue;
         SimpleLandscView *simpleLandscView = (SimpleLandscView*)[contentScrolV viewWithTag:i+1];
         if (!simpleLandscView)
         {
             int page = i/PageSize;
-            int row = i%PageSize;
+            int row  = i%PageSize;
             SimpleLandscView *simpleLandscView = [[SimpleLandscView alloc] initWithInfoDict:[initAry objectAtIndex:i]];
             [simpleLandscView setFrame:CGRectMake(1024*page + StartX + row*simpleLandscView.frame.size.width + row*Gap, StartY, simpleLandscView.frame.size.width, simpleLandscView.frame.size.height)];
             simpleLandscView.tag = i + 1;

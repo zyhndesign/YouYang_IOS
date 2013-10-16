@@ -218,8 +218,8 @@ static BOOL handleScrol;
         return;
     }
     AllOnlyShowPresentOne = 1;
-    stopAllView.hidden = NO;
-    otherContentV.hidden = NO;
+    stopAllView.hidden    = NO;
+    otherContentV.hidden  = NO;
     ContentView *contentV = [[ContentView alloc] initWithInfoDict:_infoDict];
     [contentV setFrame:CGRectMake(1024, 0, 1024, 768)];
     [otherContentV addSubview:contentV];

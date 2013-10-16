@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TextLayoutView.h"
 @interface VersionViewContr : UIViewController
 {
-    IBOutlet UITextView *detailTextV;
+    IBOutlet TextLayoutView *detailTextV;
 }
 @end

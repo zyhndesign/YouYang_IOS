@@ -57,25 +57,24 @@
     midLineLb.backgroundColor = [UIColor grayColor];
     [self addSubview:midLineLb];
     if (ios7)
-        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(8, 282, 200, 90)];
+        detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(14, 295, 180, 70)];
     else
-        detailTextV = [[UITextView alloc] initWithFrame:CGRectMake(8, 282, 200, 80)];
+        detailTextV = [[TextLayoutView alloc] initWithFrame:CGRectMake(14, 295, 180, 70)];
     
     detailTextV.backgroundColor = [UIColor clearColor];
-    detailTextV.textColor       = [UIColor darkGrayColor];
+    detailTextV.textColor       = [UIColor blackColor];
     detailTextV.font = [UIFont systemFontOfSize:13];
-    detailTextV.editable = NO;
-    detailTextV.scrollEnabled = NO;
-    detailTextV.userInteractionEnabled = NO;
+    detailTextV.text = [_infoDict objectForKey:@"description"];
+    detailTextV.linesSpacing = 6;
     [self addSubview:detailTextV];
     
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = 6.0f;
-    paragraphStyle.firstLineHeadIndent = 13.0f;
-    NSString *string = [_infoDict objectForKey:@"description"];
-    NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName, nil];
-    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
-    detailTextV.attributedText = atrriString;
+//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//    paragraphStyle.lineSpacing = 6.0f;
+//    paragraphStyle.firstLineHeadIndent = 13.0f;
+//    NSString *string = [_infoDict objectForKey:@"description"];
+//    NSDictionary *ats = [NSDictionary dictionaryWithObjectsAndKeys:paragraphStyle, NSParagraphStyleAttributeName,[UIFont systemFontOfSize:14], NSFontAttributeName, nil];
+//    NSAttributedString *atrriString = [[NSAttributedString alloc] initWithString:string attributes:ats];
+//    detailTextV.attributedText = atrriString;
     
     //////////
     NSString *imageURL = [_infoDict objectForKey:@"profile"];

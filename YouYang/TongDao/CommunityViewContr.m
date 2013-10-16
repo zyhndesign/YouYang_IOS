@@ -108,11 +108,11 @@
 {
     if (initAry.count < PageSize*3)
         return;
-    
-    for (int i = (midPage-2)*PageSize; i < initAry.count && i < (midPage+3)*PageSize; i++)
+    int startI = (midPage-2)*PageSize;
+    if (startI < 0)
+        startI = 0;
+    for (int i = startI; i < initAry.count && i < (midPage+3)*PageSize; i++)
     {
-        if (i < 0)
-            continue;
         SimpleHumanityView *simpleHimanView = (SimpleHumanityView*)[contentScrolV viewWithTag:i+1];
         if (!simpleHimanView)
         {
@@ -129,11 +129,11 @@
 {
     if (initAry.count < PageSize*3)
         return;
-    
-    for (int i = (currentPage-2)*PageSize; i < initAry.count && i < (currentPage+3)*PageSize; i++)
+    int startI = (currentPage-2)*PageSize;
+    if (startI < 0)
+        startI = 0;
+    for (int i = startI; i < initAry.count && i < (currentPage+3)*PageSize; i++)
     {
-        if (i < 0)
-            continue;
         SimpleHumanityView *simpleHimanView = (SimpleHumanityView*)[contentScrolV viewWithTag:i+1];
         if (!simpleHimanView)
         {

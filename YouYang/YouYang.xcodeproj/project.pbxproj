@@ -76,6 +76,8 @@
 		D32CBF9B17E9372F0004EFB2 /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CBF9A17E9372F0004EFB2 /* UIDevice+Hardware.m */; };
 		D32CBF9E17E9373C0004EFB2 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = D32CBF9D17E9373C0004EFB2 /* AudioStreamer.m */; };
 		D32CBFA017E938290004EFB2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32CBF9F17E938290004EFB2 /* CFNetwork.framework */; };
+		D32ED8B5180E2CA0003AB2A3 /* TextLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D32ED8B4180E2CA0003AB2A3 /* TextLayoutView.m */; };
+		D32ED8B7180E2D3B003AB2A3 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32ED8B6180E2D3B003AB2A3 /* CoreText.framework */; };
 		D343235F17E593A300F6B5E5 /* LoadMenuInfoNet.m in Sources */ = {isa = PBXBuildFile; fileRef = D343235E17E593A300F6B5E5 /* LoadMenuInfoNet.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D343236217E593B600F6B5E5 /* LoadZipFileNet.m in Sources */ = {isa = PBXBuildFile; fileRef = D343236117E593B600F6B5E5 /* LoadZipFileNet.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D343236517E593D800F6B5E5 /* ProImageLoadNet.m in Sources */ = {isa = PBXBuildFile; fileRef = D343236417E593D800F6B5E5 /* ProImageLoadNet.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -228,6 +230,9 @@
 		D32CBF9C17E9373C0004EFB2 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		D32CBF9D17E9373C0004EFB2 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		D32CBF9F17E938290004EFB2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D32ED8B3180E2CA0003AB2A3 /* TextLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextLayoutView.h; sourceTree = "<group>"; };
+		D32ED8B4180E2CA0003AB2A3 /* TextLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextLayoutView.m; sourceTree = "<group>"; };
+		D32ED8B6180E2D3B003AB2A3 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		D343235C17E5939500F6B5E5 /* NetworkDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkDelegate.h; sourceTree = "<group>"; };
 		D343235D17E593A300F6B5E5 /* LoadMenuInfoNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMenuInfoNet.h; sourceTree = "<group>"; };
 		D343235E17E593A300F6B5E5 /* LoadMenuInfoNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMenuInfoNet.m; sourceTree = "<group>"; };
@@ -316,6 +321,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32ED8B7180E2D3B003AB2A3 /* CoreText.framework in Frameworks */,
 				D32CBFA017E938290004EFB2 /* CFNetwork.framework in Frameworks */,
 				D32CBF9317E92F270004EFB2 /* AudioToolbox.framework in Frameworks */,
 				D306087C17E8879700CE728E /* AVFoundation.framework in Frameworks */,
@@ -367,6 +373,7 @@
 		D308825817E5467B00F24817 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D32ED8B6180E2D3B003AB2A3 /* CoreText.framework */,
 				D308825917E5467B00F24817 /* UIKit.framework */,
 				D308825B17E5467B00F24817 /* Foundation.framework */,
 				D308825D17E5467B00F24817 /* CoreGraphics.framework */,
@@ -633,6 +640,8 @@
 				D3E7B04317F4723700A1123E /* SimpleTrationSmallView.m */,
 				D302EDC518065D5F004589D3 /* ActionView.h */,
 				D302EDC618065D5F004589D3 /* ActionView.m */,
+				D32ED8B3180E2CA0003AB2A3 /* TextLayoutView.h */,
+				D32ED8B4180E2CA0003AB2A3 /* TextLayoutView.m */,
 			);
 			name = SimpleView;
 			sourceTree = "<group>";
@@ -818,6 +827,7 @@
 				D308826A17E5467B00F24817 /* AppDelegate.m in Sources */,
 				D308827317E5467B00F24817 /* ViewController.m in Sources */,
 				D308828117E5485800F24817 /* MFSP_MD5.m in Sources */,
+				D32ED8B5180E2CA0003AB2A3 /* TextLayoutView.m in Sources */,
 				D308828517E5486F00F24817 /* ZipArchive.mm in Sources */,
 				D30882A117E5489700F24817 /* JSONKit.m in Sources */,
 				D30882A217E5489700F24817 /* Parser.m in Sources */,

@@ -45,6 +45,11 @@
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 210, 210)];
     [self addSubview:proImageV];
     
+    UIImageView *videoImageV = [[UIImageView alloc] initWithFrame:CGRectMake(proImageV.frame.size.width - 40, 0, 40, 35)];
+    [proImageV addSubview:videoImageV];
+    if ([[_infoDict objectForKey:@"hasVideo"] isEqualToString:@"true"])
+        [videoImageV setImage:[UIImage imageNamed:@"video.png"]];
+    
     titleLb = [[UILabel alloc] initWithFrame:CGRectMake(0, 225, 210, 35)];
     titleLb.backgroundColor = [UIColor clearColor];
     titleLb.textAlignment = NSTextAlignmentCenter;

@@ -18,6 +18,7 @@
     UILabel *timeLb;
     TextLayoutView *detailTextV;
     
+    
     int Mode;
     NSDictionary *_infoDict;
 }

@@ -51,7 +51,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSDictionary *backDict = [backData objectFromJSONDataWithParseOptions:JKParseOptionValidFlags error:nil];
-  //  NSLog(@"%@", backDict);
+    NSLog(@"%@", backDict);
     [delegate didReceiveData:backDict];
 }
 

@@ -38,6 +38,11 @@
     proImageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [self addSubview:proImageV];
     
+    UIImageView *videoImageV = [[UIImageView alloc] initWithFrame:CGRectMake(proImageV.frame.size.width - 40, 0, 40, 35)];
+    [proImageV addSubview:videoImageV];
+    if ([[_infoDict objectForKey:@"hasVideo"] isEqualToString:@"true"])
+        [videoImageV setImage:[UIImage imageNamed:@"video.png"]];
+    
     UILabel *bgLb = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 35, self.frame.size.width, 35)];
     bgLb.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.6];
     [self addSubview:bgLb];

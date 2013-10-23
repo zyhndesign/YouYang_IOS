@@ -52,7 +52,6 @@
     
 }
 
-static BOOL playing;
 - (IBAction)play:(UIButton *)sender
 {
     if (musicQueAry.count == 0)

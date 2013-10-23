@@ -7,6 +7,8 @@
 //
 
 #import "MoviePlayViewContr.h"
+#import "AllVariable.h"
+#import "AudioPlayerViewCtr.h"
 
 
 @interface MoviePlayViewContr ()
@@ -26,6 +28,10 @@
 
 - (void)viewDidLoad
 {
+    isMusicPlaying = playing;
+    if (isMusicPlaying) {
+        [AllAudioPlayViewCtr play:nil];
+    }
     [self moviePlay];
     
     activeView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -117,9 +123,13 @@
 {
     //视频播放对象
     [activeView stopAnimating];
+    if (isMusicPlaying) {
+        [AllAudioPlayViewCtr play:nil];
+    }
     if (isShow)
     {
         [self dismissViewControllerAnimated:YES completion:nil];
+        
     }
     else
     {

@@ -61,8 +61,8 @@
     if (pointY > 400)
     {
         int positionYOne = 1050 - (pointY - 400)*2/3;
-        positionYOne = positionYOne < HeighTopOne ? HeighTopOne:positionYOne;
-        int positionYTwo = 1600 - (pointY - 400)*2/3;
+       // positionYOne = positionYOne < HeighTopOne ? HeighTopOne:positionYOne;
+        int positionYTwo = 1600 - (pointY - 400)*1/4;
         positionYTwo = positionYTwo < HeighTopTwo ? HeighTopTwo:positionYTwo;
         [animaImageViewOne setFrame:CGRectMake(animaImageViewOne.frame.origin.x, positionYOne, animaImageViewOne.frame.size.width, animaImageViewOne.frame.size.height)];
         [animaImageViewTwo setFrame:CGRectMake(animaImageViewTwo.frame.origin.x, positionYTwo, animaImageViewTwo.frame.size.width, animaImageViewTwo.frame.size.height)];

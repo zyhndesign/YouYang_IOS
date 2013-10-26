@@ -54,13 +54,13 @@
 }
 
 #define HeighTopOne 450
-#define HeighTopTwo 300
+#define HeighTopTwo 100
 #define HeighTopThr 1200
 - (void)rootscrollViewDidScrollToPointY:(int)pointY
 {
     if (pointY > 10)
     {
-        int positionYOne = 600 - (pointY - 10)/3;
+        int positionYOne = 600 - (pointY - 10)/5;
         positionYOne = positionYOne < HeighTopOne ? HeighTopOne:positionYOne;
         int positionYTwo = 700 - (pointY - 10)/3;
         positionYTwo = positionYTwo < HeighTopTwo ? HeighTopTwo:positionYTwo;
@@ -69,7 +69,7 @@
     }
     if (pointY > 350)
     {
-        int positionYThr = 1400 - (pointY - 450)/2;
+        int positionYThr = 1400 - (pointY - 450)/5;
         positionYThr = positionYThr < HeighTopThr ? HeighTopThr:positionYThr;
         [animaImageViewThr setFrame:CGRectMake(animaImageViewThr.frame.origin.x, positionYThr, animaImageViewThr.frame.size.width, animaImageViewThr.frame.size.height)];
     }

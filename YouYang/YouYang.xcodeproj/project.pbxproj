@@ -62,7 +62,7 @@
 		D38A15D91807D41200AEDF98 /* QueueProHanle.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A15D61807D41200AEDF98 /* QueueProHanle.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D38A15DA1807D41200AEDF98 /* QueueZipHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A15D81807D41200AEDF98 /* QueueZipHandle.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D38A15EF1807E95900AEDF98 /* Guide pages1024.png in Resources */ = {isa = PBXBuildFile; fileRef = D38A15ED1807E95900AEDF98 /* Guide pages1024.png */; };
-		D38A15F01807E95900AEDF98 /* Guide pages2048.png in Resources */ = {isa = PBXBuildFile; fileRef = D38A15EE1807E95900AEDF98 /* Guide pages2048.png */; };
+		D38A15F01807E95900AEDF98 /* Guide pages1024@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D38A15EE1807E95900AEDF98 /* Guide pages1024@2x.png */; };
 		D39E00D9181A1E480019F964 /* back_actived.png in Resources */ = {isa = PBXBuildFile; fileRef = D39E009D181A1E480019F964 /* back_actived.png */; };
 		D39E00DA181A1E480019F964 /* back_defult.png in Resources */ = {isa = PBXBuildFile; fileRef = D39E009E181A1E480019F964 /* back_defult.png */; };
 		D39E00DB181A1E480019F964 /* close_actived.png in Resources */ = {isa = PBXBuildFile; fileRef = D39E009F181A1E480019F964 /* close_actived.png */; };
@@ -287,7 +287,7 @@
 		D38A15D71807D41200AEDF98 /* QueueZipHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueZipHandle.h; sourceTree = "<group>"; };
 		D38A15D81807D41200AEDF98 /* QueueZipHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueZipHandle.m; sourceTree = "<group>"; };
 		D38A15ED1807E95900AEDF98 /* Guide pages1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Guide pages1024.png"; sourceTree = "<group>"; };
-		D38A15EE1807E95900AEDF98 /* Guide pages2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Guide pages2048.png"; sourceTree = "<group>"; };
+		D38A15EE1807E95900AEDF98 /* Guide pages1024@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Guide pages1024@2x.png"; sourceTree = "<group>"; };
 		D39E009D181A1E480019F964 /* back_actived.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_actived.png; sourceTree = "<group>"; };
 		D39E009E181A1E480019F964 /* back_defult.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_defult.png; sourceTree = "<group>"; };
 		D39E009F181A1E480019F964 /* close_actived.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_actived.png; sourceTree = "<group>"; };
@@ -459,7 +459,7 @@
 				D3F3466E1808E06500479AC8 /* YYIcon72.png */,
 				D3F3466F1808E06500479AC8 /* YYicon144.png */,
 				D38A15ED1807E95900AEDF98 /* Guide pages1024.png */,
-				D38A15EE1807E95900AEDF98 /* Guide pages2048.png */,
+				D38A15EE1807E95900AEDF98 /* Guide pages1024@2x.png */,
 				D32CBF9F17E938290004EFB2 /* CFNetwork.framework */,
 				D32CBF9217E92F270004EFB2 /* AudioToolbox.framework */,
 				D306087B17E8879700CE728E /* AVFoundation.framework */,
@@ -1002,7 +1002,7 @@
 				D39E0101181A1E480019F964 /* humanity_float1.png in Resources */,
 				D343238917E5B0E000F6B5E5 /* CommunityViewContr.xib in Resources */,
 				D39E00EC181A1E480019F964 /* defultbg-180.png in Resources */,
-				D38A15F01807E95900AEDF98 /* Guide pages2048.png in Resources */,
+				D38A15F01807E95900AEDF98 /* Guide pages1024@2x.png in Resources */,
 				D3ADCAD3181B927C004217E3 /* music_animation@2x.gif in Resources */,
 				D3057E9D17E7ED3900505C69 /* MoviePlayViewContr.xib in Resources */,
 				D39E00E1181A1E480019F964 /* 404-1.png in Resources */,
@@ -1166,8 +1166,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1182,8 +1182,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
+				PROVISIONING_PROFILE = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1200,8 +1200,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1209,8 +1209,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
+				PROVISIONING_PROFILE = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -1220,15 +1220,15 @@
 		D308827A17E5467B00F24817 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TongDao/YouYang-Prefix.pch";
 				INFOPLIST_FILE = "TongDao/YouYang-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = YouYang;
-				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
+				PROVISIONING_PROFILE = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1236,15 +1236,15 @@
 		D308827B17E5467B00F24817 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TongDao/YouYang-Prefix.pch";
 				INFOPLIST_FILE = "TongDao/YouYang-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = YouYang;
-				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
+				PROVISIONING_PROFILE = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

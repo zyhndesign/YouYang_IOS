@@ -194,6 +194,7 @@ extern NSString * const ASUpdateMetadataNotification;
 @property (readonly) BOOL vbr;
 
 - (id)initWithURL:(NSURL *)aURL;
+- (void)reloadURL:(NSURL *)aURL;
 - (void)start;
 - (void)stop;
 - (void)pause;

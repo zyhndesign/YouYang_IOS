@@ -250,6 +250,16 @@ void ASReadStreamCallBack
 	return self;
 }
 
+- (void)reloadURL:(NSURL *)aURL
+{
+    if (url)
+    {
+        [url release];
+    }
+    url = [aURL retain];
+    [metaDataString setString:@""];
+}
+
 //
 // dealloc
 //

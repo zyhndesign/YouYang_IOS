@@ -12,6 +12,7 @@
 #import "ViewController.h"
 
 @implementation SimpleHumanityView
+@synthesize midLineLb;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -48,7 +49,7 @@
     [self addSubview:titleLb];
     
     midLineLb = [[UILabel alloc] initWithFrame:CGRectMake(20, 45, 160, 1)];
-    midLineLb.backgroundColor = [UIColor whiteColor];
+    midLineLb.backgroundColor = RedLineOneColor;
     [self addSubview:midLineLb];
 
     timeLb = [[UILabel alloc] initWithFrame:CGRectMake(20, 45, 160, 40)];

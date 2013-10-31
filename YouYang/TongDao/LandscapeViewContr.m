@@ -58,11 +58,20 @@
 #define HeighTopTwo 941
 - (void)rootscrollViewDidScrollToPointY:(int)pointY
 {
-    if (pointY > 500)
+    if (pointY > 500 && pointY < 768)
     {
-        int positionYOne = 1300 - (pointY - 500)*1/5;
+        int positionYOne = 1250 - (pointY - 500)*1/3;
         positionYOne = positionYOne < HeighTopOne ? HeighTopOne:positionYOne;
-        int positionYTwo = 1175 - (pointY - 500)*1/5;
+        int positionYTwo = 1125 - (pointY - 500)*1/3;
+        positionYTwo = positionYTwo < HeighTopTwo ? HeighTopTwo:positionYTwo;
+        [animaImageViewOne setFrame:CGRectMake(animaImageViewOne.frame.origin.x, positionYOne, animaImageViewOne.frame.size.width, animaImageViewOne.frame.size.height)];
+        [animaImageViewTwo setFrame:CGRectMake(animaImageViewTwo.frame.origin.x, positionYTwo, animaImageViewTwo.frame.size.width, animaImageViewTwo.frame.size.height)];
+    }
+    if (pointY >= 768)
+    {
+        int positionYOne = 1250 - (768 - 500)/3 - (pointY - 768)*1/7;
+        positionYOne = positionYOne < HeighTopOne ? HeighTopOne:positionYOne;
+        int positionYTwo = 1125 - (768 - 500)/3 - (pointY - 768)*1/7;
         positionYTwo = positionYTwo < HeighTopTwo ? HeighTopTwo:positionYTwo;
         [animaImageViewOne setFrame:CGRectMake(animaImageViewOne.frame.origin.x, positionYOne, animaImageViewOne.frame.size.width, animaImageViewOne.frame.size.height)];
         [animaImageViewTwo setFrame:CGRectMake(animaImageViewTwo.frame.origin.x, positionYTwo, animaImageViewTwo.frame.size.width, animaImageViewTwo.frame.size.height)];

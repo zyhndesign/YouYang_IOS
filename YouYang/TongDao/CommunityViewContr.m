@@ -57,9 +57,15 @@
 
 - (void)rootscrollViewDidScrollToPointY:(int)pointY
 {
-    if (pointY > 400)
+    if (pointY > 400 && pointY < 768)
     {
-        int positionYOne = 1380 - (pointY - 400)*2/5;
+        int positionYOne = 1235 - (pointY - 400)*2/5;
+        positionYOne = positionYOne < HeighTopOne ? HeighTopOne:positionYOne;
+        [animaImageViewOne setFrame:CGRectMake(animaImageViewOne.frame.origin.x, positionYOne, animaImageViewOne.frame.size.width, animaImageViewOne.frame.size.height)];
+    }
+    if (pointY >= 768)
+    {
+        int positionYOne = 1235 - (768 - 400)*2/5 - (pointY - 768)/6;
         positionYOne = positionYOne < HeighTopOne ? HeighTopOne:positionYOne;
         [animaImageViewOne setFrame:CGRectMake(animaImageViewOne.frame.origin.x, positionYOne, animaImageViewOne.frame.size.width, animaImageViewOne.frame.size.height)];
     }
@@ -90,7 +96,7 @@
         if (i%PageSize)
         {
             UILabel *midLb = [[UILabel alloc] initWithFrame:CGRectMake(page*1024 + StartX + (i%4)*200 -1, StartY + 15, 1, 400 - 50)];
-            midLb.backgroundColor = [UIColor whiteColor];
+            midLb.backgroundColor = RedLineTwoColor;
             [contentScrolV addSubview:midLb];
         }
     }
@@ -98,6 +104,7 @@
     {
         page = i/PageSize;
         SimpleHumanityView *simpleHimanView = [[SimpleHumanityView alloc] initWithInfoDict:[initAry objectAtIndex:i] mode:i%2];
+        simpleHimanView.midLineLb.backgroundColor = RedLineTwoColor;
         simpleHimanView.frame = CGRectMake(page*1024 + StartX + (i%PageSize)*simpleHimanView.frame.size.width, StartY, simpleHimanView.frame.size.width, simpleHimanView.frame.size.height);
         simpleHimanView.tag = i + 1;
         [contentScrolV addSubview:simpleHimanView];

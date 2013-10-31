@@ -128,13 +128,20 @@
     [AllScrollView setContentOffset:CGPointMake(0, (sender.tag*2-1)*768) animated:YES];
 }
 
-#define HeighTop 886
+#define HeighTop 885
 
 - (void)rootscrollViewDidScrollToPointY:(int)pointY
 {
-    if (pointY > 200)
+    if (pointY > 200 && pointY < 768)
     {
-        int positionY = 1300 - (pointY - 200)*1/3;
+        int positionY = 1250 - (pointY - 200)/2;
+        positionY = positionY < HeighTop ? HeighTop:positionY;
+        [animaImageViewOne setFrame:CGRectMake(animaImageViewOne.frame.origin.x, positionY, animaImageViewOne.frame.size.width, animaImageViewOne.frame.size.height)];
+        [animaImageViewTwo setFrame:CGRectMake(animaImageViewTwo.frame.origin.x, positionY, animaImageViewTwo.frame.size.width, animaImageViewTwo.frame.size.height)];
+    }
+    if (pointY >= 768)
+    {
+        int positionY = 1250 - (768 - 200)/2 - (pointY - 768)/8;
         positionY = positionY < HeighTop ? HeighTop:positionY;
         [animaImageViewOne setFrame:CGRectMake(animaImageViewOne.frame.origin.x, positionY, animaImageViewOne.frame.size.width, animaImageViewOne.frame.size.height)];
         [animaImageViewTwo setFrame:CGRectMake(animaImageViewTwo.frame.origin.x, positionY, animaImageViewTwo.frame.size.width, animaImageViewTwo.frame.size.height)];

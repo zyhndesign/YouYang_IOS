@@ -14,15 +14,12 @@
 {
     UIImageView *proImageV;
     UILabel *titleLb;
-    UILabel *midLineLb;
     UILabel *timeLb;
     TextLayoutView *detailTextV;
-    
-    
     int Mode;
     NSDictionary *_infoDict;
 }
-
+@property(nonatomic, strong)UILabel *midLineLb;
 - (id)initWithInfoDict:(NSDictionary*)infoDict mode:(int)mode;
 
 @end

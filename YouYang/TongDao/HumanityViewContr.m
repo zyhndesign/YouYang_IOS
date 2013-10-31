@@ -99,7 +99,7 @@
         if (i%PageSize && i != (initAry.count-1))
         {
             UILabel *midLb = [[UILabel alloc] initWithFrame:CGRectMake(page*1024 + StartX + (i%PageSize)*200 -1, StartY + 15, 1, 400 - 50)];
-            midLb.backgroundColor = [UIColor lightGrayColor];
+            midLb.backgroundColor = RedLineOneColor;
             [contentScrolV addSubview:midLb];
         }
     }

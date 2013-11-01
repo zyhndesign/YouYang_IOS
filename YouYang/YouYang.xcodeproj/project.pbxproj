@@ -59,6 +59,7 @@
 		D343238917E5B0E000F6B5E5 /* CommunityViewContr.xib in Resources */ = {isa = PBXBuildFile; fileRef = D343238717E5B0E000F6B5E5 /* CommunityViewContr.xib */; };
 		D355DE1E18223CC0007A59A5 /* title_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D355DE1D18223CC0007A59A5 /* title_background@2x.png */; };
 		D355DE201822412C007A59A5 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D355DE1F1822412C007A59A5 /* bg2@2x.png */; };
+		D364C3FD18234A5E00B0AF78 /* GetVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = D364C3FC18234A5E00B0AF78 /* GetVersion.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D373B7F31808361800834EFC /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D373B7F21808361800834EFC /* ContentView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D373B7F618083D7800834EFC /* ImageShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = D373B7F518083D7800834EFC /* ImageShowView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D38A15D91807D41200AEDF98 /* QueueProHanle.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A15D61807D41200AEDF98 /* QueueProHanle.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -280,6 +281,8 @@
 		D343238717E5B0E000F6B5E5 /* CommunityViewContr.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityViewContr.xib; sourceTree = "<group>"; };
 		D355DE1D18223CC0007A59A5 /* title_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title_background@2x.png"; sourceTree = "<group>"; };
 		D355DE1F1822412C007A59A5 /* bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg2@2x.png"; sourceTree = "<group>"; };
+		D364C3FB18234A5E00B0AF78 /* GetVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetVersion.h; sourceTree = "<group>"; };
+		D364C3FC18234A5E00B0AF78 /* GetVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetVersion.m; sourceTree = "<group>"; };
 		D373B7F11808361800834EFC /* ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
 		D373B7F21808361800834EFC /* ContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
 		D373B7F418083D7800834EFC /* ImageShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageShowView.h; sourceTree = "<group>"; };
@@ -586,6 +589,8 @@
 		D30882A717E548BA00F24817 /* Net */ = {
 			isa = PBXGroup;
 			children = (
+				D364C3FB18234A5E00B0AF78 /* GetVersion.h */,
+				D364C3FC18234A5E00B0AF78 /* GetVersion.m */,
 				D343235C17E5939500F6B5E5 /* NetworkDelegate.h */,
 				D32CBF9617E92FFE0004EFB2 /* LoadMusicQue.h */,
 				D32CBF9717E92FFE0004EFB2 /* LoadMusicQue.m */,
@@ -1100,6 +1105,7 @@
 				D38A15DA1807D41200AEDF98 /* QueueZipHandle.m in Sources */,
 				D30882A517E5489700F24817 /* CJSONDeserializer.m in Sources */,
 				D30882A617E5489700F24817 /* CJSONScanner.m in Sources */,
+				D364C3FD18234A5E00B0AF78 /* GetVersion.m in Sources */,
 				D56B787C17E55E8D005DA29F /* ioapi.c in Sources */,
 				D56B787D17E55E8D005DA29F /* mztools.c in Sources */,
 				D373B7F31808361800834EFC /* ContentView.m in Sources */,

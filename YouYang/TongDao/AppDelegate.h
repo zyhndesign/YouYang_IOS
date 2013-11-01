@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GetVersion.h"
+
 @class ViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,NetworkDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

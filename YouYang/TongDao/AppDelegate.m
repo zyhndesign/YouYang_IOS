@@ -46,8 +46,63 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     RootViewContr = self.viewController;
+    
+    GetVersion *getVision = [[GetVersion alloc] init];
+    getVision.delegate = self;
+    [getVision getVersonFromItunes];
+    [getVision release];
+    
     return YES;
 }
+
+- (float)getVersion
+{
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *currentVersion = [infoDict objectForKey:@"CFBundleVersion"];
+    return [currentVersion floatValue];
+}
+
+- (void)didReceiveData:(NSDictionary *)dict
+{
+    NSString *resultCount = [dict objectForKey:@"resultCount"];
+    if ([resultCount intValue] > 0)
+    {
+        NSArray *infoArray = [dict objectForKey:@"results"];
+        NSDictionary *releaseInfo = [infoArray objectAtIndex:0];
+        NSString *latestVersion   = [releaseInfo objectForKey:@"version"];
+        NSString *trackViewUrl    = [releaseInfo objectForKey:@"trackViewUrl"];
+        if ([latestVersion floatValue] > [self getVersion])
+        {
+            [[NSUserDefaults standardUserDefaults] setObject:trackViewUrl forKey:@"versionURL"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"有新版本，是否更新" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+            [alerView show];
+            [alerView release];
+        }
+    }
+}
+
+
+- (void)didReceiveErrorCode:(NSError*)Error
+{
+    //    if ([Error code] == -1009)
+    //    {
+    //        UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络数据连接失败，请检查网络设置。" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    //        [alerView show];
+    //        [alerView release];
+    //    }
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        UIApplication *application = [UIApplication sharedApplication];
+        [application openURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:@"versionURL"]]];
+    }
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

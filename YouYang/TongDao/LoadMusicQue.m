@@ -16,7 +16,7 @@
 {
     //  @"http://localhost/xinjiang-bundle-app/dataUpdate.json?category=1&lastUpdateDate=0";
     // @"http://lotusprize.com/travel/dataUpdate?category=1&lastUpdateDate=0"
-    NSString *urlStr = [NSString stringWithFormat:@"http://lotusprize.com/travel/wp-admin/admin-ajax.php"];
+    NSString *urlStr = [NSString stringWithFormat:@"http://comdesignlab.com/travel/wp-admin/admin-ajax.php"];
     ///NSString *urlStr = [NSString stringWithFormat:@"http://lotusprize.com/travel/wp-admin/admin-ajax.php?programId=1&action=zy_get_music"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:6.0f];
     NSString *bodyStr = [NSString stringWithFormat:@"action=zy_get_music&programId=6"];

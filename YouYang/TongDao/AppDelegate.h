@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "GetVersion.h"
 
+@class TAGManager;
+@class TAGContainer;
 @class ViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,NetworkDelegate, UIAlertViewDelegate>

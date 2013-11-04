@@ -19,9 +19,9 @@
     NSString *urlStr = nil;
     NSString *timestampLast = [[NSUserDefaults standardUserDefaults] objectForKey:@"timestamp"];
     if (timestampLast.length > 0)
-        urlStr = [NSString stringWithFormat:@"http://lotusprize.com/travel/dataUpdate.json?category=6&lastUpdateDate=%@", timestampLast];
+        urlStr = [NSString stringWithFormat:@"http://comdesignlab.com/travel/dataUpdate.json?category=6&lastUpdateDate=%@", timestampLast];
     else
-        urlStr = [NSString stringWithFormat:@"http://lotusprize.com/travel/dataUpdate.json?category=6&lastUpdateDate=0"];
+        urlStr = [NSString stringWithFormat:@"http://comdesignlab.com/travel/dataUpdate.json?category=6&lastUpdateDate=0"];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0f];
     [request setHTTPMethod:@"GET"];

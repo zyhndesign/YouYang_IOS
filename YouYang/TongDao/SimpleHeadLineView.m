@@ -100,7 +100,11 @@
     
     if([[NSFileManager defaultManager] fileExistsAtPath:pathProFile])
     {
-        [proImageV setImage:[UIImage imageWithContentsOfFile:pathProFile]];
+        UIImage *image = [UIImage imageWithContentsOfFile:pathProFile];
+        if(image)
+            [proImageV setImage:[UIImage imageWithContentsOfFile:pathProFile]];
+        else
+            [proImageV setImage:[UIImage imageNamed:@"defultbg-210.png"]];
     }
     else
     {

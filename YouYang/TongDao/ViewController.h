@@ -17,11 +17,14 @@
 #import "VersionViewContr.h"
 #import "AllVariable.h"
 
+#import "GAITrackedViewController.h"
+#import "GAI.h"
+
 @class ContentViewContr;
 
 
 
-@interface ViewController : UIViewController<NetworkDelegate, UIScrollViewDelegate>
+@interface ViewController : GAITrackedViewController<NetworkDelegate, UIScrollViewDelegate>
 {
     IBOutlet UIScrollView *_scrollView;
     HomePageViewContr *homePageViewCtr;

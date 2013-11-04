@@ -24,6 +24,8 @@
 
 - (void)viewDidLoad
 {
+    [self goolTrack];
+    
     [super viewDidLoad];
     [activeView startAnimating];
     
@@ -40,6 +42,23 @@
     
     AllActiveView = [[ActionView alloc] init];
     AllActiveView.center = CGPointMake(512, 400);
+}
+
+static NSString *const kTrackingId = @"UA-44083057-3";
+- (void)goolTrack
+{
+    ///// googl track
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker.
+    [[GAI sharedInstance] trackerWithName:@"酉阳"
+                               trackingId:kTrackingId];
 }
 
 #define PageSize 768

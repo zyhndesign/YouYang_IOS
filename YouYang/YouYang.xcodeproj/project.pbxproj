@@ -176,7 +176,8 @@
 		D3ADCAF1181B927C004217E3 /* title_community@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3ADCABA181B927C004217E3 /* title_community@2x.png */; };
 		D3ADCAF2181B927C004217E3 /* title_featured@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3ADCABB181B927C004217E3 /* title_featured@2x.png */; };
 		D3ADCAF3181B927C004217E3 /* title_humanity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3ADCABC181B927C004217E3 /* title_humanity@2x.png */; };
-		D3D779A91827A5D2001E2ACF /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D779A81827A5D2001E2ACF /* libGoogleAnalytics_debug.a */; };
+		D3BE0E2A1828F831005AE010 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BE0E281828F831005AE010 /* libGoogleAnalytics.a */; };
+		D3BE0E2B1828F831005AE010 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BE0E291828F831005AE010 /* libGoogleAnalytics_debug.a */; };
 		D3D779AD1827A697001E2ACF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D779AC1827A697001E2ACF /* SystemConfiguration.framework */; };
 		D3D779AF1827A8BD001E2ACF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D779AE1827A8BC001E2ACF /* CoreLocation.framework */; };
 		D3E7B03B17F45BD100A1123E /* SimpleHeadLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E7B03A17F45BD100A1123E /* SimpleHeadLineView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -406,13 +407,13 @@
 		D3ADCABA181B927C004217E3 /* title_community@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title_community@2x.png"; sourceTree = "<group>"; };
 		D3ADCABB181B927C004217E3 /* title_featured@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title_featured@2x.png"; sourceTree = "<group>"; };
 		D3ADCABC181B927C004217E3 /* title_humanity@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title_humanity@2x.png"; sourceTree = "<group>"; };
-		D3D779A21827A5D2001E2ACF /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		D3D779A31827A5D2001E2ACF /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		D3D779A41827A5D2001E2ACF /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		D3D779A51827A5D2001E2ACF /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		D3D779A61827A5D2001E2ACF /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		D3D779A71827A5D2001E2ACF /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		D3D779A81827A5D2001E2ACF /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
+		D3BE0E231828F831005AE010 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		D3BE0E241828F831005AE010 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		D3BE0E251828F831005AE010 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		D3BE0E261828F831005AE010 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		D3BE0E271828F831005AE010 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		D3BE0E281828F831005AE010 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		D3BE0E291828F831005AE010 /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
 		D3D779AC1827A697001E2ACF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D3D779AE1827A8BC001E2ACF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D3E7B03917F45BD100A1123E /* SimpleHeadLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleHeadLineView.h; sourceTree = "<group>"; };
@@ -457,12 +458,13 @@
 				D3057E9F17E7ED5F00505C69 /* MediaPlayer.framework in Frameworks */,
 				D343236B17E5A26100F6B5E5 /* libsqlite3.0.dylib in Frameworks */,
 				D56B788517E55F37005DA29F /* libz.dylib in Frameworks */,
-				D3D779A91827A5D2001E2ACF /* libGoogleAnalytics_debug.a in Frameworks */,
 				D56B788317E55EC7005DA29F /* CoreData.framework in Frameworks */,
 				D56B786417E55C9C005DA29F /* QuartzCore.framework in Frameworks */,
 				D308825A17E5467B00F24817 /* UIKit.framework in Frameworks */,
 				D308825C17E5467B00F24817 /* Foundation.framework in Frameworks */,
+				D3BE0E2B1828F831005AE010 /* libGoogleAnalytics_debug.a in Frameworks */,
 				D308825E17E5467B00F24817 /* CoreGraphics.framework in Frameworks */,
+				D3BE0E2A1828F831005AE010 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,7 +558,7 @@
 		D308827D17E5483700F24817 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				D3D779A11827A5D2001E2ACF /* LibraryAnaly */,
+				D3BE0E221828F831005AE010 /* Library */,
 				D30882A717E548BA00F24817 /* Net */,
 				D38A15D41807D3FB00AEDF98 /* DataBase */,
 				D308829417E5488B00F24817 /* Json */,
@@ -904,18 +906,18 @@
 			path = Section;
 			sourceTree = "<group>";
 		};
-		D3D779A11827A5D2001E2ACF /* LibraryAnaly */ = {
+		D3BE0E221828F831005AE010 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				D3D779A21827A5D2001E2ACF /* GAI.h */,
-				D3D779A31827A5D2001E2ACF /* GAIDictionaryBuilder.h */,
-				D3D779A41827A5D2001E2ACF /* GAIFields.h */,
-				D3D779A51827A5D2001E2ACF /* GAILogger.h */,
-				D3D779A61827A5D2001E2ACF /* GAITrackedViewController.h */,
-				D3D779A71827A5D2001E2ACF /* GAITracker.h */,
-				D3D779A81827A5D2001E2ACF /* libGoogleAnalytics_debug.a */,
+				D3BE0E231828F831005AE010 /* GAI.h */,
+				D3BE0E241828F831005AE010 /* GAITrackedViewController.h */,
+				D3BE0E251828F831005AE010 /* GAITracker.h */,
+				D3BE0E261828F831005AE010 /* GAITransaction.h */,
+				D3BE0E271828F831005AE010 /* GAITransactionItem.h */,
+				D3BE0E281828F831005AE010 /* libGoogleAnalytics.a */,
+				D3BE0E291828F831005AE010 /* libGoogleAnalytics_debug.a */,
 			);
-			path = LibraryAnaly;
+			path = Library;
 			sourceTree = "<group>";
 		};
 		D56B786517E55E69005DA29F /* minizip */ = {
@@ -1204,8 +1206,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1220,8 +1222,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
+				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1238,8 +1240,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1247,8 +1249,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
+				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -1258,8 +1260,8 @@
 		D308827A17E5467B00F24817 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TongDao/YouYang-Prefix.pch";
 				INFOPLIST_FILE = "TongDao/YouYang-Info.plist";
@@ -1267,10 +1269,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/sunyong/Desktop/company/中意/YouYang_IOS/YouYang/TongDao/LibraryAnaly",
+					"/Users/sunyong/Desktop/company/中意/YouYang_IOS/YouYang/TongDao/Library",
 				);
 				PRODUCT_NAME = YouYang;
-				PROVISIONING_PROFILE = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
+				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1278,8 +1281,8 @@
 		D308827B17E5467B00F24817 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ShenZhen Bobo Network Technology Co.,Ltd";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiang Yuan (K4R4QQ2GC5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TongDao/YouYang-Prefix.pch";
 				INFOPLIST_FILE = "TongDao/YouYang-Info.plist";
@@ -1287,10 +1290,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/sunyong/Desktop/company/中意/YouYang_IOS/YouYang/TongDao/LibraryAnaly",
+					"/Users/sunyong/Desktop/company/中意/YouYang_IOS/YouYang/TongDao/Library",
 				);
 				PRODUCT_NAME = YouYang;
-				PROVISIONING_PROFILE = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D25A5A5-EDF4-489E-9841-EC64AFF19EC7";
+				PROVISIONING_PROFILE = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89A76033-B6FC-41C9-8071-38AEAC2FB634";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

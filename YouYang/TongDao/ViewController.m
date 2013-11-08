@@ -32,11 +32,11 @@
     [QueueProHanle  init];
     [QueueZipHandle init];
     
-    _scrollView.bounces = YES;
+    _scrollView.bounces  = YES;
     otherContentV.hidden = YES;
-    stopAllView.hidden = NO;
-    musicView.hidden = YES;
-    menuView.hidden = YES;
+    stopAllView.hidden   = NO;
+    musicView.hidden     = YES;
+    menuView.hidden      = YES;
     
     [self performSelector:@selector(MainViewLayerOut) withObject:nil afterDelay:0.3];
     
@@ -110,7 +110,6 @@
 
 - (void)didReceiveMemoryWarning
 {
-    NSLog(@"didReceiveMemoryWarning");
     [super didReceiveMemoryWarning];
 }
 #pragma mark - scrollview delegate
@@ -199,7 +198,6 @@ static BOOL handleScrol;
 
 - (void)imageScaleShow:(NSString*)imageUrl
 {
-    NSLog(@"imageScaleShow");
     stopAllView.hidden = NO;
     otherContentV.hidden = NO;
     ImageShowView *imageShowView = [[ImageShowView alloc] initwithURL:imageUrl];

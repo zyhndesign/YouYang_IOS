@@ -33,7 +33,7 @@
 #define PageSize 3
 - (void)didReceiveMemoryWarning
 {
-    NSLog(@"didReceiveMemoryWarning");
+    //NSLog(@"didReceiveMemoryWarning");
     if (AllScrollView.contentOffset.y >= 768*6 && AllScrollView.contentOffset.y < 768*8)
     {
         

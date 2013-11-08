@@ -33,7 +33,7 @@
 
 - (void)didReceiveMemoryWarning
 {
-    NSLog(@"didReceiveMemoryWarning");
+  //  NSLog(@"didReceiveMemoryWarning");
     if (AllScrollView.contentOffset.y >= 768*2 && AllScrollView.contentOffset.y < 768*4)
     {
         

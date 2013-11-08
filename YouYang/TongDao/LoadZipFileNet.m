@@ -22,7 +22,6 @@
 {
     //http://lotusprize.com/travel/bundles/eae27d77ca20db309e056e3d2dcd7d69.zip
     connectNum = 0;
-    NSLog(@"startZipLoad:%p,%p", self, delegate);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0f];
     [request setHTTPMethod:@"GET"];
     
@@ -56,7 +55,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"error->ZipLoad:%p,%p---%@", self, delegate, [error localizedDescription]);
+  //  NSLog(@"error->ZipLoad:%p,%p---%@", self, delegate, [error localizedDescription]);
     [QueueZipHandle taskFinish];
     [delegate didReceiveErrorCode:error];
     return;
@@ -108,7 +107,7 @@
             }
             else
             {
-                NSLog(@"解压成功");
+              //  NSLog(@"解压成功");
                 isResult = YES;
             }
             [zip UnzipCloseFile];
@@ -124,10 +123,9 @@
     }
     else
     {
-        NSLog(@"md5Error");
+      //  NSLog(@"md5Error");
         [fileManager removeItemAtPath:filePath error:nil];
     }
-    NSLog(@"OverZipLoad:%p,%p", self, delegate);
     [QueueZipHandle taskFinish];
     
 }

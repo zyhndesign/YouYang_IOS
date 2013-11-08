@@ -14,7 +14,7 @@
 
 - (void)getVersonFromItunes
 {
-    NSString *urlStr = [NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=702715271"];
+    NSString *urlStr = [NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=739660457"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:5.0f];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:nil];

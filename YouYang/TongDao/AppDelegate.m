@@ -11,7 +11,6 @@
 #import "ViewController.h"
 #import "LocalSQL.h"
 #import "AllVariable.h"
-#import "GAI.h"
 
 //UA-44083057-3
 
@@ -29,10 +28,10 @@ static NSString *const kTrackingId = @"UA-44083057-3";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [GAI sharedInstance].debug = YES;
-    [GAI sharedInstance].dispatchInterval = 120;
     [GAI sharedInstance].trackUncaughtExceptions = YES;
-    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:kTrackingId];
+    [GAI sharedInstance].dispatchInterval =  120;
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    [[GAI sharedInstance] trackerWithName:@"TongDao" trackingId:@"UA-44083057-3"];
     
     if (ios7)
     {
@@ -123,7 +122,7 @@ static NSString *const kTrackingId = @"UA-44083057-3";
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 

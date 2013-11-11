@@ -13,6 +13,7 @@
 #import "ContentView.h"
 #import "ImageShowView.h"
 #import "SCGIFImageView.h"
+#import "googleAnalytics/GAIDictionaryBuilder.h"
 
 @interface ViewController ()
 
@@ -24,7 +25,13 @@
 
 - (void)viewDidLoad
 {
-    self.trackedViewName = @"root";
+    self.screenName = @"社区界面";
+    
+    [[GAI sharedInstance].defaultTracker set:self.screenName
+                                       value:@"Main Screen"];
+    
+    // Send the screen view.
+    [[GAI sharedInstance].defaultTracker send:[[GAIDictionaryBuilder createAppView] build]];
     
     [super viewDidLoad];
     [activeView startAnimating];

@@ -108,8 +108,16 @@ static NSString *const kTrackingId = @"UA-44083057-3";
 {
     if (buttonIndex == 0)
     {
-        UIApplication *application = [UIApplication sharedApplication];
-        [application openURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:@"versionURL"]]];
+        NSString * appstoreUrlString = [[NSUserDefaults standardUserDefaults] objectForKey:@"versionURL"];
+        NSURL * url = [NSURL URLWithString:appstoreUrlString];
+        if ([[UIApplication sharedApplication] canOpenURL:url])
+        {
+            [[UIApplication sharedApplication] openURL:url];
+        }
+        else
+        {
+            NSLog(@"can not open");
+        }
     }
 }
 

@@ -10,6 +10,7 @@
 #import "MFSP_MD5.h"
 #import "ZipArchive.h"
 #import "AllVariable.h"
+#import "ContentView.h"
 
 @implementation LoadZipFileNet
 
@@ -17,6 +18,7 @@
 @synthesize md5Str;
 @synthesize urlStr;
 @synthesize zipStr;
+@synthesize zipSize;
 
 - (void)loadMenuFromUrl
 {
@@ -25,7 +27,7 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0f];
     [request setHTTPMethod:@"GET"];
     
-    NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    connect = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
     if (connect)
     {
         backData = [[NSMutableData alloc] init];
@@ -36,12 +38,18 @@
     }
 }
 
+- (void)cancelLoad
+{
+    if (connect)
+        [connect cancel];
+}
+
 - (void)reloadUrlData
 {    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0f];
     [request setHTTPMethod:@"GET"];
     
-    NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     if (connect)
     {
         
@@ -55,29 +63,29 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-  //  NSLog(@"error->ZipLoad:%p,%p---%@", self, delegate, [error localizedDescription]);
-    [QueueZipHandle taskFinish];
+    [QueueZipHandle taskFinish:self];
     [delegate didReceiveErrorCode:error];
     return;
-    
-    if (connectNum == 2)
-    {
-        [QueueZipHandle taskFinish];
-        if ([delegate respondsToSelector:@selector(didReceiveErrorCode:)])
-            [delegate didReceiveErrorCode:error];
-    }
-    else
-    {
-        connectNum++;
-        [self reloadUrlData];
-    }
-    
+//    if (connectNum >= 2)
+//    {
+//        [QueueZipHandle taskFinish:self];
+//        if ([delegate respondsToSelector:@selector(didReceiveErrorCode:)])
+//            [delegate didReceiveErrorCode:error];
+//    }
+//    else
+//    {
+//        connectNum++;
+//        [self reloadUrlData];
+//    }
 }
-
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [backData appendData:data];
+    ContentView *contentVC = (ContentView*)delegate;
+    contentVC.progressV.progress = [backData length]/zipSize;
+    int value = [backData length]/zipSize * 100;
+    contentVC.proValueLb.text = [NSString stringWithFormat:@"%2d", value];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
@@ -107,7 +115,7 @@
             }
             else
             {
-              //  NSLog(@"解压成功");
+            
                 isResult = YES;
             }
             [zip UnzipCloseFile];
@@ -119,23 +127,24 @@
             if (delegate != nil && [delegate respondsToSelector:@selector(didReceiveZipResult:)])
                 [delegate didReceiveZipResult:isResult];
         }
-        
     }
     else
     {
       //  NSLog(@"md5Error");
         [fileManager removeItemAtPath:filePath error:nil];
     }
-    [QueueZipHandle taskFinish];
+    [QueueZipHandle taskFinish:self];
     
 }
 
 - (void)dealloc
 {
+    delegate = nil;
     backData = nil;
     urlStr   = nil;
     md5Str   = nil;
     zipStr   = nil;
+    connect  = nil;
 }
 
 @end

@@ -29,7 +29,7 @@ sqlite3 *dataBase;
 
 + (BOOL)createLocalTable
 {
-    NSString *sqlStr = [NSString stringWithFormat:@"create table if not exists myTable(id char primary key,md5 char,name char, timestamp char, url char,author char, category char, description char, headline char,postDate char,profile char, background char, hasVideo char)"];
+    NSString *sqlStr = [NSString stringWithFormat:@"create table if not exists myTable(id char primary key,md5 char,name char, timestamp char, url char,author char, category char, description char, headline char,postDate char,profile char, background char, hasVideo char, size char)"];
     sqlite3_stmt *stmt;
     if (sqlite3_prepare_v2(dataBase, [sqlStr UTF8String], -1, &stmt, 0) != SQLITE_OK)
     {
@@ -67,7 +67,8 @@ sqlite3 *dataBase;
             NSString *profileStr    = [NSString stringWithCString:(const char*)sqlite3_column_text(stmt, 10) encoding:NSUTF8StringEncoding];
             NSString *backgroundStr = [NSString stringWithCString:(const char*)sqlite3_column_text(stmt, 11) encoding:NSUTF8StringEncoding];
             NSString *hasVideoStr   = [NSString stringWithCString:(const char*)sqlite3_column_text(stmt, 12) encoding:NSUTF8StringEncoding];
-            NSDictionary *subDict   = [NSDictionary dictionaryWithObjectsAndKeys:idStr,@"id",md5Str,@"md5",nameStr, @"name",timeStampStr,@"timestamp",urlStr,@"url",authorStr,@"author",categoryStr,@"category",descriStr,@"description",headlineStr,@"headline",postDateStr,@"postDate",profileStr,@"profile",backgroundStr,@"background", hasVideoStr, @"hasVideo", nil];
+            NSString *sizeStr = [NSString stringWithFormat:@"%s", sqlite3_column_text(stmt, 13)];
+            NSDictionary *subDict   = [NSDictionary dictionaryWithObjectsAndKeys:idStr,@"id",md5Str,@"md5",nameStr, @"name",timeStampStr,@"timestamp",urlStr,@"url",authorStr,@"author",categoryStr,@"category",descriStr,@"description",headlineStr,@"headline",postDateStr,@"postDate",profileStr,@"profile",backgroundStr,@"background", hasVideoStr, @"hasVideo", sizeStr, @"size", nil];
             [backAry addObject:subDict];
         }
         sqlite3_finalize(stmt);
@@ -75,6 +76,7 @@ sqlite3 *dataBase;
     }
     return nil;
 }
+
 + (BOOL)getIsExistDataFromID:(NSString*)idstr
 {
     NSString *sqlStr = [NSString stringWithFormat:@"select id from mytable where id = '%@'", idstr];
@@ -90,6 +92,7 @@ sqlite3 *dataBase;
     }
     return NO;
 }
+
 + (BOOL)insertData:(NSDictionary*)infoDict
 {
     if ([[infoDict objectForKey:@"op"] isEqual:@"d"]) // 删除操作
@@ -106,6 +109,7 @@ sqlite3 *dataBase;
     NSString *nameStr   = [infoDict objectForKey:@"name"];
     NSString *timestamp = [infoDict objectForKey:@"timestamp"];
     NSString *urlStr    = [infoDict objectForKey:@"url"];
+    NSString *sizeStr   = [infoDict objectForKey:@"size"];
     
     NSString *authorStr      = [subInfoDict objectForKey:@"author"];
     NSString *categoryStr    = [subInfoDict objectForKey:@"category"];
@@ -140,13 +144,13 @@ sqlite3 *dataBase;
             NSString *pathProFile = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:[NSString stringWithFormat:@"ProImage/%@.%@",idStr, ProImgeFormat]];
             [[NSFileManager defaultManager] removeItemAtPath:pathProFile error:nil];
         }
-        sqlStr = [NSString stringWithFormat:@"update mytable set md5='%@',name='%@',timestamp='%@',url='%@',author='%@',category='%@',description='%@',headline='%@',postDate='%@',profile='%@',background='%@', hasVideo='%@' where id = '%@'",md5Str, nameStr, timestamp, urlStr, authorStr, categoryStr, descriptionStr, headLine, postDateS, profileStr, backgroundS,hasVideoStr,idStr];
+        sqlStr = [NSString stringWithFormat:@"update mytable set md5='%@',name='%@',timestamp='%@',url='%@',author='%@',category='%@',description='%@',headline='%@',postDate='%@',profile='%@',background='%@', hasVideo='%@', size='%@' where id = '%@'",md5Str, nameStr, timestamp, urlStr, authorStr, categoryStr, descriptionStr, headLine, postDateS, profileStr, backgroundS,hasVideoStr, sizeStr,idStr];
         NSString *docPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:idStr];
         [[NSFileManager defaultManager] removeItemAtPath:docPath error:nil];
     }
     else
     {
-        sqlStr = [NSString stringWithFormat:@"insert into mytable values('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')", idStr, md5Str, nameStr, timestamp, urlStr, authorStr, categoryStr, descriptionStr, headLine, postDateS, profileStr, backgroundS,hasVideoStr];
+        sqlStr = [NSString stringWithFormat:@"insert into mytable values('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')", idStr, md5Str, nameStr, timestamp, urlStr, authorStr, categoryStr, descriptionStr, headLine, postDateS, profileStr, backgroundS,hasVideoStr,sizeStr];
     }
     //// testsunyong
 //    sqlStr = [NSString stringWithFormat:@"insert into mytable values('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')", idStr, md5Str, nameStr, timestamp, urlStr, authorStr, categoryStr, descriptionStr, headLine, postDateS, profileStr, backgroundS];
@@ -205,7 +209,8 @@ sqlite3 *dataBase;
             NSString *profileStr    = [NSString stringWithCString:(const char*)sqlite3_column_text(stmt, 10) encoding:NSUTF8StringEncoding];
             NSString *backgroundStr = [NSString stringWithCString:(const char*)sqlite3_column_text(stmt, 11) encoding:NSUTF8StringEncoding];
             NSString *hasVideoStr   = [NSString stringWithCString:(const char*)sqlite3_column_text(stmt, 12) encoding:NSUTF8StringEncoding];
-            NSDictionary *subDict = [NSDictionary dictionaryWithObjectsAndKeys:idStr,@"id",md5Str,@"md5",nameStr, @"name",timeStampStr,@"timestamp",urlStr,@"url",authorStr,@"author",categoryStr,@"category",descriStr,@"description",headlineStr,@"headline",postDateStr,@"postDate",profileStr,@"profile",backgroundStr,@"background",hasVideoStr, @"hasVideo", nil];
+            NSString *sizeStr = [NSString stringWithFormat:@"%s", sqlite3_column_text(stmt, 13)];
+            NSDictionary *subDict = [NSDictionary dictionaryWithObjectsAndKeys:idStr,@"id",md5Str,@"md5",nameStr, @"name",timeStampStr,@"timestamp",urlStr,@"url",authorStr,@"author",categoryStr,@"category",descriStr,@"description",headlineStr,@"headline",postDateStr,@"postDate",profileStr,@"profile",backgroundStr,@"background",hasVideoStr, @"hasVideo", sizeStr, @"size",nil];
             [backAry addObject:subDict];
         }
         sqlite3_finalize(stmt);
@@ -235,7 +240,8 @@ sqlite3 *dataBase;
             NSString *profileStr   = [NSString stringWithCString:(const char*)sqlite3_column_text(stmt, 10) encoding:NSUTF8StringEncoding];
             NSString *backgroundStr = [NSString stringWithCString:(const char*)sqlite3_column_text(stmt, 11) encoding:NSUTF8StringEncoding];
             NSString *hasVideoStr = [NSString stringWithCString:(const char*)sqlite3_column_text(stmt, 11) encoding:NSUTF8StringEncoding];
-            NSDictionary *subDict = [NSDictionary dictionaryWithObjectsAndKeys:idStr,@"id",md5Str,@"md5",nameStr, @"name",timeStampStr,@"timestamp",urlStr,@"url",authorStr,@"author",categoryStr,@"category",descriStr,@"description",headlineStr,@"headline",postDateStr,@"postDate",profileStr,@"profile",backgroundStr,@"background", hasVideoStr, @"hasVideo", nil];
+            NSString *sizeStr = [NSString stringWithFormat:@"%s", sqlite3_column_text(stmt, 13)];
+            NSDictionary *subDict = [NSDictionary dictionaryWithObjectsAndKeys:idStr,@"id",md5Str,@"md5",nameStr, @"name",timeStampStr,@"timestamp",urlStr,@"url",authorStr,@"author",categoryStr,@"category",descriStr,@"description",headlineStr,@"headline",postDateStr,@"postDate",profileStr,@"profile",backgroundStr,@"background", hasVideoStr, @"hasVideo", sizeStr, @"size", nil];
             [backAry addObject:subDict];
         }
         sqlite3_finalize(stmt);

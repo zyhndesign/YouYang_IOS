@@ -21,13 +21,28 @@ static __strong NSMutableArray *allTaskAry;
     }
 }
 
+static int position;
 + (void)addTarget:(id)target
 {
     if ([QueueZipHandle isEixstInAry:allTaskAry zipNet:target])
     {
+        LoadZipFileNet *tempProNet = (LoadZipFileNet*)[allTaskAry lastObject];
+        LoadZipFileNet *currentProNet = target;
+        if ([tempProNet.urlStr isEqualToString:currentProNet.urlStr])
+        {
+            
+        }
+        else
+        {
+            LoadZipFileNet *tempProNet = (LoadZipFileNet*)[allTaskAry lastObject];
+            [tempProNet cancelLoad];
+            [allTaskAry exchangeObjectAtIndex:position withObjectAtIndex:allTaskAry.count-1];
+            tempProNet = (LoadZipFileNet*)[allTaskAry lastObject];
+            [tempProNet loadMenuFromUrl];
+        }
         return;
     }
-    if (allTaskAry.count == finishTaskCount)
+    if (allTaskAry.count == 0)
     {
         [allTaskAry addObject:target];
         LoadZipFileNet *tempProNet = (LoadZipFileNet*)target;
@@ -35,7 +50,11 @@ static __strong NSMutableArray *allTaskAry;
     }
     else
     {
+        LoadZipFileNet *tempProNet = (LoadZipFileNet*)[allTaskAry lastObject];
+        [tempProNet cancelLoad];
         [allTaskAry addObject:target];
+        LoadZipFileNet *tempCurrentProNet = (LoadZipFileNet*)target;
+        [tempCurrentProNet loadMenuFromUrl];
     }
 }
 
@@ -47,6 +66,7 @@ static __strong NSMutableArray *allTaskAry;
         LoadZipFileNet *zipNet = [array objectAtIndex:i];
         if ([zipNet.urlStr isEqualToString:target.urlStr])
         {
+            position = i;
             zipNet.delegate = target.delegate;
             return YES;
         }
@@ -55,20 +75,13 @@ static __strong NSMutableArray *allTaskAry;
 }
 
 
-+ (void)taskFinish
++ (void)taskFinish:(id)target
 {
-    finishTaskCount++;
-    if (allTaskAry.count > finishTaskCount)
+    [allTaskAry removeObject:target];
+    if (allTaskAry.count > 0)
     {
-        LoadZipFileNet *tempProNet = (LoadZipFileNet*)[allTaskAry objectAtIndex:finishTaskCount];
+        LoadZipFileNet *tempProNet = (LoadZipFileNet*)[allTaskAry lastObject];
         [tempProNet loadMenuFromUrl];
-        [allTaskAry removeObjectAtIndex:finishTaskCount-1];
-        finishTaskCount--;
-    }
-    else if (allTaskAry.count == finishTaskCount)
-    {
-        [allTaskAry removeObjectAtIndex:finishTaskCount-1];
-        finishTaskCount--;
     }
     else;
 }

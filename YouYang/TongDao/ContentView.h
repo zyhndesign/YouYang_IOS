@@ -24,6 +24,10 @@
     BOOL StartValue;
     LoadZipFileNet *loadZipNet;
 }
+@property(nonatomic, strong)UIProgressView *progressV;
+@property(nonatomic, strong)UILabel *proValueLb;
+@property(nonatomic, strong)UILabel *proMarkLb;
+
 - (id)initWithInfoDict:(NSDictionary*)infoDict;
 - (void)back:(UIButton*)sender;
 

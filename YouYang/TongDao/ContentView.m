@@ -12,6 +12,9 @@
 #import "AllVariable.h"
 #import "ViewController.h"
 @implementation ContentView
+@synthesize progressV;
+@synthesize proValueLb;
+@synthesize proMarkLb;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -54,8 +57,25 @@
     [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchDown];
     [self addSubview:backButton];
     
-    [AllActiveView removeFromSuperview];
-    [self addSubview:AllActiveView];
+    proValueLb = [[UILabel alloc] initWithFrame:CGRectMake(485, 395, 30, 20)];
+    proValueLb.font = [UIFont systemFontOfSize:14];
+    proValueLb.textAlignment = NSTextAlignmentRight;
+    proValueLb.backgroundColor = [UIColor clearColor];
+    proValueLb.text = @"0";
+    [self addSubview:proValueLb];
+    
+    proMarkLb = [[UILabel alloc] initWithFrame:CGRectMake(518, 395, 20, 20)];
+    proMarkLb.font = [UIFont systemFontOfSize:14];
+    proMarkLb.textAlignment = NSTextAlignmentLeft;
+    proMarkLb.backgroundColor = [UIColor clearColor];
+    proMarkLb.text = @"%";
+    [self addSubview:proMarkLb];
+    
+    progressV = [[UIProgressView alloc] initWithFrame:CGRectMake(412, 425, 200, 5)];
+    progressV.trackTintColor    = [UIColor lightGrayColor];
+    progressV.progressTintColor = RedColor;
+    progressV.progress = 0.0f;
+    [self addSubview:progressV];
     
     infoDict = [[NSMutableDictionary alloc] init];
     id scroller = [_webView.subviews objectAtIndex:0];
@@ -74,12 +94,16 @@
     BOOL dirBOOL = YES;
     if([[NSFileManager defaultManager] fileExistsAtPath:documentPath isDirectory:&dirBOOL])
     {
-        [AllActiveView stopAnimation];
+        proMarkLb.hidden  = YES;
+        proValueLb.hidden = YES;
+        progressV.hidden  = YES;
         [self webViewLoadLocalData];
     }
     else
     {
-        [AllActiveView startAnimation];
+        proMarkLb.hidden  = NO;
+        proValueLb.hidden = NO;
+        progressV.hidden  = NO;
         [self startLoadSimpleZipData];
     }
 }
@@ -105,7 +129,8 @@
         loadZipNet.delegate = self;
         loadZipNet.urlStr   = [[initDict objectForKey:@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         loadZipNet.md5Str   = [[initDict objectForKey:@"md5"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        loadZipNet.zipStr = [initDict objectForKey:@"id"];
+        loadZipNet.zipStr   = [initDict objectForKey:@"id"];
+        loadZipNet.zipSize  = [[initDict objectForKey:@"size"] floatValue];
         [QueueZipHandle addTarget:loadZipNet];
     }
 }
@@ -133,7 +158,9 @@
 
 - (void)didReceiveErrorCode:(NSError *)error
 {
-    [AllActiveView stopAnimation];
+    proMarkLb.hidden  = YES;
+    proValueLb.hidden = YES;
+    progressV.hidden  = YES;
     if ([error code] == -1009)
     {
         UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络数据连接失败，请检查网络设置。" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -150,7 +177,9 @@
 - (void)didReceiveZipResult:(BOOL)success
 {
     [self webViewLoadLocalData];
-    [AllActiveView stopAnimation];
+    proMarkLb.hidden  = YES;
+    proValueLb.hidden = YES;
+    progressV.hidden  = YES;
 }
 
 #pragma mark - xmlParser delegate
@@ -193,8 +222,9 @@
 
 - (void)back:(UIButton*)sender
 {
-    [AllActiveView stopAnimation];
-    [AllActiveView removeFromSuperview];
+    proMarkLb.hidden  = YES;
+    proValueLb.hidden = YES;
+    progressV.hidden  = YES;
     [loadZipNet setDelegate:nil];
     [_webView setDelegate:nil];
     [_webView stopLoading];
@@ -255,12 +285,12 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    [AllActiveView startAnimation];
+
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [AllActiveView stopAnimation];
+    
 }
 
 

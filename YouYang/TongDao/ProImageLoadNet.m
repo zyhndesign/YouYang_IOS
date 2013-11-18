@@ -107,6 +107,7 @@
 
 - (void)dealloc
 {
+    delegate = nil;
     backData = nil;
     imageUrl = nil;
     _infoDict = nil;

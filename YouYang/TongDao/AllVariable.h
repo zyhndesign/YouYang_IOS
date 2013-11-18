@@ -18,7 +18,6 @@
 
 ViewController *RootViewContr;
 UIScrollView *AllScrollView;
-__strong ActionView *AllActiveView;
 AudioPlayerViewCtr *AllAudioPlayViewCtr;
 int AllOnlyShowPresentOne;  // 只能同时展开一个详细内容
 SCGIFImageView* gifImageView;

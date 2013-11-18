@@ -46,9 +46,6 @@
     menuView.hidden      = YES;
     
     [self performSelector:@selector(MainViewLayerOut) withObject:nil afterDelay:0.3];
-    
-    AllActiveView = [[ActionView alloc] init];
-    AllActiveView.center = CGPointMake(512, 400);
 }
 
 

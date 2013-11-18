@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GetVersion.h"
 #import "GAI.h"
+#import <sys/xattr.h>
 
 @class TAGManager;
 @class TAGContainer;

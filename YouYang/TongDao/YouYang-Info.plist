@@ -13,7 +13,10 @@
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
 			<key>CFBundleIconFiles</key>
-			<array/>
+			<array>
+				<string>YYicon72Change.png</string>
+				<string>YYicon144Change.png</string>
+			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
 		</dict>
@@ -32,12 +35,6 @@
 				<string>icon76</string>
 				<string>icon58</string>
 				<string>icon29</string>
-				<string>YYIcon80</string>
-				<string>YYIcon40</string>
-				<string>YYIcon100</string>
-				<string>YYIcon50</string>
-				<string>YYIcon152</string>
-				<string>YYIcon76</string>
 				<string>YYicon144</string>
 				<string>YYIcon72</string>
 			</array>
@@ -55,6 +52,8 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>

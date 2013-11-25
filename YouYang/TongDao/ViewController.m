@@ -57,7 +57,7 @@
     _scrollView.backgroundColor = [UIColor blackColor];
     [_scrollView setContentSize:CGSizeMake(1024, PageSize*10 + 530)];
     
-    UIImageView *lastBgImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_backgroud.png"]];
+    UIImageView *lastBgImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_backgroud.jpg"]];
     [lastBgImageV setFrame:CGRectMake(0, PageSize*10 + 530, 1024, 550)];
     [_scrollView addSubview:lastBgImageV];
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommunityViewContr">
@@ -19,12 +19,12 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="1536"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg4.png" id="16">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg4.jpg" id="16">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_community.png" id="K54-ow-ulI">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_community.jpg" id="K54-ow-ulI">
                     <rect key="frame" x="0.0" y="768" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -72,8 +72,8 @@
         </view>
     </objects>
     <resources>
-        <image name="bg4.png" width="1024" height="768"/>
-        <image name="bg_community.png" width="1024" height="1140"/>
+        <image name="bg4.jpg" width="1024" height="768"/>
+        <image name="bg_community.jpg" width="1024" height="1140"/>
         <image name="community_float1.png" width="1024" height="570"/>
         <image name="down.png" width="50" height="50"/>
         <image name="slogan_community.png" width="635" height="170"/>

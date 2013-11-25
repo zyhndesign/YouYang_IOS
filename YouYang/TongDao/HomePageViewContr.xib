@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomePageViewContr">
@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="1536"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg0.png" id="21">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg0.jpg" id="21">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
@@ -28,7 +28,7 @@
                     <rect key="frame" x="284" y="195" width="410" height="270"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_featured.png" id="dA7-TI-A4S">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_featured.jpg" id="dA7-TI-A4S">
                     <rect key="frame" x="0.0" y="768" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
@@ -73,8 +73,8 @@
         </view>
     </objects>
     <resources>
-        <image name="bg0.png" width="1024" height="768"/>
-        <image name="bg_featured.png" width="1024" height="768"/>
+        <image name="bg0.jpg" width="1024" height="768"/>
+        <image name="bg_featured.jpg" width="1024" height="768"/>
         <image name="down.png" width="50" height="50"/>
         <image name="featured_float1.png" width="330" height="650"/>
         <image name="featured_float2.png" width="385" height="700"/>

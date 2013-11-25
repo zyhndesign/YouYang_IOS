@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandscapeViewContr">
@@ -20,17 +20,13 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="1536"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg1.png" id="18">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg1.jpg" id="18">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan_landscape.png" id="Pu6-0d-vec">
                     <rect key="frame" x="147" y="250" width="730" height="175"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="lRC-cn-5gH">
-                    <rect key="frame" x="0.0" y="768" width="1024" height="768"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7gK-mi-VbP">
                     <rect key="frame" x="487" y="580" width="50" height="50"/>
@@ -42,7 +38,7 @@
                         <action selector="nextPage:" destination="-1" eventType="touchUpInside" id="Rg3-4u-Bcv"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_artifact.png" id="RrZ-OH-jKA">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_artifact.jpg" id="RrZ-OH-jKA">
                     <rect key="frame" x="0.0" y="768" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
@@ -79,8 +75,8 @@
         </view>
     </objects>
     <resources>
-        <image name="bg1.png" width="1024" height="768"/>
-        <image name="bg_artifact.png" width="1024" height="748"/>
+        <image name="bg1.jpg" width="1024" height="768"/>
+        <image name="bg_artifact.jpg" width="1024" height="748"/>
         <image name="down.png" width="50" height="50"/>
         <image name="landscape.png" width="385" height="155"/>
         <image name="landscape_bg1.png" width="620" height="470"/>

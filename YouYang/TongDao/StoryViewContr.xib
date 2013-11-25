@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StoryViewContr">
@@ -20,11 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="1536"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg3.png" id="18">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg3.jpg" id="18">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_artifact.png" id="MqF-rm-jRt">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_artifact.jpg" id="MqF-rm-jRt">
                     <rect key="frame" x="0.0" y="768" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -77,8 +77,8 @@
     <resources>
         <image name="artifact_float1.png" width="125" height="345"/>
         <image name="artifact_float2.png" width="505" height="190"/>
-        <image name="bg3.png" width="1024" height="768"/>
-        <image name="bg_artifact.png" width="1024" height="748"/>
+        <image name="bg3.jpg" width="1024" height="768"/>
+        <image name="bg_artifact.jpg" width="1024" height="748"/>
         <image name="down.png" width="50" height="50"/>
         <image name="slogan_artifact.png" width="685" height="180"/>
         <image name="title_artifact.png" width="320" height="160"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VersionViewContr">
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="530"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_backgroud.png" id="XO0-wr-7TU">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_backgroud.jpg" id="XO0-wr-7TU">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="530"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -42,7 +42,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg_backgroud.png" width="1024" height="530"/>
+        <image name="bg_backgroud.jpg" width="1024" height="530"/>
         <image name="logo2.png" width="340" height="265"/>
         <image name="title_background.png" width="140" height="40"/>
     </resources>

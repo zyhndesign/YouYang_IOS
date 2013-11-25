@@ -31,8 +31,8 @@
 {
     [contentScrolV setContentSize:CGSizeMake(1024*3, 768)];
     
-    UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
-    [self.view addGestureRecognizer:tapGestureR];
+//    UITapGestureRecognizer *tapGestureR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
+//    [self.view addGestureRecognizer:tapGestureR];
     
     [super viewDidLoad];
 }
@@ -96,7 +96,7 @@
     {
         if (i > 3)
             break;
-        SimpleHeadLineView *simpleHLView = [[SimpleHeadLineView alloc] initWithInfoDict:[initAry objectAtIndex:i]];
+        SimpleHeadLineView *simpleHLView = [[SimpleHeadLineView alloc] initWithInfoDict:[initAry objectAtIndex:i-1]];
         [simpleHLView setFrame:CGRectMake(StartX + Gap*(i-1) + simpleHLView.frame.size.width*(i-1), StartY, simpleHLView.frame.size.width, simpleHLView.frame.size.height)];
         [contentScrolV addSubview:simpleHLView];
     }
@@ -110,17 +110,17 @@
 #pragma mark - tapGesture
 - (void)tapView:(UIGestureRecognizer*)gestureR
 {
-    CGPoint gestPoint = [gestureR locationInView:self.view];
-    if (initAry.count == 0)
-        return;
-    if (CGRectContainsPoint(CGRectMake(0, 0, 1024, 668), gestPoint))
-    {
-        if (AllOnlyShowPresentOne == 1)
-        {
-            return;
-        }
-        [RootViewContr presentViewContr:[initAry objectAtIndex:0]];
-    }
+//    CGPoint gestPoint = [gestureR locationInView:self.view];
+//    if (initAry.count == 0)
+//        return;
+//    if (CGRectContainsPoint(CGRectMake(0, 0, 1024, 668), gestPoint))
+//    {
+//        if (AllOnlyShowPresentOne == 1)
+//        {
+//            return;
+//        }
+//        [RootViewContr presentViewContr:[initAry objectAtIndex:0]];
+//    }
 }
 
 - (IBAction)nextPage:(UIButton*)sender

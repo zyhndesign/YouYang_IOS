@@ -80,7 +80,10 @@
         if(image)
             [proImageV setImage:[UIImage imageWithContentsOfFile:pathProFile]];
         else
+        {
+            [[NSFileManager defaultManager] removeItemAtPath:pathProFile error:nil];
             [proImageV setImage:[UIImage imageNamed:@"defultbg-200.png"]];
+        }
     }
     else
     {

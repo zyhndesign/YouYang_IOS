@@ -67,7 +67,9 @@
             imageURL = [NSString stringWithFormat:@"%@-200x200.%@", imageURL, [tempAry objectAtIndex:i]];
         }
         else
+        {
             imageURL = [NSString stringWithFormat:@"%@.%@", imageURL, [tempAry objectAtIndex:i]];
+        }
     }
     
     NSString *ProImgeFormat = [[imageURL componentsSeparatedByString:@"."] lastObject];
@@ -79,7 +81,10 @@
         if(image)
             [proImageV setImage:[UIImage imageWithContentsOfFile:pathProFile]];
         else
+        {
+            [[NSFileManager defaultManager] removeItemAtPath:pathProFile error:nil];
             [proImageV setImage:[UIImage imageNamed:@"defultbg-238.png"]];
+        }
     }
     else
     {

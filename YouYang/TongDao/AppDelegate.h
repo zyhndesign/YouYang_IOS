@@ -11,8 +11,6 @@
 #import "GAI.h"
 #import <sys/xattr.h>
 
-@class TAGManager;
-@class TAGContainer;
 @class ViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,NetworkDelegate, UIAlertViewDelegate>

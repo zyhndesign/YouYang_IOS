@@ -10,7 +10,6 @@
 #import "LoadZipFileNet.h"
 
 @implementation QueueZipHandle
-static int  finishTaskCount = 0;
 static __strong NSMutableArray *allTaskAry;
 
 + (void)init

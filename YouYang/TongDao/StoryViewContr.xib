@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="1536"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg3.png" id="18">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg3.jpg" id="18">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -77,7 +77,7 @@
     <resources>
         <image name="artifact_float1.png" width="125" height="345"/>
         <image name="artifact_float2.png" width="505" height="190"/>
-        <image name="bg3.png" width="1024" height="768"/>
+        <image name="bg3.jpg" width="1024" height="768"/>
         <image name="bg_artifact.png" width="1024" height="748"/>
         <image name="down.png" width="50" height="50"/>
         <image name="slogan_artifact.png" width="685" height="180"/>

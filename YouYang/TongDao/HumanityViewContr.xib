@@ -37,7 +37,7 @@
                     <rect key="frame" x="700" y="1400" width="330" height="420"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg2.png" id="17">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg2.jpg" id="17">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -80,7 +80,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg2.png" width="1024" height="768"/>
+        <image name="bg2.jpg" width="1024" height="768"/>
         <image name="bg_humanity.png" width="1024" height="768"/>
         <image name="down.png" width="50" height="50"/>
         <image name="humanity_float1.png" width="800" height="500"/>

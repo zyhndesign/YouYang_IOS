@@ -80,7 +80,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg2.png" width="1280" height="720"/>
+        <image name="bg2.png" width="1024" height="768"/>
         <image name="bg_humanity.png" width="1024" height="768"/>
         <image name="down.png" width="50" height="50"/>
         <image name="humanity_float1.png" width="800" height="500"/>

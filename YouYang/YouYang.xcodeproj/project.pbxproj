@@ -1270,8 +1270,8 @@
 		D308827A17E5467B00F24817 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ling Li (4366PRAT2A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ling Li (4366PRAT2A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TongDao/YouYang-Prefix.pch";
 				INFOPLIST_FILE = "TongDao/YouYang-Info.plist";
@@ -1283,8 +1283,8 @@
 					"/Users/sunyong/Desktop/company/中意/YouYang_IOS/YouYang/TongDao/googleAnalytics",
 				);
 				PRODUCT_NAME = YouYang;
-				PROVISIONING_PROFILE = "247639BA-BB77-4922-9C84-A7794D7863FF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "247639BA-BB77-4922-9C84-A7794D7863FF";
+				PROVISIONING_PROFILE = "C1220148-AF99-4148-8C8D-7CD8FDE593A5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C1220148-AF99-4148-8C8D-7CD8FDE593A5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1292,8 +1292,8 @@
 		D308827B17E5467B00F24817 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ling Li (4366PRAT2A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ling Li (4366PRAT2A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhongyi (Hunan) Industrial Design Co., Ltd. (FNB4FR5EG6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TongDao/YouYang-Prefix.pch";
 				INFOPLIST_FILE = "TongDao/YouYang-Info.plist";
@@ -1305,8 +1305,8 @@
 					"/Users/sunyong/Desktop/company/中意/YouYang_IOS/YouYang/TongDao/googleAnalytics",
 				);
 				PRODUCT_NAME = YouYang;
-				PROVISIONING_PROFILE = "247639BA-BB77-4922-9C84-A7794D7863FF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "247639BA-BB77-4922-9C84-A7794D7863FF";
+				PROVISIONING_PROFILE = "C1220148-AF99-4148-8C8D-7CD8FDE593A5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C1220148-AF99-4148-8C8D-7CD8FDE593A5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
